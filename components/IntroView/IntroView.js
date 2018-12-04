@@ -88,11 +88,12 @@ export default class IntroView extends Component {
               </View>
               <View style={styles.textContainer}>
                 <Text style={styles.text}>
-                  Desplegar las opciones del
+                  Solicitar los seguros
                   {' '}
                   {'\n'}
-                  seguro que desea solicitar.
+                  de tu interes.
                 </Text>
+
               </View>
             </View>
             <View style={styles.containerFinal} />
@@ -115,14 +116,10 @@ export default class IntroView extends Component {
               </View>
               <View style={styles.textContainer}>
                 <Text style={styles.text}>
-                  Tomar foto de tu tarjeta de propiedad,
+                  Tener centralizadas tus
                   {' '}
                   {'\n'}
-                  licencia de conducción y cedula de
-                  {' '}
-                  {'\n'}
-                  ciudadanía y solicitar seguro.
-                  de tu casa.
+                  pólizas vigentes
                 </Text>
               </View>
             </View>
@@ -149,7 +146,7 @@ export default class IntroView extends Component {
                   Esperar unos minutos a que el
                   {' '}
                   {'\n'}
-                  sistema confirme su solicitud.
+                  sistema confirme tu solicitud.
                 </Text>
               </View>
             </View>
@@ -173,11 +170,9 @@ export default class IntroView extends Component {
               </View>
               <View style={styles.textContainer}>
                 <Text style={styles.text}>
-                  Despues de confirmar tu solicitud
+                  Solicitar asistencia en
                   {'\n'}
-                  podras realizar llamdas de emergencia,
-                  {'\n'}
-                  ver tus seguros y tu historial.
+                  el momento que lo necesites.
                 </Text>
               </View>
             </View>

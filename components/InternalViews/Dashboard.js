@@ -363,7 +363,7 @@ export default class Dashboard extends Component {
                     height: 30, width: 30, flex: 1, opacity: 0.38,
                   }}
                 />
-                <Text>Llamadas</Text>
+                <Text style={styles.footerText}>Llamadas</Text>
               </Button>
               <Button onPress={this.requestPolicy}>
                 <Image
@@ -372,7 +372,7 @@ export default class Dashboard extends Component {
                     height: 30, width: 30, flex: 1, opacity: 0.38,
                   }}
                 />
-                <Text>Mis seguros</Text>
+                <Text style={styles.footerText}>Mis seguros</Text>
               </Button>
               <Button onPress={this.userRequests}>
                 <Image
@@ -381,7 +381,7 @@ export default class Dashboard extends Component {
                     height: 30, width: 30, flex: 1, opacity: 0.38,
                   }}
                 />
-                <Text>Mis solicitudes</Text>
+                <Text style={styles.footerText}>Mis solicitudes</Text>
               </Button>
 
             </FooterTab>
@@ -445,6 +445,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10,
+  },
+  footerText: {
+    fontSize: 10,
   },
 
 });

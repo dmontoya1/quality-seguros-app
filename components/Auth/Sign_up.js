@@ -118,7 +118,7 @@ export default class SignUp extends Component {
             </Button>
           </Left>
           <Body style={{ paddingRight: 80 }}>
-            <Title>Registro</Title>
+            <Title style={styles.title}>Registro</Title>
           </Body>
         </Header>
 
@@ -127,9 +127,9 @@ export default class SignUp extends Component {
             paddingLeft: 10, paddingRight: 30, alignContent: 'center', paddingTop: 40,
           }}
           >
-            <View style={{ alignContent: 'center', paddingLeft: 20 }}>
+            {/* <View style={{ alignContent: 'center', paddingLeft: 20 }}>
               <Text style={{ color: 'rgba(0,0,0,0.3)' }}> ────────────── ó ──────────────</Text>
-            </View>
+            </View> */}
             <Form>
               <Item fixedLabel style={styles.input}>
                 <Input
@@ -237,6 +237,9 @@ export default class SignUp extends Component {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: '#192a56',
+  },
+  title: {
+    color: '#fff',
   },
   input: {
     paddingTop: 20,

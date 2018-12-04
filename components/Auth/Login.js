@@ -59,7 +59,7 @@ export default class Login extends Component {
         <Content>
           <View style={styles.imageContainer}>
             <Image
-              source={require('../../assets/images/Quality-text1.png')}
+              source={require('../../assets/images/Quality-white.png')}
               style={styles.imageIntro}
             />
           </View>
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   imageIntro: {
     flex: 1,
-    height: 50,
+    height: 190,
     resizeMode: 'contain',
   },
 });

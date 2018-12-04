@@ -158,18 +158,20 @@ class RequestComponent extends Component {
             </Text>
             <View style={styles.container}>
               <View>
-                <Button
-                  title="Instrucciones para pago"
+                <TouchableOpacity
+                  style={styles.button}
                   onPress={() => this.onPress({ request_code })}
-                  color="#05071e"
-                />
+                >
+                  <Text style={styles.buttonText}>Instrucciones para pago</Text>
+                </TouchableOpacity>
               </View>
               <View>
-                <Button
-                  title="Subir comprobante"
+                <TouchableOpacity
+                  style={styles.button1}
                   onPress={() => this.payment({ request_code })}
-                  color="#999"
-                />
+                >
+                  <Text style={styles.buttonText1}>Subir comprobante</Text>
+                </TouchableOpacity>
               </View>
             </View>
           </Body>
@@ -210,6 +212,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     marginTop: 15,
+  },
+  button: {
+    backgroundColor: '#05071e',
+    paddingVertical: 8,
+  },
+  buttonText: {
+    color: '#fff',
+  },
+  button1: {
+    backgroundColor: '#999',
+    paddingVertical: 8,
+  },
+  buttonText1: {
+    color: '#fff',
   },
 });
 

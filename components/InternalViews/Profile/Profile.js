@@ -34,7 +34,7 @@ export default class Profile extends Component {
             </Button>
           </Left>
           <Body style={{ paddingRight: 80 }}>
-            <Title>Perfil</Title>
+            <Title style={{ color: '#fff' }}>Perfil</Title>
           </Body>
         </Header>
         <View style={styles.container_form}>

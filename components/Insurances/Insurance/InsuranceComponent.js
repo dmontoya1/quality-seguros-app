@@ -65,7 +65,7 @@ class InsuranceComponent extends Component {
               transparent
               onPress={() => this.onPress()}
             >
-              <Text>VER PDF</Text>
+              <Text>VER POLIZA</Text>
             </Button>
           </Right>
         </ListItem>

@@ -53,8 +53,6 @@ export default class ProfileEdit extends Component {
     };
 
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
-    console.log('Va a mandar axios');
-    console.log(axios);
     axios.patch('api/users/customer/', dataToSend)
       .then((response) => {
         console.log(response);
@@ -90,7 +88,7 @@ export default class ProfileEdit extends Component {
             </Button>
           </Left>
           <Body style={{ paddingRight: 80 }}>
-            <Title>Perfil</Title>
+            <Title style={{ color: '#fff' }}>Editar Perfil</Title>
           </Body>
         </Header>
         <ScrollView>
@@ -167,7 +165,7 @@ export default class ProfileEdit extends Component {
         </ScrollView>
         <Footer style={{ backgroundColor: 'white', borderToColor: 'rgba(0,0,0,0.1)' }}>
           <View style={{ paddingLeft: 120 }}>
-            <Button transparent onPress={() => Actions.profile()}>
+            <Button transparent onPress={() => Actions.pop()}>
               <Text style={{ color: 'rgba(0,0,0,0.3)' }}>Cancelar</Text>
             </Button>
           </View>
