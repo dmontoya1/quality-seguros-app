@@ -103,7 +103,6 @@ class RequestComponent extends Component {
           name: 'payment',
         });
 
-        console.log(body);
         axios.post('api/insurances/upload-payment/', body)
           .then((response) => {
             this.setState({

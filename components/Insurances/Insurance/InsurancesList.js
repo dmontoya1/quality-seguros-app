@@ -1,26 +1,50 @@
 import React, { Component } from 'react';
 import {
-  View, Text, ActivityIndicator, StyleSheet, Alert,
+  View, Text, ActivityIndicator, StyleSheet, Alert, AsyncStorage,
 } from 'react-native';
 import InsuranceComponent from './InsuranceComponent';
+
+import axios from '../../Axios/axios';
 
 
 class InsurancesList extends Component {
   constructor() {
     super();
     this.state = {
+      token: '',
+      policies: [],
+      loading: true,
     };
+  }
+
+  componentDidMount() {
+    const { token } = this.props;
+    axios.defaults.headers.common.Authorization = `JWT ${token}`;
+    axios.get('api/insurances/customer/policy/detail/')
+      .then((response) => {
+        this.setState(() => ({
+          policies: response.data,
+          loading: false,
+        }));
+      });
   }
 
   render() {
     const loading = (
-      <View style={styles.horizontal}>
-        <ActivityIndicator size="large" color="#020718" />
+
+      <View style={styles.loaderContainer}>
+        <View style={styles.loader}>
+          <Text style={styles.loaderText}>
+            Estamos cargando tus seguros.
+            {'\n'}
+            Espera un momento por favor...
+          </Text>
+          <ActivityIndicator size="large" color="#999" />
+        </View>
       </View>
     );
-    const { policies } = this.props;
+    const { policies } = this.state;
     const mappedPolicies = policies.map(police => (
-
       <InsuranceComponent
         key={police.id}
         id={police.id}
@@ -44,6 +68,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10,
+  },
+  loaderContainer: {
+    alignContent: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  loader: {
+    backgroundColor: '#fff',
+    height: 250,
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  loaderText: {
+    color: '#05071e',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 20,
+    fontSize: 20,
   },
 
 });

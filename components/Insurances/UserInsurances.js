@@ -22,10 +22,11 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-import RequestsList from './Request/RequestList';
+import InsurancesList from './Insurance/InsurancesList';
+import deviceStorage from '../AsyncStorage/deviceStorage';
 import axios from '../Axios/axios';
 
-export default class UserRequests extends Component {
+export default class Insurance extends Component {
   _menu = null;
 
   constructor(props) {
@@ -33,9 +34,10 @@ export default class UserRequests extends Component {
     this.state = {
       token: '',
     };
+    this.requestPolicy = this.requestPolicy.bind(this);
+    this.userRequests = this.userRequests.bind(this);
     this.getProfile = this.getProfile.bind(this);
     this.userLogout = this.userLogout.bind(this);
-    this.userInsurances = this.userInsurances.bind(this);
 
     AsyncStorage.getItem('id_token', (err, result) => {
       this.setState({
@@ -84,7 +86,7 @@ export default class UserRequests extends Component {
     Actions.logIn();
   }
 
-  userInsurances() {
+  requestPolicy() {
     const { token } = this.state;
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
     axios.get('api/insurances/customer/policy/detail/')
@@ -104,8 +106,41 @@ export default class UserRequests extends Component {
       });
   }
 
+  userRequests() {
+    const { token } = this.state;
+    axios.defaults.headers.common.Authorization = `JWT ${token}`;
+    axios.get('api/insurances/requests/')
+      .then((response) => {
+        const requests = response.data;
+        if (requests.length > 0) {
+          Actions.userRequest({ requests, token });
+        } else {
+          Alert.alert(
+            'Atención',
+            'Aún no tienes solicitudes creadas. Puedes solicitar un seguro desde aqui',
+            [
+              { text: 'Aceptar', onPress: () => {} },
+            ],
+            { cancelable: false },
+          );
+        }
+      })
+      .catch((error) => {
+        console.log('ERROR');
+        console.log(error);
+        Alert.alert(
+          'Atención',
+          'Aún no tienes solicitudes creadas. Puedes solicitar un seguro desde aqui',
+          [
+            { text: 'Aceptar', onPress: () => {} },
+          ],
+          { cancelable: false },
+        );
+      });
+  }
+
   render() {
-    const { token, requests } = this.props;
+    const { token } = this.props;
     return (
 
       <Container style={{ paddingTop: 20 }}>
@@ -142,19 +177,19 @@ export default class UserRequests extends Component {
         </Header>
         <Content>
           <List>
-            <RequestsList requests={requests} token={token} />
+            <InsurancesList token={token} />
           </List>
         </Content>
         <Footer style={styles.color_footer}>
           <FooterTab style={styles.color_footer}>
-            <Button onPress={this.userInsurances}>
+            <Button onPress={this.requestPolicy} style={styles.active}>
               <Image
                 source={require('../../assets/icons/compra.png')}
                 style={{
                   height: 30, width: 30, flex: 1, opacity: 0.38,
                 }}
               />
-              <Text style={styles.footerText}>Mis seguros</Text>
+              <Text style={styles.footerTextActive}>Mis seguros</Text>
             </Button>
             <Button onPress={() => Actions.home()}>
               <Image
@@ -163,16 +198,16 @@ export default class UserRequests extends Component {
                   height: 30, width: 30, flex: 1, opacity: 0.38,
                 }}
               />
-              <Text style={styles.footerText}>Nuevas coverturas</Text>
+              <Text style={styles.footerText}>Nuevas coberturas</Text>
             </Button>
-            <Button onPress={this.userRequests} style={styles.active}>
+            <Button onPress={this.userRequests}>
               <Image
                 source={require('../../assets/icons/historial.png')}
                 style={{
                   height: 30, width: 30, flex: 1, opacity: 0.38,
                 }}
               />
-              <Text style={styles.footerTextActive}>Mis solicitudes</Text>
+              <Text style={styles.footerText}>Mis solicitudes</Text>
             </Button>
 
           </FooterTab>
@@ -225,6 +260,9 @@ const styles = StyleSheet.create({
     marginLeft: 7,
     marginRight: 7,
   },
+  footerText: {
+    fontSize: 10,
+  },
   active: {
     backgroundColor: '#ccc',
   },
@@ -233,7 +271,5 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: 'bold',
   },
-  footerText: {
-    fontSize: 10,
-  },
+
 });

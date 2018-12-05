@@ -19,7 +19,6 @@ class RequestList extends Component {
       </View>
     );
     const { requests, token } = this.props;
-    console.log(requests);
     const mappedPolicies = requests.map(request => (
       <RequestComponent
         key={request.id}

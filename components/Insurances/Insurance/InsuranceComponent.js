@@ -30,7 +30,6 @@ class InsuranceComponent extends Component {
 
 
   onPress = () => {
-    console.log('PRESSSSSS');
     const { pdfUrl } = this.props;
     Actions.insurance_pdf({ pdfUrl });
   }

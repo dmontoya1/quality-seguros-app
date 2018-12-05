@@ -4,7 +4,7 @@ import {
   Icon, Card, CardItem, View, Text, Input,
 } from 'native-base';
 import {
-  Image, StyleSheet, Alert, ActivityIndicator, Picker, ScrollView,
+  Image, StyleSheet, Alert, ActivityIndicator, Picker, ScrollView, Footer,
 } from 'react-native';
 
 import { Provider } from 'react-redux';
@@ -195,13 +195,10 @@ export default class Request extends Component {
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
     axios.get('api/users/customer/')
       .then((response) => {
-        console.log('THEN');
-        console.log(response);
         const profile = (response.data);
         Actions.profile({ profile, token });
       })
       .catch((error) => {
-        console.log('ERROR');
         Alert.alert(
           'Atención',
           'Ha ocurrido un error al ingresar a tu perfil',
@@ -398,8 +395,6 @@ export default class Request extends Component {
       loader: true,
     });
     const option = data.vehicleOptions.filter(c => c.id === optionId);
-    console.log(property1);
-    console.log(property2);
 
     if (property1 != null && property2 != null && classId != null && optionId != null) {
       axios.defaults.headers.common.Authorization = `JWT ${token}`;
@@ -429,14 +424,12 @@ export default class Request extends Component {
       }
       axios.post('api/insurances/insurance/request/', body)
         .then((response) => {
-          console.log('THEN');
-          console.log(response);
           this.setState({
             loader: false,
           });
           Alert.alert(
             'Información',
-            'Solicitud realizada con exito.',
+            'Tu solicitud se ha creado exitosamente. Ahora puedes dirigirte a la vista de "Mis Solicitudes" y encontrar instrucciones para pagar tu seguro.',
             [
               { text: 'Aceptar', onPress: () => Actions.home({ token }) },
             ],
@@ -444,8 +437,6 @@ export default class Request extends Component {
           );
         })
         .catch((error) => {
-          console.log('ERROR');
-          console.log(error);
           this.setState({
             loader: false,
           });
@@ -514,7 +505,7 @@ export default class Request extends Component {
             </Left>
             <Body style={{ position: 'absolute', left: wp('30%') }}>
               <Image
-                source={require('../../assets/images/logo.png')}
+                source={require('../../assets/images/Quality-text1.png')}
                 resizeMode="contain"
                 style={{ width: 150, height: 30 }}
               />
@@ -542,9 +533,16 @@ export default class Request extends Component {
             </Right>
           </Header>
 
-          <View style={[styles.loader]}>
+          <View style={styles.loaderContainer}>
+            <View style={styles.loader}>
+              <Text style={styles.loaderText}>
+                Estamos creando tu solicitud.
+                {'\n'}
+                Espera un momento por favor...
+              </Text>
+              <ActivityIndicator size="large" color="#999" />
+            </View>
 
-            <ActivityIndicator size="large" color="#0000ff" />
           </View>
         </Container>
 
@@ -562,7 +560,7 @@ export default class Request extends Component {
           </Left>
           <Body style={{ position: 'absolute', left: wp('30%') }}>
             <Image
-              source={require('../../assets/images/logo.png')}
+              source={require('../../assets/images/Quality-text1.png')}
               resizeMode="contain"
               style={{ width: 150, height: 30 }}
             />
@@ -749,9 +747,23 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 20,
   },
-  loader: {
+  loaderContainer: {
+    flex: 1,
     alignContent: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#ddd',
+  },
+  loader: {
+    backgroundColor: '#ddd',
+    height: 250,
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  loaderText: {
+    color: '#05071e',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 20,
+    fontSize: 20,
   },
 });

@@ -57,7 +57,7 @@ export default class Dashboard extends Component {
         x: new Animated.Value(0),
       };
 
-      this.requestPolicy = this.requestPolicy.bind(this);
+      this.userInsurances = this.userInsurances.bind(this);
       this.userRequests = this.userRequests.bind(this);
       this.getProfile = this.getProfile.bind(this);
       this.userLogout = this.userLogout.bind(this);
@@ -142,19 +142,15 @@ export default class Dashboard extends Component {
       Actions.logIn();
     }
 
-    requestPolicy() {
+    userInsurances() {
       const { token } = this.state;
-      console.log(token);
       axios.defaults.headers.common.Authorization = `JWT ${token}`;
       axios.get('api/insurances/customer/policy/detail/')
         .then((response) => {
-          console.log(response.data);
           const policies = response.data;
           Actions.insurance({ policies, token });
         })
         .catch((error) => {
-          console.log('ERROR');
-          console.log(error);
           Alert.alert(
             'Atención',
             'Aún no tienes pólizas creadas. Puedes solicitar una desde aquí',
@@ -356,16 +352,7 @@ export default class Dashboard extends Component {
           </Content>
           <Footer style={styles.color_footer}>
             <FooterTab style={styles.color_footer}>
-              <Button onPress={this.scaleModal}>
-                <Image
-                  source={require('../../assets/icons/call.png')}
-                  style={{
-                    height: 30, width: 30, flex: 1, opacity: 0.38,
-                  }}
-                />
-                <Text style={styles.footerText}>Llamadas</Text>
-              </Button>
-              <Button onPress={this.requestPolicy}>
+              <Button onPress={this.userInsurances}>
                 <Image
                   source={require('../../assets/icons/compra.png')}
                   style={{
@@ -373,6 +360,15 @@ export default class Dashboard extends Component {
                   }}
                 />
                 <Text style={styles.footerText}>Mis seguros</Text>
+              </Button>
+              <Button onPress={this.scaleModal} style={styles.active}>
+                <Image
+                  source={require('../../assets/icons/seguridad.png')}
+                  style={{
+                    height: 30, width: 30, flex: 1, opacity: 0.38,
+                  }}
+                />
+                <Text style={styles.footerTextActive}>Nuevas coberturas</Text>
               </Button>
               <Button onPress={this.userRequests}>
                 <Image
@@ -448,6 +444,14 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontSize: 10,
+  },
+  active: {
+    backgroundColor: '#ccc',
+  },
+  footerTextActive: {
+    color: '#05071e',
+    fontSize: 10,
+    fontWeight: 'bold',
   },
 
 });
