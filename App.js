@@ -10,7 +10,7 @@ import SignUp from './components/Auth/Sign_up';
 import Dashboard from './components/InternalViews/Dashboard';
 import Profile from './components/InternalViews/Profile/Profile';
 import ProfileEdit from './components/InternalViews/Profile/Profile_edit';
-import Insurance from './components/Insurances/Insure_Bought';
+import UserInsurance from './components/Insurances/UserInsurances';
 import Request from './components/Insurances/Request_insurer';
 import RequestInsurance from './components/Insurances/RequestInsurance';
 import UserRequest from './components/Insurances/UserRequests';
@@ -75,15 +75,19 @@ export default class App extends Component {
             newJWT={this.newJWT}
           />
           <Scene
+            key="insurance"
+            component={UserInsurance}
+            hideNavBar
+            deleteJWT={this.deleteJWT}
+            initial={this.state.stepper && this.state.jwt}
+          />
+          <Scene
             key="home"
             component={Dashboard}
             hideNavBar
-            initial={this.state.stepper && this.state.jwt}
-            deleteJWT={this.deleteJWT}
           />
           <Scene key="profile" component={Profile} hideNavBar />
           <Scene key="profile_edit" component={ProfileEdit} hideNavBar />
-          <Scene key="insurance" component={Insurance} hideNavBar deleteJWT={this.deleteJWT} />
           <Scene key="request" component={Request} hideNavBar deleteJWT={this.deleteJWT} />
           <Scene key="userRequest" component={UserRequest} hideNavBar deleteJWT={this.deleteJWT} />
           <Scene key="requestInsurance" component={RequestInsurance} hideNavBar deleteJWT={this.deleteJWT} />

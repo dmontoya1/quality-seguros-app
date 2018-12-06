@@ -70,7 +70,6 @@ class RequestInsurance extends Component {
   };
 
   formSubmit = (values) => {
-    console.log(values);
     Alert.alert('Formulario enviado');
   }
 
@@ -81,7 +80,6 @@ class RequestInsurance extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { token, policy } = this.props;
     return (
       <Container style={{ paddingTop: 20 }}>

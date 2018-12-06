@@ -7,7 +7,6 @@ import { CheckBox } from 'react-native-elements';
 
 
 const fieldName = (props) => {
-  console.log(props);
   const {
     ph, input, meta, type,
   } = props;
@@ -39,7 +38,6 @@ const fieldName = (props) => {
 };
 
 const InstanceForm = (props) => {
-  console.log(props);
   const { policy, formSubmit } = props;
   const { related_metadata } = policy;
   const mappedFields = related_metadata.map(field => (

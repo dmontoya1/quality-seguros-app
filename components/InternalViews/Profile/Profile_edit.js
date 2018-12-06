@@ -25,7 +25,6 @@ export default class ProfileEdit extends Component {
   }
 
   submit() {
-    console.log('submit');
     const {
       first_name,
       last_name,
@@ -55,7 +54,6 @@ export default class ProfileEdit extends Component {
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
     axios.patch('api/users/customer/', dataToSend)
       .then((response) => {
-        console.log(response);
         Alert.alert(
           'Cambio de datos exitoso',
           'Tus datos se han actualizado correctamente',
@@ -67,8 +65,6 @@ export default class ProfileEdit extends Component {
         );
       })
       .catch((error) => {
-        console.log(error);
-        console.log(error.response);
         Alert.alert(
           'Error',
           'Ha ocurrido un error al editar tus datos.',

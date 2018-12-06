@@ -42,12 +42,10 @@ class CardList extends Component {
         if (policy.name === 'SOAT') {
           Actions.request({ policy, token });
         } else {
-          console.log('ELSEEEE');
           Actions.requestInsurance({ policy, token });
         }
       })
       .catch((error) => {
-        console.log('ERROR');
         Alert.alert(
           'Error',
           'Ha ocurrido un error. Intenta nuevamente',
