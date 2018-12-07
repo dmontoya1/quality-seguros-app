@@ -449,7 +449,7 @@ const styles = StyleSheet.create({
   },
   footerTextActive: {
     color: '#05071e',
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: 'bold',
   },
 
