@@ -64,7 +64,7 @@ export default class IntroView extends Component {
                   a continuación te daremos una guía
                   {' '}
                   {'\n'}
-                  rápida de uso para adquirir tu seguro
+                  rápida de uso para gestionar tu seguro
                 </Text>
               </View>
             </View>
@@ -91,7 +91,7 @@ export default class IntroView extends Component {
                   Solicitar los seguros
                   {' '}
                   {'\n'}
-                  de tu interes.
+                  de tu interés.
                 </Text>
 
               </View>

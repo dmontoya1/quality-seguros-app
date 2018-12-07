@@ -108,7 +108,7 @@ export default class UserRequests extends Component {
     const { token, requests } = this.props;
     return (
 
-      <Container style={{ paddingTop: 20 }}>
+      <Container>
         <Header style={styles.container}>
           <Body style={{ position: 'absolute', left: wp('30%') }}>
             <Image
@@ -165,7 +165,7 @@ export default class UserRequests extends Component {
               />
               <Text style={styles.footerText}>Nuevas coverturas</Text>
             </Button>
-            <Button onPress={this.userRequests} style={styles.active}>
+            <Button style={styles.active}>
               <Image
                 source={require('../../assets/icons/historial.png')}
                 style={{
@@ -187,6 +187,8 @@ export default class UserRequests extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#05071e',
+    paddingTop: 5,
+    paddingBottom: 15,
   },
   color_footer: {
     backgroundColor: '#e9ebe2',

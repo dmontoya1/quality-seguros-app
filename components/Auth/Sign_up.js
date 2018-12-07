@@ -166,6 +166,7 @@ export default class SignUp extends Component {
                   keyboardType="email-address"
                   placeholder="Correo electrónico"
                   placeholderTextColor="rgba(0,0,0,0.4)"
+                  autoCapitalize="none"
                   onChangeText={mail => this.setState({ mail })}
                 />
               </Item>
@@ -174,12 +175,14 @@ export default class SignUp extends Component {
                   keyboardType="email-address"
                   placeholder="Confirme su correo electrónico"
                   placeholderTextColor="rgba(0,0,0,0.4)"
+                  autoCapitalize="none"
                   onChangeText={mail2 => this.setState({ mail2 })}
                 />
               </Item>
               <Item fixedLabel style={styles.input}>
                 <Input
                   placeholder="Contraseña"
+                  autoCapitalize="none"
                   secureTextEntry
                   placeholderTextColor="rgba(0,0,0,0.4)"
                   onChangeText={password => this.setState({ password })}
@@ -189,6 +192,7 @@ export default class SignUp extends Component {
                 <Input
                   placeholder="Confirmar contraseña"
                   secureTextEntry
+                  autoCapitalize="none"
                   placeholderTextColor="rgba(0,0,0,0.4)"
                   onChangeText={password2 => this.setState({ password2 })}
                 />

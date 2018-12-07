@@ -34,7 +34,6 @@ export default class Insurance extends Component {
     this.state = {
       token: '',
     };
-    this.requestPolicy = this.requestPolicy.bind(this);
     this.userRequests = this.userRequests.bind(this);
     this.getProfile = this.getProfile.bind(this);
     this.userLogout = this.userLogout.bind(this);
@@ -86,26 +85,6 @@ export default class Insurance extends Component {
     Actions.logIn();
   }
 
-  requestPolicy() {
-    const { token } = this.state;
-    axios.defaults.headers.common.Authorization = `JWT ${token}`;
-    axios.get('api/insurances/customer/policy/detail/')
-      .then((response) => {
-        const policies = response.data;
-        Actions.insurance({ policies, token });
-      })
-      .catch((error) => {
-        Alert.alert(
-          'Atención',
-          'Aún no tienes pólizas creadas. Puedes solicitar una desde aquí',
-          [
-            { text: 'Aceptar', onPress: () => {} },
-          ],
-          { cancelable: false },
-        );
-      });
-  }
-
   userRequests() {
     const { token } = this.state;
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
@@ -143,7 +122,7 @@ export default class Insurance extends Component {
     const { token } = this.props;
     return (
 
-      <Container style={{ paddingTop: 20 }}>
+      <Container>
         <Header style={styles.container}>
           <Body style={{ position: 'absolute', left: wp('30%') }}>
             <Image
@@ -182,7 +161,7 @@ export default class Insurance extends Component {
         </Content>
         <Footer style={styles.color_footer}>
           <FooterTab style={styles.color_footer}>
-            <Button onPress={this.requestPolicy} style={styles.active}>
+            <Button style={styles.active}>
               <Image
                 source={require('../../assets/icons/compra.png')}
                 style={{
@@ -222,6 +201,8 @@ export default class Insurance extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#05071e',
+    paddingTop: 5,
+    paddingBottom: 15,
   },
   color_footer: {
     backgroundColor: '#e9ebe2',

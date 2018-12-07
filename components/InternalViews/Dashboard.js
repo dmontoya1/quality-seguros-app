@@ -213,7 +213,6 @@ export default class Dashboard extends Component {
                 ],
               }]}
             >
-
               <View style={styles.modalContainer}>
                 <Text style={styles.title}>Llamada de emergencia</Text>
                 <Text style={styles.line}>─────────────────────────</Text>
@@ -361,7 +360,7 @@ export default class Dashboard extends Component {
                 />
                 <Text style={styles.footerText}>Mis seguros</Text>
               </Button>
-              <Button onPress={this.scaleModal} style={styles.active}>
+              <Button style={styles.active}>
                 <Image
                   source={require('../../assets/icons/seguridad.png')}
                   style={{
@@ -432,7 +431,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#05071e',
     paddingTop: 5,
-    paddingBottom: 20,
+    paddingBottom: 15,
   },
   color_footer: {
     backgroundColor: '#e9ebe2',

@@ -71,6 +71,7 @@ export default class Login extends Component {
                   placeholder="Correo electrónico"
                   placeholderTextColor="rgba(255,255,255,.6)"
                   style={styles.textInput}
+                  autoCapitalize="none"
                   borderColor="rgba(255,255,255,.6)"
                   onChangeText={username => this.setState({ username })}
                 />
@@ -82,6 +83,7 @@ export default class Login extends Component {
                   style={styles.textInput}
                   borderColor="rgba(255,255,255,.6)"
                   secureTextEntry
+                  autoCapitalize="none"
                   onChangeText={password => this.setState({ password })}
                 />
               </Item>
