@@ -81,7 +81,7 @@ class InsuranceComponent extends Component {
               style={styles.contact}
               onPress={() => this.onPress({ insurer })}
             >
-              <Text>Contactarse con la aseguradora</Text>
+              <Text style={styles.TextContact}>Contactarse con la aseguradora</Text>
             </TouchableOpacity>
           </Body>
           <Right>
@@ -120,7 +120,7 @@ class InsuranceComponent extends Component {
             style={styles.contact}
             onPress={() => this.onPress({ insurer })}
           >
-            <Text>Contactarse con la aseguradora</Text>
+            <Text style={styles.TextContact}>Contactarse con la aseguradora</Text>
           </TouchableOpacity>
         </Body>
       </ListItem>
@@ -133,10 +133,13 @@ const styles = StyleSheet.create({
     marginTop: 16,
     flex: 1,
     backgroundColor: '#ddd',
-    width: wp('60%'),
+    width: wp('68%'),
     padding: 10,
     borderRadius: 10,
   },
+  TextContact: {
+    fontSize: 15,
+  }
 });
 
 
