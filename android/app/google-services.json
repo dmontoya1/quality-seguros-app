@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "802878400281",
+    "firebase_url": "https://quality-seguros.firebaseio.com",
+    "project_id": "quality-seguros",
+    "storage_bucket": "quality-seguros.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802878400281:android:a338f66391b1b94e",
+        "android_client_info": {
+          "package_name": "com.qualityseguros"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802878400281-riu6fq7ct9ps4m5e6poeh3m4gt30qd8u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qualityseguros",
+            "certificate_hash": "7496a935ebe5faf662bf954d1215547b6be48713"
+          }
+        },
+        {
+          "client_id": "802878400281-dbgf32dm775htsfd5s0bclqlt4ftkjln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK92JwpLGNzMxKOiQ6YNnhUhEO2Pq-HGI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802878400281-dbgf32dm775htsfd5s0bclqlt4ftkjln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802878400281:android:48747dc7888bcf77",
+        "android_client_info": {
+          "package_name": "com.seguro_virtual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802878400281-d2ehkmjq9vu9t55vodoclugq65ri42md.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.seguro_virtual",
+            "certificate_hash": "7496a935ebe5faf662bf954d1215547b6be48713"
+          }
+        },
+        {
+          "client_id": "802878400281-dbgf32dm775htsfd5s0bclqlt4ftkjln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK92JwpLGNzMxKOiQ6YNnhUhEO2Pq-HGI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802878400281-dbgf32dm775htsfd5s0bclqlt4ftkjln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
