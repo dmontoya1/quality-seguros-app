@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet, Text, View, ActivityIndicator,
+  StyleSheet, Text, View, ActivityIndicator, AsyncStorage, Alert,
 } from 'react-native';
 import { Router, Scene, Stack } from 'react-native-router-flux';
+import firebase from 'react-native-firebase';
 
 import IntroView from './components/IntroView/IntroView';
 import Login from './components/Auth/Login';
@@ -26,6 +27,7 @@ export default class App extends Component {
     this.state = {
       jwt: '',
       stepper: false,
+      fcmToken: '',
     };
 
     this.newJWT = this.newJWT.bind(this);
@@ -35,6 +37,101 @@ export default class App extends Component {
     this.loadStepper = deviceStorage.loadStepper.bind(this);
     this.loadJWT();
     this.loadStepper();
+  }
+
+  async componentDidMount() {
+    this.checkPermission();
+    this.createNotificationListeners();
+  }
+
+  componentWillUnmount() {
+    this.notificationListener();
+    this.notificationOpenedListener();
+  }
+
+
+  async getToken() {
+    try {
+      let fcmToken = await AsyncStorage.getItem('fcmToken');
+      console.log(fcmToken);
+      if (!fcmToken) {
+        fcmToken = await firebase.messaging().getToken();
+        if (fcmToken) {
+          console.log(fcmToken);
+          await AsyncStorage.setItem('fcmToken', fcmToken);
+          this.setState({
+            fcmToken,
+          });
+        }
+      }
+    } catch (error) {
+      console.log(`AsyncStorage Error: ${error.message}`);
+    }
+  }
+
+  async checkPermission() {
+    const enabled = await firebase.messaging().hasPermission();
+    if (enabled) {
+      this.getToken();
+    } else {
+      this.requestPermission();
+    }
+  }
+
+  // 2
+  async requestPermission() {
+    try {
+      await firebase.messaging().requestPermission();
+      // User has authorised
+      this.getToken();
+    } catch (error) {
+      // User has rejected permissions
+      console.log('permission rejected');
+    }
+  }
+
+  async createNotificationListeners() {
+    /*
+    * Triggered when a particular notification has been received in foreground
+    * */
+    this.notificationListener = firebase.notifications().onNotification((notification) => {
+      const { title, body } = notification;
+      this.showAlert(title, body);
+    });
+
+    /*
+    * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
+    * */
+    this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
+      const { title, body } = notificationOpen.notification;
+      this.showAlert(title, body);
+    });
+
+    /*
+    * If your app is closed, you can check if it was opened by a notification being clicked / tapped / opened as follows:
+    * */
+    const notificationOpen = await firebase.notifications().getInitialNotification();
+    if (notificationOpen) {
+      const { title, body } = notificationOpen.notification;
+      this.showAlert(title, body);
+    }
+    /*
+    * Triggered for data only payload in foreground
+    * */
+    this.messageListener = firebase.messaging().onMessage((message) => {
+      // process data message
+      console.log(JSON.stringify(message));
+    });
+  }
+
+  showAlert(title, body) {
+    Alert.alert(
+      title, body,
+      [
+        { text: 'Aceptar', onPress: () => console.log('OK Pressed') },
+      ],
+      { cancelable: false },
+    );
   }
 
   newJWT(jwt) {
