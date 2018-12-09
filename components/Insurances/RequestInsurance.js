@@ -91,7 +91,7 @@ class RequestInsurance extends Component {
           </Left>
           <Body style={{ position: 'absolute', left: wp('30%') }}>
             <Image
-              source={require('../../assets/images/logo.png')}
+              source={require('../../assets/images/Quality-text1.png')}
               resizeMode="contain"
               style={{ width: 150, height: 30 }}
             />
