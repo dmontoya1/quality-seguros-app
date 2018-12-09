@@ -38,6 +38,7 @@ export default class Login extends Component {
         const token = response.data.token;
         deviceStorage.saveItem('id_token', token);
         this.props.newJWT(token);
+        this.props.sendFcmToken(token);
         Actions.insurance({ token });
       })
       .catch((error) => {

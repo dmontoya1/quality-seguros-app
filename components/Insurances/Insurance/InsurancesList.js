@@ -22,7 +22,6 @@ class InsurancesList extends Component {
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
     axios.get('api/insurances/customer/policy/detail/')
       .then((response) => {
-        console.log(response.data);
         this.setState(() => ({
           policies: response.data,
           loading: false,

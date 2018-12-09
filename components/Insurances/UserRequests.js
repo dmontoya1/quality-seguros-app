@@ -46,6 +46,7 @@ export default class UserRequests extends Component {
 
   getProfile() {
     const { token } = this.state;
+    this.hideMenu();
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
     axios.get('api/users/customer/')
       .then((response) => {

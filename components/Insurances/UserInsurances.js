@@ -32,7 +32,7 @@ export default class Insurance extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: '',
+      token: this.props.token,
     };
     this.userRequests = this.userRequests.bind(this);
     this.getProfile = this.getProfile.bind(this);
@@ -47,6 +47,7 @@ export default class Insurance extends Component {
 
   getProfile() {
     const { token } = this.state;
+    this.hideMenu();
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
     axios.get('api/users/customer/')
       .then((response) => {
@@ -86,7 +87,7 @@ export default class Insurance extends Component {
   }
 
   userRequests() {
-    const { token } = this.state;
+    const { token } = this.props.token;
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
     axios.get('api/insurances/requests/')
       .then((response) => {

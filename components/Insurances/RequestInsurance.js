@@ -38,6 +38,7 @@ class RequestInsurance extends Component {
 
   getProfile() {
     const { token } = this.props;
+    this.hideMenu();
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
     axios.get('api/users/customer/')
       .then((response) => {

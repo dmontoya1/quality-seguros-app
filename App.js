@@ -17,6 +17,8 @@ import RequestInsurance from './components/Insurances/RequestInsurance';
 import UserRequest from './components/Insurances/UserRequests';
 import InsurancePDF from './components/Insurances/Insurance/InsurancePDF';
 
+import axios from './components/Axios/axios';
+
 import deviceStorage from './components/AsyncStorage/deviceStorage';
 
 console.disableYellowBox = ['Remote Debugger'];
@@ -31,6 +33,7 @@ export default class App extends Component {
     };
 
     this.newJWT = this.newJWT.bind(this);
+    this.sendFcmToken = this.sendFcmToken.bind(this);
     this.stepperComplete = this.stepperComplete.bind(this);
     this.deleteJWT = deviceStorage.deleteJWT.bind(this);
     this.loadJWT = deviceStorage.loadJWT.bind(this);
@@ -147,6 +150,24 @@ export default class App extends Component {
     });
   }
 
+  async sendFcmToken(token) {
+    const fcmToken = await AsyncStorage.getItem('fcmToken');
+    console.log(fcmToken);
+    axios.defaults.headers.common.Authorization = `JWT ${token}`;
+    axios.post('api/devices/', {
+      registration_id: fcmToken,
+      type: 'android',
+    })
+      .then((response) => {
+        console.log('device-registered');
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log('error registering device');
+        console.log(error.response.data);
+      });
+  }
+
   render() {
     return (
       <Router>
@@ -163,6 +184,7 @@ export default class App extends Component {
             component={Login}
             hideNavBar
             newJWT={this.newJWT}
+            sendFcmToken={this.sendFcmToken}
             initial={this.state.stepper && !this.state.jwt}
           />
           <Scene
@@ -175,6 +197,7 @@ export default class App extends Component {
             key="insurance"
             component={UserInsurance}
             hideNavBar
+            token={this.state.jwt}
             deleteJWT={this.deleteJWT}
             initial={this.state.stepper && this.state.jwt}
           />
@@ -182,6 +205,7 @@ export default class App extends Component {
             key="home"
             component={Dashboard}
             hideNavBar
+            token={this.state.jwt}
           />
           <Scene key="profile" component={Profile} hideNavBar />
           <Scene key="profile_edit" component={ProfileEdit} hideNavBar />
