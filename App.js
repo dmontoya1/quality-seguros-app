@@ -152,7 +152,6 @@ export default class App extends Component {
 
   async sendFcmToken(token) {
     const fcmToken = await AsyncStorage.getItem('fcmToken');
-    console.log(fcmToken);
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
     axios.post('api/devices/', {
       registration_id: fcmToken,
@@ -160,7 +159,6 @@ export default class App extends Component {
     })
       .then((response) => {
         console.log('device-registered');
-        console.log(response.data);
       })
       .catch((error) => {
         console.log('error registering device');
