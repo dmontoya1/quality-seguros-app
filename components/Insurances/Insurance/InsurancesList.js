@@ -56,11 +56,30 @@ class InsurancesList extends Component {
         police_number={police.police_number}
       />
     ));
+    const noPolicies = (
+
+      <View style={styles.loaderContainer}>
+        <View style={styles.loader}>
+          <Text style={styles.loaderText}>
+            No tienes pólizas vigentes
+            {'\n'}
+            {'\n'}
+            Para solicitar una nueva póliza dirigete
+            {'\n'}
+             a 'Nuevas coberturas'
+          </Text>
+        </View>
+      </View>
+    );
     if (this.state.loading) {
       return loading;
     }
 
-    return mappedPolicies;
+    if (policies.length > 0) {
+      return mappedPolicies;
+    }
+
+    return noPolicies;
   }
 }
 

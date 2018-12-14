@@ -37,27 +37,27 @@ class CardComponent extends Component {
     } = this.props;
     return (
       <Card>
-        <CardItem>
-          <Left>
-            <Thumbnail source={require('../../assets/images/icon.jpg')} />
-            <Body>
-              <Text>{name}</Text>
-              <Text note>{category}</Text>
-            </Body>
-          </Left>
-        </CardItem>
-        <CardItem cardBody>
-          <Image source={{ uri: image }} style={{ height: 200, width: null, flex: 1 }} />
-        </CardItem>
-        <CardItem>
-          <Button
-            transparent
-            onPress={() => this.onPress()}
-          >
+        <TouchableOpacity
+          transparent
+          onPress={() => this.onPress()}
+        >
+          <CardItem>
+            <Left>
+              <Thumbnail source={require('../../assets/images/icon.jpg')} />
+              <Body>
+                <Text>{name}</Text>
+                <Text note>{category}</Text>
+              </Body>
+            </Left>
+          </CardItem>
+          <CardItem cardBody>
+            <Image source={{ uri: image }} style={{ height: 200, width: null, flex: 1 }} />
+          </CardItem>
+          <CardItem>
             <Icon name="ios-add-circle-outline" style={{ color: '#020718' }} />
             <Text style={{ color: '#020718' }}>Solicitar</Text>
-          </Button>
-        </CardItem>
+          </CardItem>
+        </TouchableOpacity>
       </Card>
     );
   }

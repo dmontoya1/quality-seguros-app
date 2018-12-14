@@ -173,7 +173,7 @@ export default class Insurance extends Component {
             </Button>
             <Button onPress={() => Actions.home()}>
               <Image
-                source={require('../../assets/icons/seguridad.png')}
+                source={require('../../assets/icons/seguro.png')}
                 style={{
                   height: 30, width: 30, flex: 1, opacity: 0.38,
                 }}

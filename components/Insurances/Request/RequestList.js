@@ -13,11 +13,6 @@ class RequestList extends Component {
   }
 
   render() {
-    const loading = (
-      <View style={styles.horizontal}>
-        <ActivityIndicator size="large" color="#020718" />
-      </View>
-    );
     const { requests, token } = this.props;
     const mappedPolicies = requests.map(request => (
       <RequestComponent
@@ -31,6 +26,7 @@ class RequestList extends Component {
         price={request.price}
         requests={requests}
         token={token}
+        request_date={request.request_date}
       />
     ));
 
@@ -44,6 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     padding: 10,
   },
+
 
 });
 

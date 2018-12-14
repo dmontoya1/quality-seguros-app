@@ -81,7 +81,7 @@ class RequestComponent extends Component {
           'Error',
           'Error al cargar la foto.',
           [
-            { text: 'OK', onPress: () => console.log('OK Pressed') },
+            { text: 'OK', onPress: () => console.log(response.error) },
           ],
           { cancelable: false },
         );
@@ -131,9 +131,34 @@ class RequestComponent extends Component {
   }
 
   render() {
+    const loading = (
+      <View style={styles.loaderContainer}>
+        <View style={styles.loader}>
+          <Text style={styles.loaderText}>
+            Estamos cargando tu comprobante.
+            {'\n'}
+            Espera un momento por favor...
+          </Text>
+          <ActivityIndicator size="large" color="#999" />
+        </View>
+      </View>
+    );
     const {
-      id, insurance_name, status, adviser_code, request_code,
+      id, insurance_name, status, adviser_code, request_code, request_date, price,
     } = this.props;
+
+    let price1 = '$0';
+    const adviser_code1 = 'Sin código';
+    if (price) {
+      price1 = price;
+    }
+    if (adviser_code) {
+      adviser_code1 = adviser_code;
+    }
+
+    if (this.state.loader) {
+      return loading;
+    }
 
     if (status === 'Pendiente') {
       return (
@@ -146,14 +171,24 @@ class RequestComponent extends Component {
               {request_code}
             </Text>
             <Text note>
+              Fecha de la solicitud:
+              {' '}
+              {request_date}
+            </Text>
+            <Text note>
               Estado:
               {' '}
               {status}
             </Text>
             <Text note>
+              Precio:
+              {' '}
+              {price1}
+            </Text>
+            <Text note>
               Codigo asesor:
               {' '}
-              {adviser_code}
+              {adviser_code1}
             </Text>
             <View style={styles.container}>
               <View>
@@ -187,14 +222,24 @@ class RequestComponent extends Component {
             {request_code}
           </Text>
           <Text note>
+              Fecha de la solicitud:
+            {' '}
+            {request_date}
+          </Text>
+          <Text note>
             Estado:
             {' '}
             {status}
           </Text>
           <Text note>
+              Precio:
+            {' '}
+            {price1}
+          </Text>
+          <Text note>
             Codigo asesor:
             {' '}
-            {adviser_code}
+            {adviser_code1}
           </Text>
 
         </Body>
@@ -228,6 +273,24 @@ const styles = StyleSheet.create({
   },
   buttonText1: {
     color: '#fff',
+  },
+  loaderContainer: {
+    alignContent: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  loader: {
+    backgroundColor: '#fff',
+    height: 250,
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  loaderText: {
+    color: '#05071e',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 20,
+    fontSize: 20,
   },
 });
 

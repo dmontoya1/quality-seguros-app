@@ -28,11 +28,13 @@ export default class Login extends Component {
       username,
       password,
     } = this.state;
+    console.log('submit');
 
     const dataToSend = {
       username,
       password,
     };
+    console.log(axios);
     axios.post('api/users/login/', dataToSend)
       .then((response) => {
         const token = response.data.token;
