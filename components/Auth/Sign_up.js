@@ -4,7 +4,7 @@ import {
   Button, Icon, Title, Form, Item, Input, Label, View,
 } from 'native-base';
 import {
-  StyleSheet, ScrollView, Text, Alert,
+  StyleSheet, ScrollView, Text, Alert, KeyboardAvoidingView,
 } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
@@ -123,9 +123,11 @@ export default class SignUp extends Component {
         </Header>
 
         <ScrollView>
-          <View style={{
-            paddingLeft: 10, paddingRight: 30, alignContent: 'center', paddingTop: 40,
-          }}
+          <KeyboardAvoidingView
+            style={{
+              paddingLeft: 10, paddingRight: 30, alignContent: 'center', paddingTop: 40,
+            }}
+            behavior="padding"
           >
             {/* <View style={{ alignContent: 'center', paddingLeft: 20 }}>
               <Text style={{ color: 'rgba(0,0,0,0.3)' }}> ────────────── ó ──────────────</Text>
@@ -230,7 +232,8 @@ export default class SignUp extends Component {
                 <Text style={{ color: 'white' }}>REGISTRARSE</Text>
               </Button>
             </View>
-          </View>
+            <View style={{ height: 60 }} />
+          </KeyboardAvoidingView>
         </ScrollView>
 
       </Container>
@@ -239,6 +242,11 @@ export default class SignUp extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#ffffff',
+    flex: 1,
+
+  },
   header: {
     backgroundColor: '#192a56',
   },
