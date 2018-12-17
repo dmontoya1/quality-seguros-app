@@ -148,7 +148,7 @@ class RequestComponent extends Component {
     } = this.props;
 
     let price1 = '$0';
-    const adviser_code1 = 'Sin código';
+    let adviser_code1 = 'Sin código';
     if (price) {
       price1 = price;
     }
