@@ -43,13 +43,13 @@ class InsuranceComponent extends Component {
   }
 
   onPress = () => {
-    const { insurer } = this.props;
+    const { insurer, adviser_phone } = this.props;
     Alert.alert(
       `Contacto de ${insurer.name}`,
       `Para contactarse con la aseguradora, debes llamar desde tu celular "${insurer.cellphone_number}", o a la línea nacional "${insurer.national_number}"`,
       [
         { text: 'Cancelar', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-        { text: 'Llamar al asesor', onPress: () => RNImmediatePhoneCall.immediatePhoneCall(insurer.adviser_email) },
+        { text: 'Llamar al asesor', onPress: () => RNImmediatePhoneCall.immediatePhoneCall(adviser_phone) },
         { text: 'Llamar a la aseguradora', onPress: () => { RNImmediatePhoneCall.immediatePhoneCall(insurer.cellphone_number); } },
       ],
       { cancelable: true },
