@@ -24,6 +24,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
 import InsurancesList from './Insurance/InsurancesList';
 import deviceStorage from '../AsyncStorage/deviceStorage';
 import axios from '../Axios/axios';
@@ -440,6 +441,11 @@ const styles = StyleSheet.create({
     top: hp('3%'),
     left: wp('7%'),
     fontSize: 20,
+  },
+  button: {
+    position: 'absolute',
+    top: hp('43%'),
+    left: wp('51%'),
   },
 
 });

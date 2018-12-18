@@ -25,6 +25,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
 import { Actions } from 'react-native-router-flux';
 
 class InsuranceComponent extends Component {
@@ -45,11 +46,13 @@ class InsuranceComponent extends Component {
     const { insurer } = this.props;
     Alert.alert(
       `Contacto de ${insurer.name}`,
-      `Para contactarse con la aseguradora, debes llamar al celular ${insurer.cellphone_number}, o a la línea nacional ${insurer.national_number}`,
+      `Para contactarse con la aseguradora, debes llamar desde tu celular "${insurer.cellphone_number}", o a la línea nacional "${insurer.national_number}"`,
       [
-        { text: 'Aceptar', onPress: () => {} },
+        { text: 'Cancelar', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+        { text: 'Llamar al asesor', onPress: () => RNImmediatePhoneCall.immediatePhoneCall(insurer.adviser_email) },
+        { text: 'Llamar a la aseguradora', onPress: () => { RNImmediatePhoneCall.immediatePhoneCall(insurer.cellphone_number); } },
       ],
-      { cancelable: false },
+      { cancelable: true },
     );
   }
 
@@ -139,7 +142,7 @@ const styles = StyleSheet.create({
   },
   TextContact: {
     fontSize: 15,
-  }
+  },
 });
 
 

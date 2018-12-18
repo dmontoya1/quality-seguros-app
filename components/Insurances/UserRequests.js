@@ -428,4 +428,9 @@ const styles = StyleSheet.create({
     left: wp('7%'),
     fontSize: 20,
   },
+  button: {
+    position: 'absolute',
+    top: hp('43%'),
+    left: wp('51%'),
+  },
 });
