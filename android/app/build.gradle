@@ -60,6 +60,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-immediate-phone-call')
     compile project(':react-native-firebase')
     implementation project(':react-native-firebase')
     implementation project(':rn-fetch-blob')

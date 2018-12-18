@@ -22,7 +22,7 @@ import {
 import {
   Image,
   StyleSheet,
-  TouchableHighlight,
+  TouchableOpacity,
   Animated,
   Alert,
   AsyncStorage,
@@ -39,6 +39,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
 import deviceStorage from '../AsyncStorage/deviceStorage';
 import axios from '../Axios/axios';
 
@@ -227,11 +228,16 @@ export default class Dashboard extends Component {
                   />
                   <Text style={{ paddingLeft: 30 }}>Ambulancia</Text>
                   <View style={{ paddingLeft: wp('17%') }}>
-                    <Image
-                      source={require('../../assets/icons/llamada.png')}
-                      resizeMode="contain"
-                      style={{ width: 30, height: 30 }}
-                    />
+                    <TouchableOpacity onPress={() => {
+                      RNImmediatePhoneCall.immediatePhoneCall('125');
+                    }}
+                    >
+                      <Image
+                        source={require('../../assets/icons/llamada.png')}
+                        resizeMode="contain"
+                        style={{ width: 30, height: 30 }}
+                      />
+                    </TouchableOpacity>
                   </View>
                 </View>
 
@@ -246,11 +252,16 @@ export default class Dashboard extends Component {
                   />
                   <Text style={{ paddingLeft: 30 }}>Bomberos</Text>
                   <View style={{ paddingLeft: wp('21%') }}>
-                    <Image
-                      source={require('../../assets/icons/llamada.png')}
-                      resizeMode="contain"
-                      style={{ width: 30, height: 30 }}
-                    />
+                    <TouchableOpacity onPress={() => {
+                      RNImmediatePhoneCall.immediatePhoneCall('119');
+                    }}
+                    >
+                      <Image
+                        source={require('../../assets/icons/llamada.png')}
+                        resizeMode="contain"
+                        style={{ width: 30, height: 30 }}
+                      />
+                    </TouchableOpacity>
                   </View>
                 </View>
 
@@ -265,11 +276,16 @@ export default class Dashboard extends Component {
                   />
                   <Text style={{ paddingLeft: 30 }}>Policia</Text>
                   <View style={{ paddingLeft: wp('28%') }}>
-                    <Image
-                      source={require('../../assets/icons/llamada.png')}
-                      resizeMode="contain"
-                      style={{ width: 30, height: 30 }}
-                    />
+                    <TouchableOpacity onPress={() => {
+                      RNImmediatePhoneCall.immediatePhoneCall('156');
+                    }}
+                    >
+                      <Image
+                        source={require('../../assets/icons/llamada.png')}
+                        resizeMode="contain"
+                        style={{ width: 30, height: 30 }}
+                      />
+                    </TouchableOpacity>
                   </View>
                 </View>
 
@@ -282,32 +298,18 @@ export default class Dashboard extends Component {
                       width: 30, height: 30, opacity: 0.38, paddingLeft: 40,
                     }}
                   />
-                  <Text style={{ paddingLeft: 30 }}>Seguros mundial</Text>
+                  <Text style={{ paddingLeft: 30 }}>Emergencias</Text>
                   <View style={{ paddingLeft: wp('8%') }}>
-                    <Image
-                      source={require('../../assets/icons/llamada.png')}
-                      resizeMode="contain"
-                      style={{ width: 30, height: 30 }}
-                    />
-                  </View>
-                </View>
-
-
-                <View style={{ flexDirection: 'row', width: wp('70%'), paddingTop: 10 }}>
-                  <Image
-                    source={require('../../assets/icons/auriculares.png')}
-                    resizeMode="contain"
-                    style={{
-                      width: 30, height: 30, opacity: 0.38, paddingLeft: 40,
+                    <TouchableOpacity onPress={() => {
+                      RNImmediatePhoneCall.immediatePhoneCall('123');
                     }}
-                  />
-                  <Text style={{ paddingLeft: 30 }}>Asesor quality</Text>
-                  <View style={{ paddingLeft: wp('13%') }}>
-                    <Image
-                      source={require('../../assets/icons/llamada.png')}
-                      resizeMode="contain"
-                      style={{ width: 30, height: 30 }}
-                    />
+                    >
+                      <Image
+                        source={require('../../assets/icons/llamada.png')}
+                        resizeMode="contain"
+                        style={{ width: 30, height: 30 }}
+                      />
+                    </TouchableOpacity>
                   </View>
                 </View>
 
@@ -317,6 +319,17 @@ export default class Dashboard extends Component {
           </View>
 
           <Header style={styles.container}>
+            <Left>
+              <TouchableOpacity onPress={this.scaleModal}>
+                <Image
+                  source={require('../../assets/icons/call.png')}
+                  style={{
+                    height: 30, width: 30,
+                  }}
+                />
+
+              </TouchableOpacity>
+            </Left>
             <Body style={{ position: 'absolute', left: wp('30%') }}>
               <Image
                 source={require('../../assets/images/Quality-text1.png')}

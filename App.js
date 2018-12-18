@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet, Text, View, ActivityIndicator, AsyncStorage, Alert,
+  StyleSheet, AsyncStorage, Alert, PermissionsAndroid,
 } from 'react-native';
 import { Router, Scene, Stack } from 'react-native-router-flux';
 import firebase from 'react-native-firebase';
@@ -45,6 +45,7 @@ export default class App extends Component {
   async componentDidMount() {
     this.checkPermission();
     this.createNotificationListeners();
+    this.requestCallPermission();
   }
 
   componentWillUnmount() {
@@ -88,6 +89,26 @@ export default class App extends Component {
     } catch (error) {
       // User has rejected permissions
       console.log('permission rejected');
+    }
+  }
+
+  async requestCallPermission() {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CALL_PHONE,
+        {
+          title: 'Permisos para realizar llamadas',
+          message: 'Necesitamos permisos para poder realizar llamadas '
+                     + 'de emergencia.',
+        },
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log('You can use the camera');
+      } else {
+        console.log('Camera permission denied');
+      }
+    } catch (err) {
+      console.warn(err);
     }
   }
 
