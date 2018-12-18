@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -62,11 +63,11 @@
 		C75F5A8CBA754FE785483256 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B56A9E6F1634BD990D50D08 /* EvilIcons.ttf */; };
 		CB056450C624468DAB459BC5 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF9875863140448AAB610F32 /* Foundation.ttf */; };
 		D0B8D6AF61BF47FB82B7334C /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A3E549695404352AC041F01 /* AntDesign.ttf */; };
+		D224865CEC014BEF99071ED1 /* libRNImmediatePhoneCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C98D67BAC02044F4908AE392 /* libRNImmediatePhoneCall.a */; };
 		EB119275E2614FF7AA461033 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E03AE51D964D01B509E884 /* libRNVectorIcons-tvOS.a */; };
 		EFD87B3521BED760006507EC /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD87B0921BED760006507EC /* UserNotifications.framework */; };
 		EFD87C0D21BF1C74006507EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFD87C0C21BF1C74006507EC /* GoogleService-Info.plist */; };
 		F32DF1E0EC68468D839F412E /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A2090F1FB64B768173BE8E /* Feather.ttf */; };
-		D224865CEC014BEF99071ED1 /* libRNImmediatePhoneCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C98D67BAC02044F4908AE392 /* libRNImmediatePhoneCall.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -385,6 +386,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNFirebase;
 		};
+		EFA39E1D21C9745300C840FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B204B63DE6F41AC9CC06EF4 /* RNImmediatePhoneCall.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 15209BEF1D250F63000D0F44;
+			remoteInfo = RNImmediatePhoneCall;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -399,6 +407,7 @@
 		00E356F21AD99517003FC87E /* qualitySegurosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = qualitySegurosTests.m; sourceTree = "<group>"; };
 		074BE34CE4814EE1BB11AB44 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		09827845E00743689ABE2BE7 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
+		0B204B63DE6F41AC9CC06EF4 /* RNImmediatePhoneCall.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImmediatePhoneCall.xcodeproj; path = "../node_modules/react-native-immediate-phone-call/ios/RNImmediatePhoneCall.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* qualitySeguros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qualitySeguros.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -444,6 +453,7 @@
 		C6711F0FF9D949BD95182632 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/rn-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 		C6E03AE51D964D01B509E884 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; };
 		C7540ED6DD494488B7BE9C45 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
+		C98D67BAC02044F4908AE392 /* libRNImmediatePhoneCall.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImmediatePhoneCall.a; sourceTree = "<group>"; };
 		D463A88C4B3848A9B584AEDF /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		D5325C435BE746ED8343EB74 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		D8712DD3D29DF51712E2EFFC /* libPods-qualitySeguros-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qualitySeguros-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -455,8 +465,6 @@
 		EFD87C0C21BF1C74006507EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "qualitySeguros/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F163540D9659481282D0163C /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		F1A2090F1FB64B768173BE8E /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		0B204B63DE6F41AC9CC06EF4 /* RNImmediatePhoneCall.xcodeproj */ = {isa = PBXFileReference; name = "RNImmediatePhoneCall.xcodeproj"; path = "../node_modules/react-native-immediate-phone-call/ios/RNImmediatePhoneCall.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		C98D67BAC02044F4908AE392 /* libRNImmediatePhoneCall.a */ = {isa = PBXFileReference; name = "libRNImmediatePhoneCall.a"; path = "libRNImmediatePhoneCall.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -789,6 +797,7 @@
 				C7540ED6DD494488B7BE9C45 /* libRNFetchBlob.a */,
 				C6E03AE51D964D01B509E884 /* libRNVectorIcons-tvOS.a */,
 				80EA741CAB514BAC8D2C4C40 /* libRNFirebase.a */,
+				C98D67BAC02044F4908AE392 /* libRNImmediatePhoneCall.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -830,6 +839,14 @@
 			isa = PBXGroup;
 			children = (
 				EF8E4A7121BEB4AC00359632 /* libRNFirebase.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFA39E1A21C9745300C840FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFA39E1E21C9745300C840FE /* libRNImmediatePhoneCall.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1022,6 +1039,10 @@
 				{
 					ProductGroup = EF13499C21B01E8E006C144B /* Products */;
 					ProjectRef = 09827845E00743689ABE2BE7 /* RNImagePicker.xcodeproj */;
+				},
+				{
+					ProductGroup = EFA39E1A21C9745300C840FE /* Products */;
+					ProjectRef = 0B204B63DE6F41AC9CC06EF4 /* RNImmediatePhoneCall.xcodeproj */;
 				},
 				{
 					ProductGroup = EF1349A021B01E8E006C144B /* Products */;
@@ -1338,6 +1359,13 @@
 			fileType = archive.ar;
 			path = libRNFirebase.a;
 			remoteRef = EF8E4A7021BEB4AC00359632 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EFA39E1E21C9745300C840FE /* libRNImmediatePhoneCall.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImmediatePhoneCall.a;
+			remoteRef = EFA39E1D21C9745300C840FE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
