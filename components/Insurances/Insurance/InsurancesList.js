@@ -54,6 +54,7 @@ class InsurancesList extends Component {
         plate={police.licensed_plate}
         expirationDate={police.expiration_date}
         police_number={police.police_number}
+        adviser_phone={police.adviser_cellphone}
       />
     ));
     const noPolicies = (
