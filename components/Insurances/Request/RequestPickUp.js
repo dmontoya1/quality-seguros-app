@@ -38,7 +38,6 @@ export default class RequestPickUp extends Component {
       address: '',
       date: new Date(),
       time: '',
-      phone: '',
     };
 
     this.submit = this.submit.bind(this);
@@ -57,7 +56,6 @@ export default class RequestPickUp extends Component {
       address,
       date,
       time,
-      phone,
     } = this.state;
 
     console.log(address);
@@ -65,7 +63,6 @@ export default class RequestPickUp extends Component {
       address,
       pickup_date: date,
       pickup_time: time,
-      contact_phone: phone,
       request_id: this.props.id,
     };
     axios.post('api/insurances/request-domi/', dataToSend)
@@ -122,7 +119,7 @@ export default class RequestPickUp extends Component {
         </Header>
         <Content styles={styles.container}>
           <View style={{
-            paddingLeft: 10, paddingRight: 30, alignContent: 'center',
+            paddingLeft: 10, paddingRight: 30, alignContent: 'center', marginTop: 30,
           }}
           >
             <Form style={{ paddingBottom: 40 }}>
@@ -135,17 +132,6 @@ export default class RequestPickUp extends Component {
                   autoCapitalize="none"
                   borderColor="#05071e"
                   onChangeText={address => this.setState({ address })}
-                />
-              </Item>
-              <Item fixedLabel>
-                <Input
-                  placeholder="Teléfono de contacto"
-                  placeholderTextColor="#05071e"
-                  keyboardType="numeric"
-                  style={styles.textInput}
-                  borderColor="#05071e"
-                  autoCapitalize="none"
-                  onChangeText={phone => this.setState({ phone })}
                 />
               </Item>
             </Form>
