@@ -178,7 +178,7 @@ export default class Insurance extends Component {
           >
             <View style={styles.modalContainer}>
               <Text style={styles.title}>Llamada de emergencia</Text>
-              <Text style={styles.line}>─────────────────────────</Text>
+              {/* <Text style={styles.line}>─────────────</Text> */}
 
               <View style={{ flexDirection: 'row', width: wp('70%'), paddingTop: 10 }}>
                 <Image
@@ -189,7 +189,7 @@ export default class Insurance extends Component {
                   }}
                 />
                 <Text style={{ paddingLeft: 30 }}>Ambulancia</Text>
-                <View style={{ paddingLeft: wp('17%') }}>
+                <View style={{ paddingLeft: wp('18%') }}>
                   <TouchableOpacity onPress={() => {
                     RNImmediatePhoneCall.immediatePhoneCall('125');
                   }}
@@ -261,7 +261,7 @@ export default class Insurance extends Component {
                   }}
                 />
                 <Text style={{ paddingLeft: 30 }}>Emergencias</Text>
-                <View style={{ paddingLeft: wp('8%') }}>
+                <View style={{ paddingLeft: wp('17%') }}>
                   <TouchableOpacity onPress={() => {
                     RNImmediatePhoneCall.immediatePhoneCall('123');
                   }}

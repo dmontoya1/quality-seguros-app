@@ -618,7 +618,7 @@ export default class Request extends Component {
                     </View>
                     <View>
                       <Text style={{ color: 'rgba(0,0,0,0.4)', fontSize: 13, paddingLeft: 20 }}>
-                                En caso de requerir asistencua puedes comunicarte con nosotros.
+                                En caso de requerir asistencia puedes comunicarte con nosotros.
                       </Text>
                     </View>
                   </View>
@@ -638,7 +638,7 @@ export default class Request extends Component {
                       </Text>
                     </View>
                     <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.propertyPhoto}>
+                      <Button transparent onPress={this.propertyPhoto} style={{ paddingLeft: wp('14%') }}>
                         <Image
                           source={urlDocument}
                           style={{ width: 40, height: 40 }}
@@ -656,7 +656,7 @@ export default class Request extends Component {
                       </Text>
                     </View>
                     <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.propertyPhoto1}>
+                      <Button transparent onPress={this.propertyPhoto1} style={{ paddingLeft: wp('17%') }}>
                         <Image
                           source={urlproperty2}
                           style={{ width: 40, height: 40 }}
@@ -674,7 +674,7 @@ export default class Request extends Component {
                       </Text>
                     </View>
                     <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.oldSOATPhoto}>
+                      <Button transparent onPress={this.oldSOATPhoto} style={{ paddingLeft: wp('30%') }}>
                         <Image
                           source={urloldSoat}
                           style={{ width: 40, height: 40 }}
