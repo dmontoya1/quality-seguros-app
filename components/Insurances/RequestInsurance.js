@@ -83,11 +83,11 @@ class RequestInsurance extends Component {
   render() {
     const { token, policy } = this.props;
     return (
-      <Container style={{ paddingTop: 20 }}>
+      <Container>
         <Header style={styles.container}>
           <Left>
             <Button transparent onPress={() => Actions.pop()}>
-              <Icon name="arrow-back" />
+              <Icon name="arrow-back" style={{ color: '#fff' }} />
             </Button>
           </Left>
           <Body style={{ position: 'absolute', left: wp('30%') }}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet, AsyncStorage, Alert, PermissionsAndroid,
+  StyleSheet, AsyncStorage, Alert, PermissionsAndroid, StatusBar,
 } from 'react-native';
 import { Router, Scene, Stack } from 'react-native-router-flux';
 import firebase from 'react-native-firebase';
@@ -187,6 +187,7 @@ export default class App extends Component {
   }
 
   render() {
+    StatusBar.setBarStyle('light-content', true);
     return (
       <Router>
         <Stack key="root">

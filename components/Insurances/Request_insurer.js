@@ -551,12 +551,12 @@ export default class Request extends Component {
     }
     const { Item } = Picker;
     return (
-      <Container style={{ paddingTop: 20 }}>
+      <Container>
         <Header style={styles.container}>
           <Left>
 
             <Button transparent onPress={() => Actions.pop()}>
-              <Icon name="arrow-back" />
+              <Icon name="arrow-back" style={{ color: '#fff' }} />
             </Button>
           </Left>
           <Body style={{ position: 'absolute', left: wp('30%') }}>
