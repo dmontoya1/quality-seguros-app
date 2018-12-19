@@ -50,15 +50,12 @@ export default class RequestPickUp extends Component {
   }
 
   submit() {
-    console.log('submit');
-    console.log(this.state.date);
     const {
       address,
       date,
       time,
     } = this.state;
 
-    console.log(address);
     const dataToSend = {
       address,
       pickup_date: date,
