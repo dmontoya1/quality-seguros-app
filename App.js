@@ -16,6 +16,7 @@ import Request from './components/Insurances/Request_insurer';
 import RequestInsurance from './components/Insurances/RequestInsurance';
 import UserRequest from './components/Insurances/UserRequests';
 import InsurancePDF from './components/Insurances/Insurance/InsurancePDF';
+import RequestPickUp from './components/Insurances/Request/RequestPickUp';
 
 import axios from './components/Axios/axios';
 
@@ -230,6 +231,7 @@ export default class App extends Component {
           <Scene key="userRequest" component={UserRequest} hideNavBar deleteJWT={this.deleteJWT} />
           <Scene key="requestInsurance" component={RequestInsurance} hideNavBar deleteJWT={this.deleteJWT} />
           <Scene key="insurance_pdf" component={InsurancePDF} hideNavBar />
+          <Scene key="requestPickup" component={RequestPickUp} hideNavBar />
         </Stack>
       </Router>
     );

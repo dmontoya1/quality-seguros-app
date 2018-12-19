@@ -190,21 +190,31 @@ class RequestComponent extends Component {
               {' '}
               {adviser_code1}
             </Text>
+            <View style={styles.container1}>
+              <View>
+                <TouchableOpacity
+                  style={styles.button2}
+                  onPress={() => this.payment({ request_code })}
+                >
+                  <Text style={styles.buttonText}>Subir comprobante</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
             <View style={styles.container}>
               <View>
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => this.onPress({ request_code })}
                 >
-                  <Text style={styles.buttonText}>Instrucciones para pago</Text>
+                  <Text style={styles.buttonText}>Transferencia bancaria</Text>
                 </TouchableOpacity>
               </View>
               <View>
                 <TouchableOpacity
-                  style={styles.button1}
-                  onPress={() => this.payment({ request_code })}
+                  style={styles.button}
+                  onPress={() => Actions.requestPickup({ id })}
                 >
-                  <Text style={styles.buttonText1}>Subir comprobante</Text>
+                  <Text style={styles.buttonText}>Pago en efectivo</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -253,26 +263,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    alignContent: 'center',
+    justifyContent: 'space-between',
     marginTop: 15,
   },
+  container1: {
+    flex: 1,
+    marginTop: 15,
+    textAlign: 'center',
+    paddingVertical: 5,
+    alignContent: 'center',
+  },
   button: {
-    backgroundColor: '#05071e',
+    backgroundColor: '#999',
     paddingVertical: 8,
     borderRadius: 10,
   },
   buttonText: {
     color: '#fff',
   },
-  button1: {
-    backgroundColor: '#999',
+  button2: {
+    backgroundColor: '#05071e',
     paddingVertical: 8,
     borderRadius: 10,
-    marginLeft: 15,
-  },
-  buttonText1: {
-    color: '#fff',
   },
   loaderContainer: {
     alignContent: 'center',
