@@ -638,7 +638,7 @@ export default class Request extends Component {
                       </Text>
                     </View>
                     <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.propertyPhoto} style={{ paddingLeft: wp('14%') }}>
+                      <Button transparent onPress={this.propertyPhoto} style={{ paddingLeft: wp('5%') }}>
                         <Image
                           source={urlDocument}
                           style={{ width: 40, height: 40 }}
@@ -656,7 +656,7 @@ export default class Request extends Component {
                       </Text>
                     </View>
                     <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.propertyPhoto1} style={{ paddingLeft: wp('17%') }}>
+                      <Button transparent onPress={this.propertyPhoto1} style={{ paddingLeft: wp('9%') }}>
                         <Image
                           source={urlproperty2}
                           style={{ width: 40, height: 40 }}
@@ -674,7 +674,7 @@ export default class Request extends Component {
                       </Text>
                     </View>
                     <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.oldSOATPhoto} style={{ paddingLeft: wp('30%') }}>
+                      <Button transparent onPress={this.oldSOATPhoto} style={{ paddingLeft: wp('23%') }}>
                         <Image
                           source={urloldSoat}
                           style={{ width: 40, height: 40 }}
