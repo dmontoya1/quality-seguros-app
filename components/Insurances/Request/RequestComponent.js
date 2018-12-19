@@ -46,7 +46,7 @@ class RequestComponent extends Component {
     const { request_code, price } = this.props;
     Alert.alert(
       'Datos para el pago',
-      `Para realizar el pago, dirigete al Banco de Occidente, y realizar una consignacion por valor de ${price} en la cuenta de ahorros No 0598883333, y con referencia de pago ${request_code}. Luego, adjunta tu comprobante de pago aqui`,
+      `Para realizar el pago, dirigete a "Bancolombia", y realizar una consignacion por valor de ${price} en la cuenta de ahorros No "11535824471", y con referencia de pago ${request_code}. Luego, adjunta tu comprobante de pago aqui`,
       [
         { text: 'Aceptar', onPress: () => {} },
       ],
