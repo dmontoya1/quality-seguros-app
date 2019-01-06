@@ -87,13 +87,13 @@ export default class SignUp extends Component {
           );
         })
         .catch((error) => {
+          console.warn(error.response);
           Alert.alert(
             'Error',
-            'Debes llenar los campos de registro.',
+            error.response.data.error,
             [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
             { cancelable: false },
           );
-          console.log(error);
         });
     } else {
       Alert.alert(

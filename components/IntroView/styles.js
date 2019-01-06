@@ -46,9 +46,9 @@ export const styles = StyleSheet.create({
     flex: 2,
     alignSelf: 'stretch',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     marginHorizontal: 30,
-    paddingBottom: 150,
+    paddingBottom: 70,
   },
 
   text: {
@@ -142,9 +142,8 @@ export const styles = StyleSheet.create({
   title: {
     color: 'white',
     fontSize: 15,
-    textAlign: 'left',
-    paddingTop: 10,
-    paddingRight: 260,
+    textAlign: 'center',
+    paddingTop: 15,
   },
 
 });

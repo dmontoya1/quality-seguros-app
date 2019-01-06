@@ -225,6 +225,7 @@ export default class App extends Component {
             component={Dashboard}
             hideNavBar
             token={this.state.jwt}
+            deleteJWT={this.deleteJWT}
           />
           <Scene key="profile" component={Profile} hideNavBar />
           <Scene key="profile_edit" component={ProfileEdit} hideNavBar />

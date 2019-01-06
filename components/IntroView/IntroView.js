@@ -34,7 +34,7 @@ export default class IntroView extends Component {
         loop={false}
         showsPagination
         buttonWrapperStyle={{
-          flexDirection: 'row', position: 'absolute', top: 285, flex: 1, paddingHorizontal: 10, paddingVertical: 10, justifyContent: 'space-between', alignItems: 'center',
+          flexDirection: 'row', position: 'absolute', flex: 1, paddingHorizontal: 10, paddingBottom: 50, justifyContent: 'space-between', alignItems: 'flex-end',
         }}
         nextButton={<Text style={{ fontSize: 15, color: 'white' }}>Siguiente ›</Text>}
         prevButton={<Text style={{ fontSize: 15, color: 'white' }}>‹ Atras </Text>}
