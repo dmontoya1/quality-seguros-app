@@ -497,7 +497,7 @@ export default class Request extends Component {
 
     if (this.state.loader) {
       return (
-        <Container style={{ paddingTop: 20 }}>
+        <Container>
           <Header style={styles.container}>
             <Left>
               <Button transparent onPress={() => Actions.pop()}>
