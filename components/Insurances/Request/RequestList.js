@@ -18,6 +18,7 @@ class RequestList extends Component {
       <RequestComponent
         key={request.id}
         id={request.id}
+        request={request}
         insurance_name={request.insurance.name}
         status={request.status}
         adviser_code={request.adviser_code}

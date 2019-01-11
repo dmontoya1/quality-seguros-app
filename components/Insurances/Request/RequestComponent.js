@@ -144,7 +144,7 @@ class RequestComponent extends Component {
       </View>
     );
     const {
-      id, insurance_name, status, adviser_code, request_code, request_date, price,
+      id, request, insurance_name, status, adviser_code, request_code, request_date, price,
     } = this.props;
 
     let price1 = '$0';
@@ -212,7 +212,7 @@ class RequestComponent extends Component {
               <View>
                 <TouchableOpacity
                   style={styles.button}
-                  onPress={() => Actions.requestPickup({ id })}
+                  onPress={() => Actions.requestPickup({ request })}
                 >
                   <Text style={styles.buttonText}>Pago en efectivo</Text>
                 </TouchableOpacity>

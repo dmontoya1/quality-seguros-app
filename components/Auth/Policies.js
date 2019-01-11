@@ -23,12 +23,10 @@ export default class Policies extends Component {
   componentDidMount() {
     axios.get('api/manager/privacy-policies/')
       .then((response) => {
-        console.log(response.data[0]);
         this.setState(() => ({
           term: response.data[0],
           loader: false,
         }));
-        console.log(this.state.term);
       })
       .catch((error) => {
         console.log(error);

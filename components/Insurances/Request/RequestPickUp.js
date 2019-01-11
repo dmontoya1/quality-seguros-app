@@ -27,7 +27,7 @@ import {
 import DatePicker from 'react-native-datepicker';
 import moment from 'moment';
 
-import axios from '../../Axios/axios';
+import axios from '../../Axios/axiosDomi';
 
 export default class RequestPickUp extends Component {
   _menu = null;
@@ -38,7 +38,7 @@ export default class RequestPickUp extends Component {
       token: '',
       address: '',
       date: moment(new Date()).format('YYYY-MM-DD'),
-      time: moment(new Date()).format('HH:mm'),
+      time: moment(new Date()).format('HH:mm:ss'),
     };
 
     this.submit = this.submit.bind(this);
@@ -56,7 +56,7 @@ export default class RequestPickUp extends Component {
       date,
       time,
     } = this.state;
-
+    const { request } = this.props;
     if (address === '') {
       Alert.alert(
         'Error',
@@ -67,15 +67,27 @@ export default class RequestPickUp extends Component {
         { cancelable: false },
       );
     } else {
+      const price = request.price.replace(/[$.]+/g, '');
+      const fullPrice = parseInt(price, 10);
+      const dateCollect = `${String(date)}T${String(time)}:00.000000Z`;
       const dataToSend = {
-        address,
-        pickup_date: date,
-        pickup_time: time,
-        request_id: this.props.id,
+        first_name_client: request.client.first_name,
+        last_name_client: request.client.last_name,
+        dni_client: request.client.document_id,
+        celphone_client: request.client.phone_number,
+        cash_to_collect: fullPrice,
+        date_to_collect: dateCollect,
+        address_client: address,
+        complement_address_client: 'complemento',
+        instructions_service: 'Recaudo Dinero SOAT',
       };
-      console.log(dataToSend);
-      axios.post('api/insurances/request-domi/', dataToSend)
+      const formData = new FormData();
+      for (const key in dataToSend) {
+        formData.append(key, dataToSend[key]);
+      }
+      axios.post('api/bs/create/order/', formData)
         .then((response) => {
+          console.log(response.data);
           Alert.alert(
             'Atención',
             'Tu solicitud ha sido creado exitosamente. En el dia y la hora seleccionara un domiciliario recogera tu dinero.',
@@ -86,24 +98,42 @@ export default class RequestPickUp extends Component {
           );
         })
         .catch((error) => {
-          Alert.alert(
-            'Error',
-            'Ha ocurrido un error, intenta nuevamente',
-            [
-              { text: 'Aceptar', onPress: () => {} },
-            ],
-            { cancelable: false },
-          );
-          console.log(error);
+          console.log(error.response.data);
+          if (error.response.data.errorCode === 'NVDATE002') {
+            Alert.alert(
+              'Error',
+              'La hora de recogida no debe ser de días ni horas pasadas.',
+              [
+                { text: 'Aceptar', onPress: () => {} },
+              ],
+              { cancelable: false },
+            );
+          } else if (error.response.data.errorCode === 'NVDATE003') {
+            Alert.alert(
+              'Error',
+              'La fecha y hora está fuera de las horas de programación de atención al cliente.',
+              [
+                { text: 'Aceptar', onPress: () => {} },
+              ],
+              { cancelable: false },
+            );
+          } else {
+            Alert.alert(
+              'Error',
+              `Ha ocurrido un error. Intenta nuevamente mas tarde. Error Code "${error.response.data.errorCode}" `,
+              [
+                { text: 'Aceptar', onPress: () => {} },
+              ],
+              { cancelable: false },
+            );
+          }
         });
     }
   }
 
   render() {
     const tomorrow = moment(new Date()).add(7, 'day').format('YYYY-MM-DD');
-
     return (
-
       <Container>
         <Header style={styles.header}>
           <Left>
