@@ -30,7 +30,7 @@ import {
 
 import Modal from 'react-native-root-modal';
 
-import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
+import Menu, { MenuItem } from 'react-native-material-menu';
 
 import { Actions } from 'react-native-router-flux';
 
@@ -40,7 +40,6 @@ import {
 } from 'react-native-responsive-screen';
 
 import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
-import deviceStorage from '../AsyncStorage/deviceStorage';
 import axios from '../Axios/axios';
 
 import CardList from './CardList';
