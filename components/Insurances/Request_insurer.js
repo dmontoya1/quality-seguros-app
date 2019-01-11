@@ -497,7 +497,7 @@ export default class Request extends Component {
 
     if (this.state.loader) {
       return (
-        <Container style={{ paddingTop: 20 }}>
+        <Container>
           <Header style={styles.container}>
             <Left>
               <Button transparent onPress={() => Actions.pop()}>
@@ -627,18 +627,24 @@ export default class Request extends Component {
             </Card>
             <Card style={{ width: wp('96%') }}>
               <CardItem style={{ width: wp('90%'), position: 'relative', left: 10 }}>
-                <View style={{ paddingTop: 20, flex: 1 }}>
+                <View style={{
+                  paddingTop: 20, flex: 1, alignItems: 'flex-start',
+                }}
+                >
                   <View style={{ flexDirection: 'row' }}>
                     <View>
                       <Text style={{
                         color: 'rgba(0,0,0,1)', fontSize: 13, position: 'relative', top: -5, right: 10,
                       }}
                       >
-                          Foto Tarjeta de Propiedad parte delantera
+                        Foto Tarjeta de Propiedad
+                        {' '}
+                        {'\n'}
+                        Parte delantera
                       </Text>
                     </View>
                     <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.propertyPhoto} style={{ paddingLeft: wp('5%') }}>
+                      <Button transparent onPress={this.propertyPhoto} style={{ paddingLeft: wp('18%') }}>
                         <Image
                           source={urlDocument}
                           style={{ width: 40, height: 40 }}
@@ -652,11 +658,14 @@ export default class Request extends Component {
                         color: 'rgba(0,0,0,1)', fontSize: 13, position: 'relative', top: -5, right: 10,
                       }}
                       >
-                            Foto Tarjeta de Propiedad parte trasera
+                        Foto Tarjeta de Propiedad
+                        {' '}
+                        {'\n'}
+                        Parte trasera
                       </Text>
                     </View>
                     <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.propertyPhoto1} style={{ paddingLeft: wp('9%') }}>
+                      <Button transparent onPress={this.propertyPhoto1} style={{ paddingLeft: wp('18%') }}>
                         <Image
                           source={urlproperty2}
                           style={{ width: 40, height: 40 }}
@@ -670,11 +679,14 @@ export default class Request extends Component {
                         color: 'rgba(0,0,0,1)', fontSize: 13, position: 'relative', top: -5, right: 10,
                       }}
                       >
-                        Foto SOAT Anterior (Opcional)
+                        Foto SOAT Anterior           .
+                        {' '}
+                        {'\n'}
+                        (Opcional)
                       </Text>
                     </View>
                     <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.oldSOATPhoto} style={{ paddingLeft: wp('23%') }}>
+                      <Button transparent onPress={this.oldSOATPhoto} style={{ paddingLeft: wp('18%') }}>
                         <Image
                           source={urloldSoat}
                           style={{ width: 40, height: 40 }}

@@ -267,7 +267,7 @@ export default class UserRequests extends Component {
         </View>
         <Header style={styles.container}>
           <Left>
-            <TouchableOpacity onPress={this.scaleModal}>
+            <TouchableOpacity onPress={this.scaleModal} style={{ paddingLeft: 10 }}>
               <Image
                 source={require('../../assets/icons/call.png')}
                 style={{

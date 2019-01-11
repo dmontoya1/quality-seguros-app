@@ -8,6 +8,8 @@ import firebase from 'react-native-firebase';
 import IntroView from './components/IntroView/IntroView';
 import Login from './components/Auth/Login';
 import SignUp from './components/Auth/Sign_up';
+import Terms from './components/Auth/Terms';
+import Policies from './components/Auth/Policies';
 import Dashboard from './components/InternalViews/Dashboard';
 import Profile from './components/InternalViews/Profile/Profile';
 import ProfileEdit from './components/InternalViews/Profile/Profile_edit';
@@ -213,6 +215,18 @@ export default class App extends Component {
             newJWT={this.newJWT}
           />
           <Scene
+            key="terms"
+            component={Terms}
+            hideNavBar
+            newJWT={this.newJWT}
+          />
+          <Scene
+            key="policies"
+            component={Policies}
+            hideNavBar
+            newJWT={this.newJWT}
+          />
+          <Scene
             key="insurance"
             component={UserInsurance}
             hideNavBar
@@ -225,6 +239,7 @@ export default class App extends Component {
             component={Dashboard}
             hideNavBar
             token={this.state.jwt}
+            deleteJWT={this.deleteJWT}
           />
           <Scene key="profile" component={Profile} hideNavBar />
           <Scene key="profile_edit" component={ProfileEdit} hideNavBar />

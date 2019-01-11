@@ -26,7 +26,7 @@ export default class Profile extends Component {
   render() {
     const { token, profile } = this.props;
     return (
-      <Container style={{ paddingTop: 20 }}>
+      <Container>
         <Header style={styles.container}>
           <Left>
             <Button transparent onPress={() => Actions.pop()}>

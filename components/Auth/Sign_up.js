@@ -4,7 +4,7 @@ import {
   Button, Icon, Title, Form, Item, Input, Label, View,
 } from 'native-base';
 import {
-  StyleSheet, ScrollView, Text, Alert, KeyboardAvoidingView,
+  StyleSheet, ScrollView, Text, Alert, KeyboardAvoidingView, TouchableOpacity,
 } from 'react-native';
 
 import {
@@ -92,13 +92,13 @@ export default class SignUp extends Component {
           );
         })
         .catch((error) => {
+          console.warn(error.response);
           Alert.alert(
             'Error',
-            'Debes llenar los campos de registro.',
+            error.response.data.error,
             [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
             { cancelable: false },
           );
-          console.log(error);
         });
     } else {
       Alert.alert(
@@ -213,23 +213,28 @@ export default class SignUp extends Component {
                   onPress={() => this.setState({ checked: !checked })}
                 />
               </View>
-              <View style={{ paddingLeft: 30 }}>
-                <Text style={{ textAlign: 'left', paddingLeft: 10 }}>
-                    Al continuar acepta nuestros
+              <View style={{ paddingLeft: 30, textAlign: 'left' }}>
+                <Text>
+                  Al continuar acepta nuestros
                   {' '}
-                  <Text style={{ fontWeight: 'bold' }}>
+                  {' '}
+                  <Text style={{ fontWeight: 'bold' }} onPress={() => Actions.terms()}>
+                    Términos y condiciones
                     {' '}
-                      Términos y
                     {' '}
-                    {'\n'}
-                    condiciones
                   </Text>
-                  {' '}
-                      y
-                  {' '}
-                  <Text style={{ fontWeight: 'bold' }}>Politica de tratamiento de datos</Text>
-                  {' '}
+                  <Text>
+                  y
+                    {' '}
+                    {' '}
+                  </Text>
+                  <Text style={{ fontWeight: 'bold' }} onPress={() => Actions.policies()}>
+                    Política de tratamiento de datos
+                    {' '}
+                    {' '}
+                  </Text>
                 </Text>
+
               </View>
             </View>
             <View style={{ paddingLeft: 22, paddingRight: 10, paddingBottom: 15 }}>
@@ -267,7 +272,6 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
   },
   button: {
     borderRadius: 10,

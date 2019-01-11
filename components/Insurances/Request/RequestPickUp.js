@@ -25,6 +25,7 @@ import {
 } from 'react-native-responsive-screen';
 
 import DatePicker from 'react-native-datepicker';
+import moment from 'moment';
 
 import axios from '../../Axios/axios';
 
@@ -36,8 +37,8 @@ export default class RequestPickUp extends Component {
     this.state = {
       token: '',
       address: '',
-      date: new Date(),
-      time: '',
+      date: moment(new Date()).format('YYYY-MM-DD'),
+      time: moment(new Date()).format('HH:mm'),
     };
 
     this.submit = this.submit.bind(this);
@@ -56,41 +57,51 @@ export default class RequestPickUp extends Component {
       time,
     } = this.state;
 
-    const dataToSend = {
-      address,
-      pickup_date: date,
-      pickup_time: time,
-      request_id: this.props.id,
-    };
-    axios.post('api/insurances/request-domi/', dataToSend)
-      .then((response) => {
-        Alert.alert(
-          'Atención',
-          'Tu solicitud ha sido creado exitosamente. En el dia y la hora seleccionara un domiciliario recogera tu dinero.',
-          [
-            { text: 'Aceptar', onPress: () => Actions.home() },
-          ],
-          { cancelable: false },
-        );
-      })
-      .catch((error) => {
-        Alert.alert(
-          'Error',
-          'Ha ocurrido un error, intenta nuevamente',
-          [
-            { text: 'Aceptar', onPress: () => {} },
-          ],
-          { cancelable: false },
-        );
-        console.log(error);
-      });
+    if (address === '') {
+      Alert.alert(
+        'Error',
+        'Debes ingresar la dirección de recogida.',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
+    } else {
+      const dataToSend = {
+        address,
+        pickup_date: date,
+        pickup_time: time,
+        request_id: this.props.id,
+      };
+      console.log(dataToSend);
+      axios.post('api/insurances/request-domi/', dataToSend)
+        .then((response) => {
+          Alert.alert(
+            'Atención',
+            'Tu solicitud ha sido creado exitosamente. En el dia y la hora seleccionara un domiciliario recogera tu dinero.',
+            [
+              { text: 'Aceptar', onPress: () => Actions.home() },
+            ],
+            { cancelable: false },
+          );
+        })
+        .catch((error) => {
+          Alert.alert(
+            'Error',
+            'Ha ocurrido un error, intenta nuevamente',
+            [
+              { text: 'Aceptar', onPress: () => {} },
+            ],
+            { cancelable: false },
+          );
+          console.log(error);
+        });
+    }
   }
 
   render() {
-    const days = 7; // Days you want to subtract
-    const date = new Date();
-    const last = new Date(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const day = last.getDate();
+    const tomorrow = moment(new Date()).add(7, 'day').format('YYYY-MM-DD');
+
     return (
 
       <Container>
@@ -142,7 +153,7 @@ export default class RequestPickUp extends Component {
               placeholder="placeholder"
               format="YYYY-MM-DD"
               minDate={new Date()}
-              maxDate={day}
+              maxDate={tomorrow}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               onDateChange={(date) => { this.setState({ date }); }}
