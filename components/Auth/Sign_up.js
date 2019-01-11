@@ -7,6 +7,11 @@ import {
   StyleSheet, ScrollView, Text, Alert, KeyboardAvoidingView, TouchableOpacity,
 } from 'react-native';
 
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+
 import { Actions } from 'react-native-router-flux';
 
 import deviceStorage from '../AsyncStorage/deviceStorage';
@@ -114,10 +119,10 @@ export default class SignUp extends Component {
         <Header style={styles.header}>
           <Left>
             <Button transparent onPress={() => Actions.pop()}>
-              <Icon name="arrow-back" />
+              <Icon name="arrow-back" style={{ color: '#fff' }} />
             </Button>
           </Left>
-          <Body style={{ paddingRight: 80 }}>
+          <Body style={{ position: 'absolute', left: wp('40%') }}>
             <Title style={styles.title}>Registro</Title>
           </Body>
         </Header>
@@ -247,13 +252,8 @@ export default class SignUp extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#ffffff',
-    flex: 1,
-
-  },
   header: {
-    backgroundColor: '#192a56',
+    backgroundColor: '#152a56',
   },
   title: {
     color: '#fff',
