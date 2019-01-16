@@ -79,7 +79,7 @@ export default class ProfileEdit extends Component {
       <Container>
         <Header style={styles.container}>
           <Left>
-            <Button transparent>
+            <Button transparent onPress={() => Actions.pop()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>

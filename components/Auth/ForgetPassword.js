@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Container, Header, Content, Button, Icon, Text, View, Form, Item, Input, Label,
+  Container, Header, Content, Button, Icon, Text, View, Form, Item, Input, Body, Left, Title,
 } from 'native-base';
 import {
   StyleSheet, Alert, AsyncStorage, Image,
@@ -11,13 +11,12 @@ import { Actions } from 'react-native-router-flux';
 import deviceStorage from '../AsyncStorage/deviceStorage';
 import axios from '../Axios/axios';
 
-export default class Login extends Component {
+export default class ForgetPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
       token: '',
-      username: '',
-      password: '',
+      email: '',
     };
 
     this.submit = this.submit.bind(this);
@@ -25,28 +24,30 @@ export default class Login extends Component {
 
   submit() {
     const {
-      username,
-      password,
+      email,
     } = this.state;
 
     const dataToSend = {
-      username,
-      password,
+      email,
     };
     console.log(dataToSend);
-    axios.post('api/users/login/', dataToSend)
+    axios.post('api/users/password-reset/', dataToSend)
       .then((response) => {
-        const token = response.data.token;
-        deviceStorage.saveItem('id_token', token);
-        this.props.newJWT(token);
-        this.props.sendFcmToken(token);
-        Actions.insurance({ token });
+        console.log(response.data);
+        Alert.alert(
+          'Correcto',
+          'Hemos enviado las instrucciones a tu correo para que puedas recuperar la contraseña',
+          [
+            { text: 'Aceptar', onPress: () => Actions.logIn() },
+          ],
+          { cancelable: false },
+        );
       })
       .catch((error) => {
         console.log(error.response);
         Alert.alert(
           'Error',
-          'Contraseña o correo electronico incorrectos.',
+          error.response.data.error,
           [
             { text: 'Aceptar', onPress: () => {} },
           ],
@@ -59,6 +60,16 @@ export default class Login extends Component {
   render() {
     return (
       <Container style={styles.container}>
+        <Header style={styles.container}>
+          <Left>
+            <Button transparent onPress={() => Actions.pop()}>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body style={{ paddingRight: 80 }}>
+            <Title style={{ color: '#fff' }}>Recuperar contraseña</Title>
+          </Body>
+        </Header>
         <Content>
           <View style={styles.imageContainer}>
             <Image
@@ -76,38 +87,17 @@ export default class Login extends Component {
                   style={styles.textInput}
                   autoCapitalize="none"
                   borderColor="rgba(255,255,255,.6)"
-                  onChangeText={username => this.setState({ username })}
-                />
-              </Item>
-              <Item fixedLabel>
-                <Input
-                  placeholder="Contraseña"
-                  placeholderTextColor="rgba(255,255,255,.6)"
-                  style={styles.textInput}
-                  borderColor="rgba(255,255,255,.6)"
-                  secureTextEntry
-                  autoCapitalize="none"
-                  onChangeText={password => this.setState({ password })}
+                  onChangeText={email => this.setState({ email })}
                 />
               </Item>
             </Form>
           </View>
           <View style={{ paddingLeft: 22, paddingRight: 25, paddingBottom: 20 }}>
-            <Text style={styles.button_forget} onPress={() => Actions.forget()}>
-              Olvidé mi Contraseña
-            </Text>
-          </View>
-          <View style={{ paddingLeft: 22, paddingRight: 25, paddingBottom: 20 }}>
             <Button block danger style={styles.button} onPress={this.submit}>
-              <Text>INICIAR SESIÓN</Text>
+              <Text>Enviar</Text>
             </Button>
           </View>
 
-          <View style={{ paddingLeft: 22, paddingRight: 25, paddingTop: 10 }}>
-            <Button block transparent style={styles.button2} onPress={() => Actions.signUp()}>
-              <Text style={{ color: 'white' }}>REGISTRARSE</Text>
-            </Button>
-          </View>
         </Content>
       </Container>
     );

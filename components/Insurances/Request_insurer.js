@@ -46,112 +46,112 @@ const data = {
   ],
   vehicleOptions: [
     {
-      id: 100, name: 'Ciclomotores', classId: 'motos', price: '$163.150',
+      id: 100, name: 'Ciclomotores', classId: 'motos', price: '$172.900',
     },
     {
-      id: 111, name: 'Menos de 100 C.C.', classId: 'motos', price: '$337.750',
+      id: 111, name: 'Menos de 100 C.C.', classId: 'motos', price: '$357.850',
     },
     {
-      id: 121, name: 'de 100 a 200 C.C.', classId: 'motos', price: '$452.950',
+      id: 121, name: 'de 100 a 200 C.C.', classId: 'motos', price: '$480.100',
     },
     {
-      id: 131, name: 'Mas de 200 C.C.', classId: 'motos', price: '$510.850',
+      id: 131, name: 'Mas de 200 C.C.', classId: 'motos', price: '$541.300',
     },
     {
-      id: 141, name: 'Motocarro, Tricimoto, Cuadriciclos', classId: 'motos', price: '$510.850',
+      id: 141, name: 'Motocarro, Tricimoto, Cuadriciclos', classId: 'motos', price: '$541.300',
     },
     {
-      id: 211, name: 'Menos de 1500 C.C.', classId: 'camp-camioneta0-9', price: '531.850',
+      id: 211, name: 'Menos de 1500 C.C.', classId: 'camp-camioneta0-9', price: '563.650',
     },
     {
-      id: 221, name: 'De 1500 a 2500 C.C.', classId: 'camp-camioneta0-9', price: '635.050',
+      id: 221, name: 'De 1500 a 2500 C.C.', classId: 'camp-camioneta0-9', price: '673.000',
     },
     {
-      id: 231, name: 'Mas de 2500 C.C.', classId: 'camp-camioneta0-9', price: '$744.850',
+      id: 231, name: 'Mas de 2500 C.C.', classId: 'camp-camioneta0-9', price: '$789.400',
     },
     {
-      id: 212, name: 'Menos de 1500 C.C.', classId: 'camp-camioneta10', price: '$639.250',
+      id: 212, name: 'Menos de 1500 C.C.', classId: 'camp-camioneta10', price: '$677.500',
     },
     {
-      id: 222, name: 'De 1500 a 2500 C.C.', classId: 'camp-camioneta10', price: '$752.200',
+      id: 222, name: 'De 1500 a 2500 C.C.', classId: 'camp-camioneta10', price: '$797.200',
     },
     {
-      id: 232, name: 'Mas de 2500 C.C.', classId: 'camp-camioneta10', price: '$854.500',
+      id: 232, name: 'Mas de 2500 C.C.', classId: 'camp-camioneta10', price: '$905.650',
     },
     {
-      id: 311, name: 'Menos de 5 Toneladas', classId: 'carga-mixto', price: '$595.900',
+      id: 311, name: 'Menos de 5 Toneladas', classId: 'carga-mixto', price: '$631.600',
     },
     {
-      id: 321, name: 'Entre 5 y 15 Toneladas', classId: 'carga-mixto', price: '$860.350',
+      id: 321, name: 'Entre 5 y 15 Toneladas', classId: 'carga-mixto', price: '$911.950',
     },
     {
-      id: 331, name: 'Mas de 15 Toneladas', classId: 'carga-mixto', price: '$1.087.750',
+      id: 331, name: 'Mas de 15 Toneladas', classId: 'carga-mixto', price: '$1.152.850',
     },
     {
-      id: 411, name: 'Menos de 1500 C.C.', classId: 'ofi-especiales', price: '$670.600',
+      id: 411, name: 'Menos de 1500 C.C.', classId: 'ofi-especiales', price: '$710.650',
     },
     {
-      id: 421, name: 'De 1500 a 2500 C.C.', classId: 'ofi-especiales', price: '$845.200',
+      id: 421, name: 'De 1500 a 2500 C.C.', classId: 'ofi-especiales', price: '$895.750',
     },
     {
-      id: 431, name: 'Mas de 2500 C.C.', classId: 'ofi-especiales', price: '$1.013.200',
+      id: 431, name: 'Mas de 2500 C.C.', classId: 'ofi-especiales', price: '$1.073.800',
     },
     {
-      id: 511, name: 'Menos de 1500 C.C.', classId: 'fam-09', price: '$300.250',
+      id: 511, name: 'Menos de 1500 C.C.', classId: 'fam-09', price: '$318.100',
     },
     {
-      id: 521, name: 'De 1500 a 2500 C.C.', classId: 'fam-09', price: '$365.500',
+      id: 521, name: 'De 1500 a 2500 C.C.', classId: 'fam-09', price: '$387.250',
     },
     {
-      id: 531, name: 'Mas de 2500 C.C.', classId: 'fam-09', price: '$426.850',
+      id: 531, name: 'Mas de 2500 C.C.', classId: 'fam-09', price: '$452.350',
     },
     {
-      id: 512, name: 'Menos de 1500 C.C.', classId: 'fam-10', price: '$397.900',
+      id: 512, name: 'Menos de 1500 C.C.', classId: 'fam-10', price: '$421.750',
     },
     {
-      id: 522, name: 'De 1500 a 2500 C.C.', classId: 'fam-10', price: '$454.600',
+      id: 522, name: 'De 1500 a 2500 C.C.', classId: 'fam-10', price: '$481.750',
     },
     {
-      id: 532, name: 'Mas de 2500 C.C.', classId: 'fam-10', price: '$506.050',
+      id: 532, name: 'Mas de 2500 C.C.', classId: 'fam-10', price: '$536.350',
     },
     {
-      id: 611, name: 'Menos de 2500 C.C.', classId: 'vehicle6-9', price: '$535.000',
+      id: 611, name: 'Menos de 2500 C.C.', classId: 'vehicle6-9', price: '$566.950',
     },
     {
-      id: 621, name: '2500 C.C. o mas', classId: 'vehicle6-9', price: '$715.900',
+      id: 621, name: '2500 C.C. o mas', classId: 'vehicle6-9', price: '$758.650',
     },
     {
-      id: 611, name: 'Menos de 2500 C.C.', classId: 'vehicle6-10', price: '$535.000',
+      id: 611, name: 'Menos de 2500 C.C.', classId: 'vehicle6-10', price: '$723.550',
     },
     {
-      id: 621, name: '2500 C.C. o mas', classId: 'vehicle6-10', price: '$715.900',
+      id: 621, name: '2500 C.C. o mas', classId: 'vehicle6-10', price: '$911.050',
     },
     {
-      id: 711, name: 'Menos de 1500 C.C.', classId: 'negocio-09', price: '$371.800',
+      id: 711, name: 'Menos de 1500 C.C.', classId: 'negocio-09', price: '$394.000',
     },
     {
-      id: 721, name: 'De 1500 a 2500 C.C.', classId: 'negocio-09', price: '$461.950',
+      id: 721, name: 'De 1500 a 2500 C.C.', classId: 'negocio-09', price: '$489.550',
     },
     {
-      id: 731, name: 'Mas de 2500 C.C.', classId: 'negocio-09', price: '$595.900',
+      id: 731, name: 'Mas de 2500 C.C.', classId: 'negocio-09', price: '$631.600',
     },
     {
-      id: 712, name: 'Menos de 1500 C.C.', classId: 'negocio-10', price: '$464.350',
+      id: 712, name: 'Menos de 1500 C.C.', classId: 'negocio-10', price: '$492.100',
     },
     {
-      id: 722, name: 'De 1500 a 2500 C.C.', classId: 'negocio-10', price: '$571.000',
+      id: 722, name: 'De 1500 a 2500 C.C.', classId: 'negocio-10', price: '$605.050',
     },
     {
-      id: 732, name: 'Mas de 2500 C.C.', classId: 'negocio-10', price: '$699.100',
+      id: 732, name: 'Mas de 2500 C.C.', classId: 'negocio-10', price: '$740.950',
     },
     {
-      id: 811, name: 'Bus, Buseta Urbano', classId: 'bus-urbano', price: '$889.300',
+      id: 811, name: 'Bus, Buseta Urbano', classId: 'bus-urbano', price: '$942.550',
     },
     {
-      id: 911, name: 'Menos de 10 pasajeros', classId: 'bus-inter', price: '$879.550',
+      id: 911, name: 'Menos de 10 pasajeros', classId: 'bus-inter', price: '$932.200',
     },
     {
-      id: 921, name: '10 o mas pasajeros', classId: 'bus-inter', price: '$1.276.000',
+      id: 921, name: '10 o mas pasajeros', classId: 'bus-inter', price: '$1.352.500',
     },
   ],
   vehicleEmpty: [

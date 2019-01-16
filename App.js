@@ -7,6 +7,7 @@ import firebase from 'react-native-firebase';
 
 import IntroView from './components/IntroView/IntroView';
 import Login from './components/Auth/Login';
+import ForgetPassword from './components/Auth/ForgetPassword';
 import SignUp from './components/Auth/Sign_up';
 import Terms from './components/Auth/Terms';
 import Policies from './components/Auth/Policies';
@@ -211,6 +212,12 @@ export default class App extends Component {
           <Scene
             key="signUp"
             component={SignUp}
+            hideNavBar
+            newJWT={this.newJWT}
+          />
+          <Scene
+            key="forget"
+            component={ForgetPassword}
             hideNavBar
             newJWT={this.newJWT}
           />
