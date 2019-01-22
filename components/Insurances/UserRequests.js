@@ -271,7 +271,7 @@ export default class UserRequests extends Component {
               <Image
                 source={require('../../assets/icons/call.png')}
                 style={{
-                  height: 30, width: 30,
+                  height: 25, width: 25,
                 }}
               />
 

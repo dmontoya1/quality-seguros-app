@@ -280,25 +280,25 @@ export default class Insurance extends Component {
           </Animated.Modal>
         </View>
         <Header style={styles.container}>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <TouchableOpacity onPress={this.scaleModal} style={{ paddingLeft: 10 }}>
               <Image
                 source={require('../../assets/icons/call.png')}
                 style={{
-                  height: 30, width: 30,
+                  height: 25, width: 25,
                 }}
               />
 
             </TouchableOpacity>
           </Left>
-          <Body style={{ position: 'absolute', left: wp('30%') }}>
+          <Body style={{ flex: 1, right: wp('6%') }}>
             <Image
               source={require('../../assets/images/Quality-text1.png')}
               resizeMode="contain"
               style={{ width: 150, height: 30 }}
             />
           </Body>
-          <Right>
+          <Right style={{ flex: 1 }}>
             <Menu
               ref={this.setMenuRef}
               button={(

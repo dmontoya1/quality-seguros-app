@@ -559,7 +559,7 @@ export default class Request extends Component {
               <Icon name="arrow-back" style={{ color: '#fff' }} />
             </Button>
           </Left>
-          <Body style={{ position: 'absolute', left: wp('30%') }}>
+          <Body style={{ position: 'absolute', left: wp('30%'), paddingTop: 15 }}>
             <Image
               source={require('../../assets/images/Quality-text1.png')}
               resizeMode="contain"
@@ -643,8 +643,8 @@ export default class Request extends Component {
                         Parte delantera
                       </Text>
                     </View>
-                    <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.propertyPhoto} style={{ paddingLeft: wp('18%') }}>
+                    <View style={styles.rightContainer}>
+                      <Button transparent onPress={this.propertyPhoto} style={styles.rightIcon}>
                         <Image
                           source={urlDocument}
                           style={{ width: 40, height: 40 }}
@@ -664,8 +664,8 @@ export default class Request extends Component {
                         Parte trasera
                       </Text>
                     </View>
-                    <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.propertyPhoto1} style={{ paddingLeft: wp('18%') }}>
+                    <View style={styles.rightContainer}>
+                      <Button transparent onPress={this.propertyPhoto1} style={styles.rightIcon}>
                         <Image
                           source={urlproperty2}
                           style={{ width: 40, height: 40 }}
@@ -673,20 +673,20 @@ export default class Request extends Component {
                       </Button>
                     </View>
                   </View>
-                  <View style={{ flexDirection: 'row', paddingTop: 20 }}>
+                  <View style={{ flexDirection: 'row', paddingTop: 10 }}>
                     <View>
                       <Text style={{
                         color: 'rgba(0,0,0,1)', fontSize: 13, position: 'relative', top: -5, right: 10,
                       }}
                       >
-                        Foto SOAT Anterior           .
+                        Foto SOAT Anterior
                         {' '}
                         {'\n'}
                         (Opcional)
                       </Text>
                     </View>
-                    <View style={{ position: 'relative', top: -15, textAlign: 'right' }}>
-                      <Button transparent onPress={this.oldSOATPhoto} style={{ paddingLeft: wp('18%') }}>
+                    <View style={styles.rightContainer}>
+                      <Button transparent onPress={this.oldSOATPhoto} style={styles.rightIcon}>
                         <Image
                           source={urloldSoat}
                           style={{ width: 40, height: 40 }}
@@ -697,7 +697,7 @@ export default class Request extends Component {
                 </View>
               </CardItem>
             </Card>
-            <Card>
+            <Card style={{ width: wp('96%') }}>
               <CardItem>
                 <View style={{ paddingTop: 20, flex: 1 }}>
                   <VehicleClass
@@ -721,7 +721,7 @@ export default class Request extends Component {
                 </View>
               </CardItem>
             </Card>
-            <Card>
+            <Card style={{ width: wp('96%') }}>
               <CardItem>
                 <Input
                   placeholder="Codigo Asesor"
@@ -755,6 +755,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#05071e',
     paddingTop: 20,
+    paddingBottom: 15,
   },
   button: {
     borderRadius: 10,
@@ -778,5 +779,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     fontSize: 20,
+  },
+  rightContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingBottom: 35,
+  },
+  rightIcon: {
+    height: 10,
+    width: 10,
+    resizeMode: 'contain',
+    backgroundColor: 'white',
+    paddingRight: 30,
   },
 });

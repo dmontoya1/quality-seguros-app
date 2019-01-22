@@ -323,7 +323,7 @@ export default class Dashboard extends Component {
                 <Image
                   source={require('../../assets/icons/call.png')}
                   style={{
-                    height: 30, width: 30,
+                    height: 25, width: 25,
                   }}
                 />
 
@@ -455,7 +455,7 @@ const styles = StyleSheet.create({
   },
   footerTextActive: {
     color: '#05071e',
-    fontSize: 9,
+    fontSize: 5,
     fontWeight: 'bold',
   },
 

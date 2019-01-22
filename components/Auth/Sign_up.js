@@ -66,49 +66,48 @@ export default class SignUp extends Component {
         ],
         { cancelable: false },
       );
-      return;
-    }
-
-    const dataToSend = {
-      first_name,
-      last_name,
-      document_id,
-      phone_number,
-      email: mail,
-      username: mail,
-      password,
-    };
-
-    if (this.state.checked) {
-      axios.post('api/users/sign_up/', dataToSend)
-        .then((response) => {
-          Alert.alert(
-            'Registro exitoso',
-            'Ahora puedes solicitar tu SOAT y otros seguros a través de la aplicación y llevarlos en todo momento.',
-            [
-              { text: 'Aceptar', onPress: () => Actions.logIn() },
-            ],
-            { cancelable: false },
-          );
-        })
-        .catch((error) => {
-          console.warn(error.response);
-          Alert.alert(
-            'Error',
-            error.response.data.error,
-            [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
-            { cancelable: false },
-          );
-        });
     } else {
-      Alert.alert(
-        'Error',
-        'Debes aceptar los terminos y condiciones.',
-        [
-          { text: 'OK', onPress: () => console.log('OK Pressed') },
-        ],
-        { cancelable: false },
-      );
+      const dataToSend = {
+        first_name,
+        last_name,
+        document_id,
+        phone_number,
+        email: mail,
+        username: mail,
+        password,
+      };
+
+      if (this.state.checked) {
+        axios.post('api/users/sign_up/', dataToSend)
+          .then((response) => {
+            Alert.alert(
+              'Registro exitoso',
+              'Ahora puedes solicitar tu SOAT y otros seguros a través de la aplicación y llevarlos en todo momento.',
+              [
+                { text: 'Aceptar', onPress: () => Actions.logIn() },
+              ],
+              { cancelable: false },
+            );
+          })
+          .catch((error) => {
+            console.warn(error.response);
+            Alert.alert(
+              'Error',
+              error.response.data.error,
+              [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+              { cancelable: false },
+            );
+          });
+      } else {
+        Alert.alert(
+          'Error',
+          'Debes aceptar los terminos y condiciones.',
+          [
+            { text: 'OK', onPress: () => console.log('OK Pressed') },
+          ],
+          { cancelable: false },
+        );
+      }
     }
   }
 
@@ -117,12 +116,12 @@ export default class SignUp extends Component {
     return (
       <Container>
         <Header style={styles.header}>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <Button transparent onPress={() => Actions.pop()}>
               <Icon name="arrow-back" style={{ color: '#fff' }} />
             </Button>
           </Left>
-          <Body style={{ position: 'absolute', left: wp('40%') }}>
+          <Body style={{ flex: 1, right: wp('5%') }}>
             <Title style={styles.title}>Registro</Title>
           </Body>
         </Header>

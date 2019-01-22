@@ -28,20 +28,17 @@ export default class Profile extends Component {
     return (
       <Container>
         <Header style={styles.container}>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <Button transparent onPress={() => Actions.pop()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
-          <Body style={{ paddingRight: 80 }}>
+          <Body style={{ flex: 1, paddingRight: 20 }}>
             <Title style={{ color: '#fff' }}>Perfil</Title>
           </Body>
         </Header>
         <View style={styles.container_form}>
-          <View style={{
-            flexDirection: 'row', paddingLeft: -5, paddingTop: 40, paddingRight: 40,
-          }}
-          >
+          <View style={styles.container_input}>
             <View style={{ paddingLeft: -5, paddingTop: 10 }}>
               <Image source={require('../../../assets/icons/name.png')} resizeMode="contain" style={{ width: 40, height: 40, opacity: 0.38 }} />
             </View>
@@ -52,11 +49,16 @@ export default class Profile extends Component {
               </Item>
             </View>
           </View>
-          <View style={{ paddingLeft: 50, paddingTop: 20 }}>
-            <Item stackedLabel style={styles.input}>
-              <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Apellidos</Label>
-              <Input disabled style={{ width: 250 }} defaultValue={profile.last_name} />
-            </Item>
+          <View style={styles.container_input}>
+            <View style={{ paddingLeft: -5, paddingTop: 10 }}>
+              <Image source={require('../../../assets/icons/name.png')} resizeMode="contain" style={{ width: 40, height: 40, opacity: 0.38 }} />
+            </View>
+            <View style={{ paddingLeft: 10 }}>
+              <Item stackedLabel style={styles.input}>
+                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Apellidos</Label>
+                <Input disabled style={{ width: 250 }} defaultValue={profile.last_name} />
+              </Item>
+            </View>
           </View>
           <View style={styles.container_input}>
             <View style={{ paddingLeft: -5, paddingTop: 10 }}>
@@ -81,7 +83,7 @@ export default class Profile extends Component {
             </View>
           </View>
         </View>
-        <View style={{ paddingLeft: 270, paddingTop: 100 }}>
+        <View style={{ paddingLeft: 250, paddingTop: 30 }}>
           <Button
             transparent
             style={{ width: 65, height: 65 }}

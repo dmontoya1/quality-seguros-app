@@ -200,7 +200,7 @@ class RequestComponent extends Component {
                 </TouchableOpacity>
               </View>
             </View>
-            <View style={styles.container}>
+            <View style={styles.container1}>
               <View>
                 <TouchableOpacity
                   style={styles.button}
@@ -209,6 +209,8 @@ class RequestComponent extends Component {
                   <Text style={styles.buttonText}>Transferencia bancaria</Text>
                 </TouchableOpacity>
               </View>
+            </View>
+            <View style={styles.container1}>
               <View>
                 <TouchableOpacity
                   style={styles.button}
@@ -269,7 +271,7 @@ const styles = StyleSheet.create({
   },
   container1: {
     flex: 1,
-    marginTop: 15,
+    marginTop: 3,
     textAlign: 'center',
     paddingVertical: 5,
     alignContent: 'center',

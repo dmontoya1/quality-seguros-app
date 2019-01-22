@@ -18,6 +18,7 @@ export default class ProfileEdit extends Component {
       last_name: this.props.profile_data.last_name,
       email: this.props.profile_data.email,
       email2: this.props.profile_data.email,
+      username: this.props.profile_data.username,
       phone_number: this.props.profile_data.phone_number,
     };
 
@@ -31,6 +32,7 @@ export default class ProfileEdit extends Component {
       phone_number,
       email,
       email2,
+      username,
       token,
     } = this.state;
     if (email2 !== email) {
@@ -49,6 +51,7 @@ export default class ProfileEdit extends Component {
       last_name,
       email,
       phone_number,
+      username,
     };
 
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
@@ -78,27 +81,24 @@ export default class ProfileEdit extends Component {
     return (
       <Container>
         <Header style={styles.container}>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <Button transparent onPress={() => Actions.pop()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
-          <Body style={{ paddingRight: 80 }}>
+          <Body style={{ flex: 1, paddingRight: 70 }}>
             <Title style={{ color: '#fff' }}>Editar Perfil</Title>
           </Body>
         </Header>
         <ScrollView>
           <View style={styles.container_form}>
-            <View style={{
-              flexDirection: 'row', paddingLeft: -5, paddingTop: 40, paddingRight: 40,
-            }}
-            >
+            <View style={styles.container_input}>
               <View style={{ paddingLeft: -5, paddingTop: 10 }}>
                 <Image source={require('../../../assets/icons/name.png')} resizeMode="contain" style={{ width: 40, height: 40, opacity: 0.38 }} />
               </View>
               <View style={{ paddingLeft: 10 }}>
                 <Item stackedLabel style={styles.input}>
-                  <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Nombre</Label>
+                  <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Nombres</Label>
                   <Input
                     style={{ width: 250, height: 30 }}
                     defaultValue={this.state.first_name}
@@ -107,15 +107,20 @@ export default class ProfileEdit extends Component {
                 </Item>
               </View>
             </View>
-            <View style={{ paddingLeft: 50, paddingTop: 20 }}>
-              <Item stackedLabel style={styles.input}>
-                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Apellidos</Label>
-                <Input
-                  style={{ width: 250, height: 30 }}
-                  defaultValue={this.state.last_name}
-                  onChangeText={last_name => this.setState({ last_name })}
-                />
-              </Item>
+            <View style={styles.container_input}>
+              <View style={{ paddingLeft: -5, paddingTop: 10 }}>
+                <Image source={require('../../../assets/icons/name.png')} resizeMode="contain" style={{ width: 40, height: 40, opacity: 0.38 }} />
+              </View>
+              <View style={{ paddingLeft: 10 }}>
+                <Item stackedLabel style={styles.input}>
+                  <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Apellidos</Label>
+                  <Input
+                    style={{ width: 250, height: 30 }}
+                    defaultValue={this.state.last_name}
+                    onChangeText={last_name => this.setState({ last_name })}
+                  />
+                </Item>
+              </View>
             </View>
             <View style={styles.container_input}>
               <View style={{ paddingLeft: -5, paddingTop: 10 }}>
@@ -142,20 +147,27 @@ export default class ProfileEdit extends Component {
                   <Input
                     style={{ width: 250, height: 30 }}
                     defaultValue={this.state.email}
-                    onChangeText={email => this.setState({ email })}
+                    autoCapitalize="none"
+                    onChangeText={email => this.setState({ email, username: email })}
                   />
                 </Item>
               </View>
             </View>
-            <View style={{ paddingLeft: 50, paddingTop: 20 }}>
-              <Item stackedLabel style={styles.input}>
-                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Repetir Correo electrónico</Label>
-                <Input
-                  style={{ width: 250, height: 30 }}
-                  defaultValue={this.state.email2}
-                  onChangeText={email2 => this.setState({ email2 })}
-                />
-              </Item>
+            <View style={styles.container_input}>
+              <View style={{ paddingLeft: -5, paddingTop: 10 }}>
+                <Image source={require('../../../assets/icons/mail.png')} resizeMode="contain" style={{ width: 40, height: 40, opacity: 0.38 }} />
+              </View>
+              <View style={{ paddingLeft: 10 }}>
+                <Item stackedLabel style={styles.input}>
+                  <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Repetir Correo electrónico</Label>
+                  <Input
+                    style={{ width: 250, height: 30 }}
+                    defaultValue={this.state.email2}
+                    autoCapitalize="none"
+                    onChangeText={email2 => this.setState({ email2 })}
+                  />
+                </Item>
+              </View>
             </View>
           </View>
         </ScrollView>
