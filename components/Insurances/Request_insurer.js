@@ -187,6 +187,7 @@ export default class Request extends Component {
     this.oldSOATPhoto = this.oldSOATPhoto.bind(this);
     this.getProfile = this.getProfile.bind(this);
     this.userLogout = this.userLogout.bind(this);
+    this.userRequests = this.userRequests.bind(this);
   }
 
 
@@ -379,6 +380,37 @@ export default class Request extends Component {
     }
   };
 
+  userRequests() {
+    const { token } = this.props;
+    axios.defaults.headers.common.Authorization = `JWT ${token}`;
+    axios.get('api/insurances/requests/')
+      .then((response) => {
+        const requests = response.data;
+        if (requests.length > 0) {
+          Actions.userRequest({ requests, token });
+        } else {
+          Alert.alert(
+            'Atención',
+            'Aún no tienes solicitudes creadas. Puedes solicitar un seguro desde aqui',
+            [
+              { text: 'Aceptar', onPress: () => {} },
+            ],
+            { cancelable: false },
+          );
+        }
+      })
+      .catch((error) => {
+        console.log(error.response);
+        Alert.alert(
+          'Atención',
+          'Aún no tienes solicitudes creadas. Puedes solicitar un seguro desde aqui',
+          [
+            { text: 'Aceptar', onPress: () => {} },
+          ],
+          { cancelable: false },
+        );
+      });
+  }
 
   userLogout() {
     this.props.deleteJWT();
@@ -430,9 +462,9 @@ export default class Request extends Component {
           });
           Alert.alert(
             'Información',
-            'Tu solicitud se ha creado exitosamente. Ahora puedes dirigirte a la vista de "Mis Solicitudes" y encontrar instrucciones para pagar tu seguro.',
+            'Tu solicitud se ha generado exitosamente y se encuentra en proceso. Por favor selecciona el método de pago para continuar con la solicitud',
             [
-              { text: 'Aceptar', onPress: () => Actions.home({ token }) },
+              { text: 'Aceptar', onPress: () => this.userRequests() },
             ],
             { cancelable: false },
           );

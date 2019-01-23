@@ -130,6 +130,9 @@ export default class App extends Component {
     * */
     this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
       const { title, body } = notificationOpen.notification;
+      console.log(notificationOpen);
+      console.log(title);
+      console.log(body);
       this.showAlert(title, body);
     });
 
@@ -139,6 +142,8 @@ export default class App extends Component {
     const notificationOpen = await firebase.notifications().getInitialNotification();
     if (notificationOpen) {
       const { title, body } = notificationOpen.notification;
+      console.log(title);
+      console.log(body);
       this.showAlert(title, body);
     }
     /*

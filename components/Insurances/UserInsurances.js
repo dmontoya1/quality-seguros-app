@@ -181,14 +181,24 @@ export default class Insurance extends Component {
               {/* <Text style={styles.line}>─────────────</Text> */}
 
               <View style={{ flexDirection: 'row', width: wp('70%'), paddingTop: 10 }}>
-                <Image
-                  source={require('../../assets/icons/ambulancia.png')}
-                  resizeMode="contain"
-                  style={{
-                    width: 30, height: 30, opacity: 0.38, paddingLeft: 40,
-                  }}
-                />
-                <Text style={{ paddingLeft: 30 }}>Ambulancia</Text>
+                <TouchableOpacity onPress={() => {
+                  RNImmediatePhoneCall.immediatePhoneCall('125');
+                }}
+                >
+                  <Image
+                    source={require('../../assets/icons/ambulancia.png')}
+                    resizeMode="contain"
+                    style={{
+                      width: 30, height: 30, opacity: 0.38, paddingLeft: 40,
+                    }}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  RNImmediatePhoneCall.immediatePhoneCall('125');
+                }}
+                >
+                  <Text style={{ paddingLeft: 30 }}>Ambulancia</Text>
+                </TouchableOpacity>
                 <View style={{ paddingLeft: wp('18%') }}>
                   <TouchableOpacity onPress={() => {
                     RNImmediatePhoneCall.immediatePhoneCall('125');
@@ -205,14 +215,24 @@ export default class Insurance extends Component {
 
 
               <View style={{ flexDirection: 'row', width: wp('70%'), paddingTop: 10 }}>
-                <Image
-                  source={require('../../assets/icons/camion-de-bomberos.png')}
-                  resizeMode="contain"
-                  style={{
-                    width: 30, height: 30, opacity: 0.38, paddingLeft: 40,
-                  }}
-                />
-                <Text style={{ paddingLeft: 30 }}>Bomberos</Text>
+                <TouchableOpacity onPress={() => {
+                  RNImmediatePhoneCall.immediatePhoneCall('119');
+                }}
+                >
+                  <Image
+                    source={require('../../assets/icons/camion-de-bomberos.png')}
+                    resizeMode="contain"
+                    style={{
+                      width: 30, height: 30, opacity: 0.38, paddingLeft: 40,
+                    }}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  RNImmediatePhoneCall.immediatePhoneCall('119');
+                }}
+                >
+                  <Text style={{ paddingLeft: 30 }}>Bomberos</Text>
+                </TouchableOpacity>
                 <View style={{ paddingLeft: wp('21%') }}>
                   <TouchableOpacity onPress={() => {
                     RNImmediatePhoneCall.immediatePhoneCall('119');
@@ -229,14 +249,24 @@ export default class Insurance extends Component {
 
 
               <View style={{ flexDirection: 'row', width: wp('70%'), paddingTop: 10 }}>
-                <Image
-                  source={require('../../assets/icons/divisa.png')}
-                  resizeMode="contain"
-                  style={{
-                    width: 30, height: 30, opacity: 0.38, paddingLeft: 40,
-                  }}
-                />
-                <Text style={{ paddingLeft: 30 }}>Policia</Text>
+                <TouchableOpacity onPress={() => {
+                  RNImmediatePhoneCall.immediatePhoneCall('156');
+                }}
+                >
+                  <Image
+                    source={require('../../assets/icons/divisa.png')}
+                    resizeMode="contain"
+                    style={{
+                      width: 30, height: 30, opacity: 0.38, paddingLeft: 40,
+                    }}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  RNImmediatePhoneCall.immediatePhoneCall('156');
+                }}
+                >
+                  <Text style={{ paddingLeft: 30 }}>Policia</Text>
+                </TouchableOpacity>
                 <View style={{ paddingLeft: wp('28%') }}>
                   <TouchableOpacity onPress={() => {
                     RNImmediatePhoneCall.immediatePhoneCall('156');
@@ -253,14 +283,24 @@ export default class Insurance extends Component {
 
 
               <View style={{ flexDirection: 'row', width: wp('70%'), paddingTop: 10 }}>
-                <Image
-                  source={require('../../assets/icons/seguridad.png')}
-                  resizeMode="contain"
-                  style={{
-                    width: 30, height: 30, opacity: 0.38, paddingLeft: 40,
-                  }}
-                />
-                <Text style={{ paddingLeft: 30 }}>Emergencias</Text>
+                <TouchableOpacity onPress={() => {
+                  RNImmediatePhoneCall.immediatePhoneCall('123');
+                }}
+                >
+                  <Image
+                    source={require('../../assets/icons/seguridad.png')}
+                    resizeMode="contain"
+                    style={{
+                      width: 30, height: 30, opacity: 0.38, paddingLeft: 40,
+                    }}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  RNImmediatePhoneCall.immediatePhoneCall('123');
+                }}
+                >
+                  <Text style={{ paddingLeft: 30 }}>Emergencias</Text>
+                </TouchableOpacity>
                 <View style={{ paddingLeft: wp('17%') }}>
                   <TouchableOpacity onPress={() => {
                     RNImmediatePhoneCall.immediatePhoneCall('123');
@@ -409,14 +449,14 @@ const styles = StyleSheet.create({
     marginRight: 7,
   },
   footerText: {
-    fontSize: 10,
+    fontSize: 8,
   },
   active: {
     backgroundColor: '#ccc',
   },
   footerTextActive: {
     color: '#05071e',
-    fontSize: 10,
+    fontSize: 8,
     fontWeight: 'bold',
   },
   modal: {
