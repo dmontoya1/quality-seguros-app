@@ -37,7 +37,7 @@ export default class IntroView extends Component {
           flexDirection: 'row', position: 'absolute', flex: 1, paddingHorizontal: 10, paddingBottom: 50, justifyContent: 'space-between', alignItems: 'flex-end',
         }}
         nextButton={<Text style={{ fontSize: 15, color: 'white' }}>Siguiente ›</Text>}
-        prevButton={<Text style={{ fontSize: 15, color: 'white' }}>‹ Atras </Text>}
+        prevButton={<Text style={{ fontSize: 15, color: 'white' }}>‹ Atrás </Text>}
         dot={<View style={styles.dotStyle} />}
         activeDot={<View style={styles.dotActivateStyle} />}
       >

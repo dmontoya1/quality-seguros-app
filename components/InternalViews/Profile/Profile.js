@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Container, Header, Left, Body, Right, Button, Icon, Title, Input, Item, Label, View,
 } from 'native-base';
-import { Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, Alert } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
 
@@ -13,9 +13,10 @@ export default class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: '',
+      token: this.props.token,
     };
     this.editProfile = this.editProfile.bind(this);
+    this.userInsurances = this.userInsurances.bind(this);
   }
 
   editProfile() {
@@ -23,13 +24,34 @@ export default class Profile extends Component {
     Actions.profile_edit({ profile, token });
   }
 
+  userInsurances() {
+    const { token } = this.state;
+    axios.defaults.headers.common.Authorization = `JWT ${token}`;
+    axios.get('api/insurances/customer/policy/detail/')
+      .then((response) => {
+        const policies = response.data;
+        Actions.insurance({ policies, token });
+      })
+      .catch((error) => {
+        Alert.alert(
+          'Atención',
+          'Aún no tienes pólizas creadas.',
+          [
+            { text: 'Aceptar', onPress: () => Actions.home() },
+          ],
+          { cancelable: false },
+        );
+      });
+  }
+
   render() {
     const { token, profile } = this.props;
+    console.log(token);
     return (
       <Container>
         <Header style={styles.container}>
           <Left style={{ flex: 1 }}>
-            <Button transparent onPress={() => Actions.pop()}>
+            <Button transparent onPress={this.userInsurances}>
               <Icon name="arrow-back" />
             </Button>
           </Left>

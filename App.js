@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import { Router, Scene, Stack } from 'react-native-router-flux';
 import firebase from 'react-native-firebase';
+// import type, fire { Notification, NotificationOpen } from 'react-native-firebase';
 
 import IntroView from './components/IntroView/IntroView';
 import Login from './components/Auth/Login';
@@ -128,7 +129,7 @@ export default class App extends Component {
     /*
     * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
     * */
-    this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
+    this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen: NotificationOpen) => {
       const { title, body } = notificationOpen.notification;
       console.log(notificationOpen);
       console.log(title);

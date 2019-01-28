@@ -239,14 +239,7 @@ export default class Request extends Component {
 
     ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
-        Alert.alert(
-          'Atención',
-          'Usuario cancelo la captura de foto.',
-          [
-            { text: 'OK', onPress: () => console.log('OK Pressed') },
-          ],
-          { cancelable: false },
-        );
+        console.log('Cancelada la captura');
       } else if (response.error) {
         Alert.alert(
           'Error',
@@ -283,12 +276,7 @@ export default class Request extends Component {
     ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
         Alert.alert(
-          'Atención',
-          'Usuario cancelo la captura de foto.',
-          [
-            { text: 'OK', onPress: () => console.log('OK Pressed') },
-          ],
-          { cancelable: false },
+          console.log('Cancelada la captura'),
         );
       } else if (response.error) {
         Alert.alert(
@@ -326,12 +314,7 @@ export default class Request extends Component {
     ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
         Alert.alert(
-          'Atención',
-          'Usuario cancelo la captura de foto.',
-          [
-            { text: 'OK', onPress: () => console.log('OK Pressed') },
-          ],
-          { cancelable: false },
+          console.log('Cancelada la captura'),
         );
       } else if (response.error) {
         Alert.alert(

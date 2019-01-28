@@ -35,6 +35,7 @@ export default class ProfileEdit extends Component {
       username,
       token,
     } = this.state;
+    console.log(token);
     if (email2 !== email) {
       Alert.alert(
         'Error',
@@ -57,6 +58,7 @@ export default class ProfileEdit extends Component {
     axios.defaults.headers.common.Authorization = `JWT ${token}`;
     axios.patch('api/users/customer/', dataToSend)
       .then((response) => {
+        console.log(response.data);
         Alert.alert(
           'Cambio de datos exitoso',
           'Tus datos se han actualizado correctamente',

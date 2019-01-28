@@ -51,6 +51,7 @@ export default class RequestPickUp extends Component {
   }
 
   submit() {
+    console.log('Submit');
     const {
       address,
       date,
@@ -85,8 +86,10 @@ export default class RequestPickUp extends Component {
       for (const key in dataToSend) {
         formData.append(key, dataToSend[key]);
       }
+      console.log('Envio de solicitud');
       axios.post('api/bs/create/order/', formData)
         .then((response) => {
+          console.log('GOOD');
           console.log(response.data);
           Alert.alert(
             'Atención',
@@ -98,6 +101,8 @@ export default class RequestPickUp extends Component {
           );
         })
         .catch((error) => {
+          console.log('Error');
+          console.log(error);
           console.log(error.response.data);
           if (error.response.data.errorCode === 'NVDATE002') {
             Alert.alert(
@@ -139,7 +144,7 @@ export default class RequestPickUp extends Component {
           <Left>
             <TouchableOpacity onPress={() => Actions.pop()}>
               <Text style={{ color: '#fff' }}>
-                Atras
+                Atrás
               </Text>
 
             </TouchableOpacity>

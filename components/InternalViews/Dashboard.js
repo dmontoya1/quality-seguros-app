@@ -196,7 +196,8 @@ export default class Dashboard extends Component {
     }
 
     render() {
-      const { token } = this.props;
+      const { token } = this.state;
+      console.log(token);
       return (
         <Container>
           <View style={styles.container}>
