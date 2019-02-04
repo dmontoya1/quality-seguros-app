@@ -17,6 +17,7 @@ export default class ProfileEdit extends Component {
       first_name: this.props.profile_data.first_name,
       last_name: this.props.profile_data.last_name,
       email: this.props.profile_data.email,
+      old_email: this.props.profile_data.email,
       email2: this.props.profile_data.email,
       username: this.props.profile_data.username,
       phone_number: this.props.profile_data.phone_number,
@@ -32,10 +33,10 @@ export default class ProfileEdit extends Component {
       phone_number,
       email,
       email2,
+      old_email,
       username,
       token,
     } = this.state;
-    console.log(token);
     if (email2 !== email) {
       Alert.alert(
         'Error',
@@ -59,15 +60,26 @@ export default class ProfileEdit extends Component {
     axios.patch('api/users/customer/', dataToSend)
       .then((response) => {
         console.log(response.data);
-        Alert.alert(
-          'Cambio de datos exitoso',
-          'Tus datos se han actualizado correctamente',
-          [
-
-            { text: 'Aceptar', onPress: () => Actions.profile({ profile: response.data, token }) },
-          ],
-          { cancelable: false },
-        );
+        if (email === old_email) {
+          Alert.alert(
+            'Cambio de datos exitoso',
+            'Tus datos se han actualizado correctamente',
+            [
+              { text: 'Aceptar', onPress: () => Actions.profile({ profile: response.data, token }) },
+            ],
+            { cancelable: false },
+          );
+        } else {
+          this.props.deleteJWT();
+          Alert.alert(
+            'Cambio de datos exitoso',
+            'Tus datos se han actualizado correctamente. Tu correo ha cambiado, inicia sesión nuevamente',
+            [
+              { text: 'Aceptar', onPress: () => Actions.logIn() },
+            ],
+            { cancelable: false },
+          );
+        }
       })
       .catch((error) => {
         Alert.alert(

@@ -255,7 +255,7 @@ export default class App extends Component {
             deleteJWT={this.deleteJWT}
           />
           <Scene key="profile" component={Profile} hideNavBar />
-          <Scene key="profile_edit" component={ProfileEdit} hideNavBar />
+          <Scene key="profile_edit" component={ProfileEdit} hideNavBar deleteJWT={this.deleteJWT} />
           <Scene key="request" component={Request} hideNavBar deleteJWT={this.deleteJWT} />
           <Scene key="userRequest" component={UserRequest} hideNavBar deleteJWT={this.deleteJWT} />
           <Scene key="requestInsurance" component={RequestInsurance} hideNavBar deleteJWT={this.deleteJWT} />
