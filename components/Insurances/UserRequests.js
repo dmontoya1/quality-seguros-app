@@ -24,6 +24,8 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+import Modal from 'react-native-modal';
+
 import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
 import RequestsList from './Request/RequestList';
 import axios from '../Axios/axios';
@@ -36,8 +38,7 @@ export default class UserRequests extends Component {
     this.state = {
       token: '',
       visible: false,
-      scale: new Animated.Value(1),
-      x: new Animated.Value(0),
+      isModalVisible: false,
     };
     this.getProfile = this.getProfile.bind(this);
     this.userLogout = this.userLogout.bind(this);
@@ -73,37 +74,8 @@ export default class UserRequests extends Component {
       });
   }
 
-  scaleModal = () => {
-    this.state.x.setValue(0);
-    this.state.scale.setValue(0);
-    Animated.spring(this.state.scale, {
-      toValue: 1,
-    }).start();
-    this.setState({
-      visible: true,
-    });
-    this.slide = false;
-  };
+  _toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
 
-  hideModal = () => {
-    if (this.slide) {
-      Animated.timing(this.state.x, {
-        toValue: -320,
-      }).start(() => {
-        this.setState({
-          visible: false,
-        });
-      });
-    } else {
-      Animated.timing(this.state.scale, {
-        toValue: 0,
-      }).start(() => {
-        this.setState({
-          visible: false,
-        });
-      });
-    }
-  };
 
   hideMenu = () => {
     this._menu.hide();
@@ -149,23 +121,9 @@ export default class UserRequests extends Component {
 
       <Container>
         <View style={styles.container}>
-          <Animated.Modal
-            visible={this.state.visible}
-            style={[styles.modal, {
-              transform: [
-                {
-                  scale: this.state.scale,
-                },
-                {
-                  translateX: this.state.x,
-                },
-              ],
-            }]}
-          >
+          <Modal isVisible={this.state.isModalVisible} animationIn="slideInLeft" animationOut="slideOutRight">
             <View style={styles.modalContainer}>
               <Text style={styles.title}>Llamada de emergencia</Text>
-              {/* <Text style={styles.line}>─────────────</Text> */}
-
               <View style={{ flexDirection: 'row', width: wp('70%'), paddingTop: 10 }}>
                 <TouchableOpacity onPress={() => {
                   RNImmediatePhoneCall.immediatePhoneCall('125');
@@ -301,13 +259,13 @@ export default class UserRequests extends Component {
                 </View>
               </View>
 
-              <Button onPress={this.hideModal} transparent style={styles.button}><Text style={{ color: 'black' }}>CANCELAR</Text></Button>
+              <Button onPress={this._toggleModal} transparent style={styles.button}><Text style={{ color: 'black' }}>CANCELAR</Text></Button>
             </View>
-          </Animated.Modal>
+          </Modal>
         </View>
         <Header style={styles.container}>
           <Left>
-            <TouchableOpacity onPress={this.scaleModal} style={{ paddingLeft: 10 }}>
+            <TouchableOpacity onPress={this._toggleModal} style={{ paddingLeft: 10 }}>
               <Image
                 source={require('../../assets/icons/call.png')}
                 style={{
@@ -457,7 +415,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     height: hp('50%'),
-    width: wp('80%'),
+    width: wp('90%'),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',

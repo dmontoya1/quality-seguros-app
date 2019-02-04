@@ -28,7 +28,7 @@ import {
   AsyncStorage,
 } from 'react-native';
 
-import Modal from 'react-native-root-modal';
+import Modal from 'react-native-modal';
 
 import Menu, { MenuItem } from 'react-native-material-menu';
 
@@ -53,8 +53,7 @@ export default class Dashboard extends Component {
       this.state = {
         token: '',
         visible: false,
-        scale: new Animated.Value(1),
-        x: new Animated.Value(0),
+        isModalVisible: false,
       };
 
       this.userInsurances = this.userInsurances.bind(this);
@@ -92,6 +91,8 @@ export default class Dashboard extends Component {
         });
     }
 
+    _toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
+
     setMenuRef = (ref) => {
       this._menu = ref;
     };
@@ -102,38 +103,6 @@ export default class Dashboard extends Component {
 
     showMenu = () => {
       this._menu.show();
-    };
-
-    scaleModal = () => {
-      this.state.x.setValue(0);
-      this.state.scale.setValue(0);
-      Animated.spring(this.state.scale, {
-        toValue: 1,
-      }).start();
-      this.setState({
-        visible: true,
-      });
-      this.slide = false;
-    };
-
-    hideModal = () => {
-      if (this.slide) {
-        Animated.timing(this.state.x, {
-          toValue: -320,
-        }).start(() => {
-          this.setState({
-            visible: false,
-          });
-        });
-      } else {
-        Animated.timing(this.state.scale, {
-          toValue: 0,
-        }).start(() => {
-          this.setState({
-            visible: false,
-          });
-        });
-      }
     };
 
     userLogout() {
@@ -201,23 +170,9 @@ export default class Dashboard extends Component {
       return (
         <Container>
           <View style={styles.container}>
-            <Animated.Modal
-              visible={this.state.visible}
-              style={[styles.modal, {
-                transform: [
-                  {
-                    scale: this.state.scale,
-                  },
-                  {
-                    translateX: this.state.x,
-                  },
-                ],
-              }]}
-            >
+            <Modal isVisible={this.state.isModalVisible} animationIn="slideInLeft" animationOut="slideOutRight">
               <View style={styles.modalContainer}>
                 <Text style={styles.title}>Llamada de emergencia</Text>
-                {/* <Text style={styles.line}>─────────────</Text> */}
-
                 <View style={{ flexDirection: 'row', width: wp('70%'), paddingTop: 10 }}>
                   <TouchableOpacity onPress={() => {
                     RNImmediatePhoneCall.immediatePhoneCall('125');
@@ -353,14 +308,14 @@ export default class Dashboard extends Component {
                   </View>
                 </View>
 
-                <Button onPress={this.hideModal} transparent style={styles.button}><Text style={{ color: 'black' }}>CANCELAR</Text></Button>
+                <Button onPress={this._toggleModal} transparent style={styles.button}><Text style={{ color: 'black' }}>CANCELAR</Text></Button>
               </View>
-            </Animated.Modal>
+            </Modal>
           </View>
 
           <Header style={styles.container}>
             <Left>
-              <TouchableOpacity onPress={this.scaleModal} style={{ paddingLeft: 10 }}>
+              <TouchableOpacity onPress={this._toggleModal} style={{ paddingLeft: 10 }}>
                 <Image
                   source={require('../../assets/icons/call.png')}
                   style={{
@@ -454,7 +409,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     height: hp('50%'),
-    width: wp('80%'),
+    width: wp('90%'),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',

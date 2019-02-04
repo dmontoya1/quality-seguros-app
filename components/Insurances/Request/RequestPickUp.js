@@ -50,6 +50,7 @@ export default class RequestPickUp extends Component {
     });
   }
 
+
   submit() {
     console.log('Submit');
     const {
@@ -58,7 +59,17 @@ export default class RequestPickUp extends Component {
       time,
     } = this.state;
     const { request } = this.props;
-    if (address === '') {
+    const HourLater = moment(new Date()).add(1, 'hours').format('HH:mm:ss');
+    if (time < HourLater) {
+      Alert.alert(
+        'Error',
+        'La hora de recogida debe ser por lo menos una hora después.',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
+    } else if (address === '') {
       Alert.alert(
         'Error',
         'Debes ingresar la dirección de recogida.',
