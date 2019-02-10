@@ -117,7 +117,7 @@ export default class Dashboard extends Component {
       axios.get('api/insurances/customer/policy/detail/')
         .then((response) => {
           const policies = response.data;
-          Actions.insurance({ policies, token });
+          Actions.insurance();
         })
         .catch((error) => {
           Alert.alert(
@@ -358,7 +358,7 @@ export default class Dashboard extends Component {
           </Content>
           <Footer style={styles.color_footer}>
             <FooterTab style={styles.color_footer}>
-              <Button onPress={this.userInsurances}>
+              <Button onPress={() => Actions.insurance()}>
                 <Image
                   source={require('../../assets/icons/compra.png')}
                   style={{

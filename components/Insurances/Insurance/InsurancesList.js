@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import InsuranceComponent from './InsuranceComponent';
 
+import deviceStorage from '../../AsyncStorage/deviceStorage';
 import axios from '../../Axios/axios';
 
 
@@ -14,7 +15,14 @@ class InsurancesList extends Component {
       token: '',
       policies: [],
       loading: true,
+      insurances: [],
     };
+    AsyncStorage.getItem('insurances', (err, result) => {
+      console.log(result);
+      this.setState({
+        insurances: result,
+      });
+    });
   }
 
   componentDidMount() {
@@ -24,6 +32,18 @@ class InsurancesList extends Component {
       .then((response) => {
         this.setState(() => ({
           policies: response.data,
+          loading: false,
+        }));
+        console.log(JSON.stringify(response.data));
+        deviceStorage.saveItem('insurances', JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        console.log('Error');
+        console.log(error);
+        const { insurances } = this.state;
+        console.log(JSON.parse(insurances));
+        this.setState(() => ({
+          policies: JSON.parse(insurances),
           loading: false,
         }));
       });

@@ -35,6 +35,7 @@ export default class App extends Component {
       jwt: '',
       stepper: false,
       fcmToken: '',
+      insurances: '',
     };
 
     this.newJWT = this.newJWT.bind(this);
@@ -43,8 +44,10 @@ export default class App extends Component {
     this.deleteJWT = deviceStorage.deleteJWT.bind(this);
     this.loadJWT = deviceStorage.loadJWT.bind(this);
     this.loadStepper = deviceStorage.loadStepper.bind(this);
+    this.loadInsurances = deviceStorage.loadInsurances.bind(this);
     this.loadJWT();
     this.loadStepper();
+    this.loadInsurances();
   }
 
   async componentDidMount() {
