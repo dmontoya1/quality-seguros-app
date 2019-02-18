@@ -61,7 +61,7 @@ export default class Login extends Component {
         <Content>
           <View style={styles.imageContainer}>
             <Image
-              source={require('../../assets/images/Quality-white.png')}
+              source={require('../../assets/images/Quality.png')}
               style={styles.imageIntro}
             />
           </View>
