@@ -275,9 +275,7 @@ export default class Request extends Component {
 
     ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
-        Alert.alert(
-          console.log('Cancelada la captura'),
-        );
+        console.log('Cancelada la captura');
       } else if (response.error) {
         Alert.alert(
           'Error',
@@ -313,9 +311,7 @@ export default class Request extends Component {
 
     ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
-        Alert.alert(
-          console.log('Cancelada la captura'),
-        );
+        console.log('Cancelada la captura');
       } else if (response.error) {
         Alert.alert(
           'Error',
