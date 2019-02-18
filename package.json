@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "build:ios": "react-native bundle --entry-file=index.js --bundle-output='./ios/seguro_virtual/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'",
+    "build:ios": "react-native bundle --entry-file=index.js --bundle-output='./ios/qualitySeguros/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'",
     "build:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "postinstall": "node ./android-release-gradle-fix.js"
   },
@@ -13,7 +13,7 @@
     "axios": "^0.18.0",
     "form-data": "^2.3.3",
     "moment": "^2.23.0",
-    "native-base": "^2.8.1",
+    "native-base": "^2.11.0",
     "react": "16.6.1",
     "react-native": "0.57.7",
     "react-native-datepicker": "^1.7.2",

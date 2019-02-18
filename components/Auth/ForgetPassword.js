@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Container, Header, Content, Button, Icon, Text, View, Form, Item, Input, Body, Left, Title,
+  Container, Header, Content, Button, Icon, Text, View, Form, Item, Input, Body, Left, Title, Right,
 } from 'native-base';
 import {
   StyleSheet, Alert, AsyncStorage, Image,
@@ -31,44 +31,58 @@ export default class ForgetPassword extends Component {
       email,
     };
     console.log(dataToSend);
-    axios.post('api/users/password-reset/', dataToSend)
-      .then((response) => {
-        console.log(response.data);
-        Alert.alert(
-          'Correcto',
-          'Hemos enviado las instrucciones a tu correo para que puedas recuperar la contraseña',
-          [
-            { text: 'Aceptar', onPress: () => Actions.logIn() },
-          ],
-          { cancelable: false },
-        );
-      })
-      .catch((error) => {
-        console.log(error.response);
-        Alert.alert(
-          'Error',
-          error.response.data.error,
-          [
-            { text: 'Aceptar', onPress: () => {} },
-          ],
-          { cancelable: false },
-        );
-        console.log(error);
-      });
+    if (email === '') {
+      Alert.alert(
+        'Correcto',
+        'Hemos enviado las instrucciones a tu correo para que puedas recuperar la contraseña',
+        [
+          { text: 'Aceptar', onPress: () => Actions.logIn() },
+        ],
+        { cancelable: false },
+      );
+    } else {
+      axios.post('api/users/password-reset/', dataToSend)
+        .then((response) => {
+          console.log(response.data);
+          Alert.alert(
+            'Correcto',
+            'Hemos enviado las instrucciones a tu correo para que puedas recuperar la contraseña',
+            [
+              { text: 'Aceptar', onPress: () => Actions.logIn() },
+            ],
+            { cancelable: false },
+          );
+        })
+        .catch((error) => {
+          console.log(error.response);
+          Alert.alert(
+            'Error',
+            error.response.data.error,
+            [
+              { text: 'Aceptar', onPress: () => {} },
+            ],
+            { cancelable: false },
+          );
+          console.log(error);
+        });
+    }
   }
 
   render() {
     return (
-      <Container style={styles.container}>
+      <Container>
         <Header style={styles.container}>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <Button transparent onPress={() => Actions.pop()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
-          <Body style={{ paddingRight: 80 }}>
-            <Title style={{ color: '#fff' }}>Recuperar contraseña</Title>
+          <Body style={{ flex: 1 }}>
+            <Title style={{ color: '#000' }}>Recuperar contraseña</Title>
           </Body>
+          <Right style={{ flex: 1 }}>
+            <Title />
+          </Right>
         </Header>
         <Content>
           <View style={styles.imageContainer}>
@@ -83,10 +97,10 @@ export default class ForgetPassword extends Component {
                 <Input
                   keyboardType="email-address"
                   placeholder="Correo electrónico"
-                  placeholderTextColor="rgba(255,255,255,.6)"
+                  placeholderTextColor="rgba(0,0,0,.6)"
                   style={styles.textInput}
                   autoCapitalize="none"
-                  borderColor="rgba(255,255,255,.6)"
+                  borderColor="rgba(0,0,0,.6)"
                   onChangeText={email => this.setState({ email })}
                 />
               </Item>
@@ -106,7 +120,7 @@ export default class ForgetPassword extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#192a56',
+    backgroundColor: '#fff',
   },
   title: {
     color: 'white',

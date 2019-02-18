@@ -4,7 +4,7 @@ import {
   Button, Icon, Title, Form, Item, Input, Label, View,
 } from 'native-base';
 import {
-  StyleSheet, ScrollView, Text, Alert, KeyboardAvoidingView, TouchableOpacity,
+  StyleSheet, ScrollView, Text, Alert, KeyboardAvoidingView, StatusBar,
 } from 'react-native';
 
 import {
@@ -112,18 +112,22 @@ export default class SignUp extends Component {
   }
 
   render() {
+    StatusBar.setBarStyle('light-content', true);
     const { checked } = this.state;
     return (
       <Container>
         <Header style={styles.header}>
           <Left style={{ flex: 1 }}>
             <Button transparent onPress={() => Actions.pop()}>
-              <Icon name="arrow-back" style={{ color: '#fff' }} />
+              <Icon name="arrow-back" style={{ color: '#000' }} />
             </Button>
           </Left>
-          <Body style={{ flex: 1, right: wp('5%') }}>
+          <Body style={{ flex: 1 }}>
             <Title style={styles.title}>Registro</Title>
           </Body>
+          <Right style={{ flex: 1 }}>
+            <Title style={styles.title} />
+          </Right>
         </Header>
 
         <ScrollView>
@@ -252,13 +256,13 @@ export default class SignUp extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#192a56',
+    backgroundColor: '#999',
   },
   header: {
-    backgroundColor: '#152a56',
+    backgroundColor: '#fff',
   },
   title: {
-    color: '#fff',
+    color: '#000',
   },
   input: {
     paddingTop: 20,
