@@ -288,7 +288,7 @@ export default class Insurance extends Component {
 
             </TouchableOpacity>
           </Left>
-          <Body style={{ flex: 1, right: wp('6%') }}>
+          <Body style={{ flex: 1 }}>
             <Image
               source={require('../../assets/images/Quality-text1.png')}
               resizeMode="contain"

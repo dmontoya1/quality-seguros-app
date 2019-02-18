@@ -85,19 +85,19 @@ class RequestInsurance extends Component {
     return (
       <Container>
         <Header style={styles.container}>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <Button transparent onPress={() => Actions.pop()}>
               <Icon name="arrow-back" style={{ color: '#fff' }} />
             </Button>
           </Left>
-          <Body style={{ position: 'absolute', left: wp('30%') }}>
+          <Body style={{ flex: 1 }}>
             <Image
               source={require('../../assets/images/Quality-text1.png')}
               resizeMode="contain"
               style={{ width: 150, height: 30 }}
             />
           </Body>
-          <Right>
+          <Right style={{ flex: 1 }}>
             <Menu
               ref={this.setMenuRef}
               button={(

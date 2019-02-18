@@ -33,10 +33,10 @@ export default class ForgetPassword extends Component {
     console.log(dataToSend);
     if (email === '') {
       Alert.alert(
-        'Correcto',
-        'Hemos enviado las instrucciones a tu correo para que puedas recuperar la contraseña',
+        'Error',
+        'Ingresa tu correo electrónico para continuar',
         [
-          { text: 'Aceptar', onPress: () => Actions.logIn() },
+          { text: 'Aceptar', onPress: () => {} },
         ],
         { cancelable: false },
       );
@@ -57,7 +57,7 @@ export default class ForgetPassword extends Component {
           console.log(error.response);
           Alert.alert(
             'Error',
-            error.response.data.error,
+            'Ha ocurrido un error, intenta nuevamente con un correo electrónico válido',
             [
               { text: 'Aceptar', onPress: () => {} },
             ],
@@ -74,10 +74,10 @@ export default class ForgetPassword extends Component {
         <Header style={styles.container}>
           <Left style={{ flex: 1 }}>
             <Button transparent onPress={() => Actions.pop()}>
-              <Icon name="arrow-back" />
+              <Icon name="arrow-back" style={{ color: '#000' }} />
             </Button>
           </Left>
-          <Body style={{ flex: 1 }}>
+          <Body style={{ flex: 3 }}>
             <Title style={{ color: '#000' }}>Recuperar contraseña</Title>
           </Body>
           <Right style={{ flex: 1 }}>
@@ -87,7 +87,7 @@ export default class ForgetPassword extends Component {
         <Content>
           <View style={styles.imageContainer}>
             <Image
-              source={require('../../assets/images/Quality-white.png')}
+              source={require('../../assets/images/Quality.png')}
               style={styles.imageIntro}
             />
           </View>
@@ -107,7 +107,7 @@ export default class ForgetPassword extends Component {
             </Form>
           </View>
           <View style={{ paddingLeft: 22, paddingRight: 25, paddingBottom: 20 }}>
-            <Button block danger style={styles.button} onPress={this.submit}>
+            <Button block style={styles.button} onPress={this.submit}>
               <Text>Enviar</Text>
             </Button>
           </View>
@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 10,
+    backgroundColor: '#192a56',
   },
   button2: {
     borderRadius: 10,
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   textInput: {
-    color: 'rgba(255,255,255,.6)',
+    color: 'rgba(255,255,255,0)',
   },
   imageContainer: {
     flex: 2,

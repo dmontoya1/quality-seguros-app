@@ -152,7 +152,7 @@ export default class RequestPickUp extends Component {
     return (
       <Container>
         <Header style={styles.header}>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <TouchableOpacity onPress={() => Actions.pop()}>
               <Text style={{ color: '#fff' }}>
                 Atrás
@@ -160,14 +160,14 @@ export default class RequestPickUp extends Component {
 
             </TouchableOpacity>
           </Left>
-          <Body style={{ position: 'absolute', left: wp('30%') }}>
+          <Body style={{ flex: 1 }}>
             <Image
               source={require('../../../assets/images/Quality-text1.png')}
               resizeMode="contain"
               style={{ width: 150, height: 30 }}
             />
           </Body>
-          <Right>
+          <Right style={{ flex: 1 }}>
             <Text />
           </Right>
         </Header>

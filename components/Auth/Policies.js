@@ -53,14 +53,17 @@ export default class Policies extends Component {
     return (
       <Container>
         <Header style={styles.container}>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <Button transparent onPress={() => Actions.pop()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
-          <Body style={{ paddingRight: 80 }}>
+          <Body style={{ flex: 1 }}>
             <Title style={{ color: '#fff' }}>{term.name}</Title>
           </Body>
+          <Right style={{ flex: 1 }}>
+            <Title />
+          </Right>
         </Header>
         <ScrollView>
 

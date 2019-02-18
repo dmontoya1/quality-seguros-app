@@ -257,7 +257,7 @@ export default class UserRequests extends Component {
           </Modal>
         </View>
         <Header style={styles.container}>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <TouchableOpacity onPress={this._toggleModal} style={{ paddingLeft: 10 }}>
               <Image
                 source={require('../../assets/icons/call.png')}
@@ -268,14 +268,14 @@ export default class UserRequests extends Component {
 
             </TouchableOpacity>
           </Left>
-          <Body style={{ position: 'absolute', left: wp('30%') }}>
+          <Body style={{ flex: 1 }}>
             <Image
               source={require('../../assets/images/Quality-text1.png')}
               resizeMode="contain"
               style={{ width: 150, height: 30 }}
             />
           </Body>
-          <Right>
+          <Right style={{ flex: 1 }}>
             <Menu
               ref={this.setMenuRef}
               button={(
