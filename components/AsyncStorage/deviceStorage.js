@@ -4,7 +4,6 @@ const deviceStorage = {
 
   async saveItem(key, value) {
     try {
-      console.log('Savinnggg');
       await AsyncStorage.setItem(key, value);
     } catch (error) {
       console.log(`AsyncStorage Error: ${error.message}`);
@@ -32,8 +31,6 @@ const deviceStorage = {
   async loadInsurances() {
     try {
       const value = await AsyncStorage.getItem('insurances');
-      console.log('VALUEEE');
-      console.log(value);
       if (value !== null) {
         this.setState({
           insurances: value,

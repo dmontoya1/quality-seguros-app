@@ -117,17 +117,10 @@ export default class Dashboard extends Component {
       axios.get('api/insurances/customer/policy/detail/')
         .then((response) => {
           const policies = response.data;
-          Actions.insurance();
+          Actions.insurance({ policies, token });
         })
         .catch((error) => {
-          Alert.alert(
-            'Atención',
-            'Aún no tienes pólizas creadas. Puedes solicitar una desde aquí',
-            [
-              { text: 'Aceptar', onPress: () => {} },
-            ],
-            { cancelable: false },
-          );
+          Actions.insurance({ token });
         });
     }
 
@@ -313,7 +306,7 @@ export default class Dashboard extends Component {
           </View>
 
           <Header style={styles.container}>
-            <Left>
+            <Left style={{ flex: 1 }}>
               <TouchableOpacity onPress={this._toggleModal} style={{ paddingLeft: 10 }}>
                 <Image
                   source={require('../../assets/icons/call.png')}
@@ -324,14 +317,14 @@ export default class Dashboard extends Component {
 
               </TouchableOpacity>
             </Left>
-            <Body style={{ position: 'absolute', left: wp('30%') }}>
+            <Body style={{ flex: 1 }}>
               <Image
                 source={require('../../assets/images/Quality-text1.png')}
                 resizeMode="contain"
                 style={{ width: 150, height: 30 }}
               />
             </Body>
-            <Right>
+            <Right style={{ flex: 1 }}>
               <Menu
                 ref={this.setMenuRef}
                 button={(
@@ -358,7 +351,7 @@ export default class Dashboard extends Component {
           </Content>
           <Footer style={styles.color_footer}>
             <FooterTab style={styles.color_footer}>
-              <Button onPress={() => Actions.insurance()}>
+              <Button onPress={this.userInsurances}>
                 <Image
                   source={require('../../assets/icons/compra.png')}
                   style={{
