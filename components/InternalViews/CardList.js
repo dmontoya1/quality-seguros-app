@@ -31,6 +31,13 @@ class CardList extends Component {
           insurances: response.data,
           loading: false,
         }));
+      }).catch((error) => {
+        // handle error
+        console.log(error);
+        console.log(error.response);
+        this.setState(() => ({
+          loading: false,
+        }));
       });
   }
 
@@ -62,7 +69,8 @@ class CardList extends Component {
         <ActivityIndicator size="large" color="#020718" />
       </View>
     );
-    const mappedInsurances = this.state.insurances.map(insurance => (
+    const { insurances } = this.state;
+    const mappedInsurances = insurances.map(insurance => (
       <CardComponent
         key={insurance.id}
         id={insurance.id}
@@ -73,11 +81,29 @@ class CardList extends Component {
 
       />
     ));
+    const noInsurances = (
+
+      <View style={styles.loaderContainer}>
+        <View style={styles.loader}>
+          <Text style={styles.loaderText}>
+            No hay coberturas disponibles en este momento.
+            {'\n'}
+            {'\n'}
+            Intenta nuevamente más tarde
+            {'\n'}
+          </Text>
+        </View>
+      </View>
+    );
     if (this.state.loading) {
       return loading;
     }
 
-    return mappedInsurances;
+    if (insurances.length > 0) {
+      return mappedInsurances;
+    }
+
+    return noInsurances;
   }
 }
 
@@ -86,6 +112,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10,
+  },
+  loaderContainer: {
+    alignContent: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  loader: {
+    backgroundColor: '#fff',
+    height: 250,
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  loaderText: {
+    color: '#05071e',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 20,
+    fontSize: 20,
   },
 
 });

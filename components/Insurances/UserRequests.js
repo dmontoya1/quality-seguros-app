@@ -104,14 +104,7 @@ export default class UserRequests extends Component {
         Actions.insurance({ policies, token });
       })
       .catch((error) => {
-        Alert.alert(
-          'Atención',
-          'Aún no tienes pólizas creadas. Puedes solicitar una desde aquí',
-          [
-            { text: 'Aceptar', onPress: () => {} },
-          ],
-          { cancelable: false },
-        );
+        Actions.insurance({ token });
       });
   }
 

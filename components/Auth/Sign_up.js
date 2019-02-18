@@ -251,6 +251,9 @@ export default class SignUp extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#192a56',
+  },
   header: {
     backgroundColor: '#152a56',
   },

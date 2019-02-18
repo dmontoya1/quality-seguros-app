@@ -18,7 +18,6 @@ class InsurancesList extends Component {
       insurances: [],
     };
     AsyncStorage.getItem('insurances', (err, result) => {
-      console.log(result);
       this.setState({
         insurances: result,
       });
@@ -34,14 +33,10 @@ class InsurancesList extends Component {
           policies: response.data,
           loading: false,
         }));
-        console.log(JSON.stringify(response.data));
         deviceStorage.saveItem('insurances', JSON.stringify(response.data));
       })
       .catch((error) => {
-        console.log('Error');
-        console.log(error);
         const { insurances } = this.state;
-        console.log(JSON.parse(insurances));
         this.setState(() => ({
           policies: JSON.parse(insurances),
           loading: false,
