@@ -100,9 +100,12 @@ export default class ProfileEdit extends Component {
               <Icon name="arrow-back" />
             </Button>
           </Left>
-          <Body style={{ flex: 1, paddingRight: 70 }}>
+          <Body style={{ flex: 2 }}>
             <Title style={{ color: '#fff' }}>Editar Perfil</Title>
           </Body>
+          <Right style={{ flex: 1 }}>
+            <Title />
+          </Right>
         </Header>
         <ScrollView>
           <View style={styles.container_form}>

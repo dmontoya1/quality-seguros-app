@@ -4,7 +4,7 @@ import {
   Button, Icon, Title, Form, Item, Input, Label, View,
 } from 'native-base';
 import {
-  StyleSheet, ScrollView, Text, Alert, KeyboardAvoidingView, StatusBar,
+  StyleSheet, ScrollView, Text, Alert, KeyboardAvoidingView,
 } from 'react-native';
 
 import {
@@ -112,7 +112,6 @@ export default class SignUp extends Component {
   }
 
   render() {
-    StatusBar.setBarStyle('light-content', true);
     const { checked } = this.state;
     return (
       <Container>

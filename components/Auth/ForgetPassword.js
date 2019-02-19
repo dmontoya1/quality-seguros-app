@@ -8,7 +8,6 @@ import {
 
 import { Actions } from 'react-native-router-flux';
 
-import deviceStorage from '../AsyncStorage/deviceStorage';
 import axios from '../Axios/axios';
 
 export default class ForgetPassword extends Component {
@@ -30,7 +29,6 @@ export default class ForgetPassword extends Component {
     const dataToSend = {
       email,
     };
-    console.log(dataToSend);
     if (email === '') {
       Alert.alert(
         'Error',
@@ -43,7 +41,6 @@ export default class ForgetPassword extends Component {
     } else {
       axios.post('api/users/password-reset/', dataToSend)
         .then((response) => {
-          console.log(response.data);
           Alert.alert(
             'Correcto',
             'Hemos enviado las instrucciones a tu correo para que puedas recuperar la contraseña',
@@ -54,7 +51,6 @@ export default class ForgetPassword extends Component {
           );
         })
         .catch((error) => {
-          console.log(error.response);
           Alert.alert(
             'Error',
             'Ha ocurrido un error, intenta nuevamente con un correo electrónico válido',
@@ -144,7 +140,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   textInput: {
-    color: 'rgba(255,255,255,0)',
+    color: 'rgba(0,0,0,0.8)',
   },
   imageContainer: {
     flex: 2,

@@ -46,7 +46,6 @@ export default class Profile extends Component {
 
   render() {
     const { token, profile } = this.props;
-    console.log(token);
     return (
       <Container>
         <Header style={styles.container}>
@@ -55,9 +54,12 @@ export default class Profile extends Component {
               <Icon name="arrow-back" />
             </Button>
           </Left>
-          <Body style={{ flex: 1, paddingRight: 20 }}>
+          <Body style={{ flex: 1 }}>
             <Title style={{ color: '#fff' }}>Perfil</Title>
           </Body>
+          <Right style={{ flex: 1 }}>
+            <Title />
+          </Right>
         </Header>
         <View style={styles.container_form}>
           <View style={styles.container_input}>
