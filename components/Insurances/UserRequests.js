@@ -90,6 +90,7 @@ export default class UserRequests extends Component {
   };
 
   userLogout() {
+    this.hideMenu();
     this.props.deleteJWT();
     Alert.alert('Has cerrado sesión correctamente!');
     Actions.logIn();

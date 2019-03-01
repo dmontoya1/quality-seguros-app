@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet, AsyncStorage, Alert, PermissionsAndroid, StatusBar,
+  StyleSheet, AsyncStorage, Alert, PermissionsAndroid, StatusBar, View,
 } from 'react-native';
 import { Router, Scene, Stack } from 'react-native-router-flux';
 import firebase from 'react-native-firebase';
@@ -199,73 +199,75 @@ export default class App extends Component {
   }
 
   render() {
-    StatusBar.setBarStyle('light-content', true);
     return (
-      <Router>
-        <Stack key="root">
-          <Scene
-            key="intro"
-            component={IntroView}
-            hideNavBar
-            stepperComplete={this.stepperComplete}
-            initial={!this.state.stepper && !this.state.jwt}
-          />
-          <Scene
-            key="logIn"
-            component={Login}
-            hideNavBar
-            newJWT={this.newJWT}
-            sendFcmToken={this.sendFcmToken}
-            initial={this.state.stepper && !this.state.jwt}
-          />
-          <Scene
-            key="signUp"
-            component={SignUp}
-            hideNavBar
-            newJWT={this.newJWT}
-          />
-          <Scene
-            key="forget"
-            component={ForgetPassword}
-            hideNavBar
-            newJWT={this.newJWT}
-          />
-          <Scene
-            key="terms"
-            component={Terms}
-            hideNavBar
-            newJWT={this.newJWT}
-          />
-          <Scene
-            key="policies"
-            component={Policies}
-            hideNavBar
-            newJWT={this.newJWT}
-          />
-          <Scene
-            key="insurance"
-            component={UserInsurance}
-            hideNavBar
-            token={this.state.jwt}
-            deleteJWT={this.deleteJWT}
-            initial={this.state.stepper && this.state.jwt}
-          />
-          <Scene
-            key="home"
-            component={Dashboard}
-            hideNavBar
-            token={this.state.jwt}
-            deleteJWT={this.deleteJWT}
-          />
-          <Scene key="profile" component={Profile} hideNavBar />
-          <Scene key="profile_edit" component={ProfileEdit} hideNavBar deleteJWT={this.deleteJWT} />
-          <Scene key="request" component={Request} hideNavBar deleteJWT={this.deleteJWT} />
-          <Scene key="userRequest" component={UserRequest} hideNavBar deleteJWT={this.deleteJWT} />
-          <Scene key="requestInsurance" component={RequestInsurance} hideNavBar deleteJWT={this.deleteJWT} />
-          <Scene key="insurance_pdf" component={InsurancePDF} hideNavBar />
-          <Scene key="requestPickup" component={RequestPickUp} hideNavBar />
-        </Stack>
-      </Router>
+      <View style={{flex:1}}>
+        <StatusBar backgroundColor='#192a56' barStyle="light-content" />
+        <Router>
+          <Stack key="root">
+            <Scene
+              key="intro"
+              component={IntroView}
+              hideNavBar
+              stepperComplete={this.stepperComplete}
+              initial={!this.state.stepper && !this.state.jwt}
+            />
+            <Scene
+              key="logIn"
+              component={Login}
+              hideNavBar
+              newJWT={this.newJWT}
+              sendFcmToken={this.sendFcmToken}
+              initial={this.state.stepper && !this.state.jwt}
+            />
+            <Scene
+              key="signUp"
+              component={SignUp}
+              hideNavBar
+              newJWT={this.newJWT}
+            />
+            <Scene
+              key="forget"
+              component={ForgetPassword}
+              hideNavBar
+              newJWT={this.newJWT}
+            />
+            <Scene
+              key="terms"
+              component={Terms}
+              hideNavBar
+              newJWT={this.newJWT}
+            />
+            <Scene
+              key="policies"
+              component={Policies}
+              hideNavBar
+              newJWT={this.newJWT}
+            />
+            <Scene
+              key="insurance"
+              component={UserInsurance}
+              hideNavBar
+              token={this.state.jwt}
+              deleteJWT={this.deleteJWT}
+              initial={this.state.stepper && this.state.jwt}
+            />
+            <Scene
+              key="home"
+              component={Dashboard}
+              hideNavBar
+              token={this.state.jwt}
+              deleteJWT={this.deleteJWT}
+            />
+            <Scene key="profile" component={Profile} hideNavBar />
+            <Scene key="profile_edit" component={ProfileEdit} hideNavBar deleteJWT={this.deleteJWT} />
+            <Scene key="request" component={Request} hideNavBar deleteJWT={this.deleteJWT} />
+            <Scene key="userRequest" component={UserRequest} hideNavBar deleteJWT={this.deleteJWT} />
+            <Scene key="requestInsurance" component={RequestInsurance} hideNavBar deleteJWT={this.deleteJWT} />
+            <Scene key="insurance_pdf" component={InsurancePDF} hideNavBar />
+            <Scene key="requestPickup" component={RequestPickUp} hideNavBar />
+          </Stack>
+        </Router>
+      </View>
     );
   }
 }

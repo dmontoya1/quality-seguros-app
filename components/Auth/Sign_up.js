@@ -4,7 +4,7 @@ import {
   Button, Icon, Title, Form, Item, Input, Label, View,
 } from 'native-base';
 import {
-  StyleSheet, ScrollView, Text, Alert, KeyboardAvoidingView,
+  StyleSheet, ScrollView, Text, Alert, KeyboardAvoidingView, Dimensions,
 } from 'react-native';
 
 import {
@@ -129,7 +129,11 @@ export default class SignUp extends Component {
           </Right>
         </Header>
 
-        <ScrollView>
+        <ScrollView
+          keyboardShouldPersistTaps='handled'
+          contentContainerStyle={{
+            height: Dimensions.get('window').height + 200
+          }}>
           <KeyboardAvoidingView
             style={{
               paddingLeft: 10, paddingRight: 30, alignContent: 'center', paddingTop: 40,
@@ -239,12 +243,11 @@ export default class SignUp extends Component {
 
               </View>
             </View>
-            <View style={{ paddingLeft: 22, paddingRight: 10, paddingBottom: 15 }}>
+            <View style={{ justifyContent:'center', alignItems:'center', paddingLeft: 22, paddingRight: 10, paddingTop: 35 }}>
               <Button block danger style={styles.button} onPress={this.submit}>
                 <Text style={{ color: 'white' }}>REGISTRARSE</Text>
               </Button>
             </View>
-            <View style={{ height: 60 }} />
           </KeyboardAvoidingView>
         </ScrollView>
 
