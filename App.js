@@ -200,8 +200,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{flex:1}}>
-        <StatusBar backgroundColor='#192a56' barStyle="light-content" />
+      <View style={{ flex: 1 }}>
+        <StatusBar backgroundColor="#192a56" barStyle="light-content" />
         <Router>
           <Stack key="root">
             <Scene
