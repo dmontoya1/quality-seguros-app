@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet, AsyncStorage, Alert, PermissionsAndroid, StatusBar, View,
+  StyleSheet,
+  AsyncStorage,
+  Alert,
+  PermissionsAndroid,
+  StatusBar,
+  View,
+  Platform
 } from 'react-native';
 import { Router, Scene, Stack } from 'react-native-router-flux';
 import firebase from 'react-native-firebase';
@@ -61,18 +67,15 @@ export default class App extends Component {
     this.notificationOpenedListener();
   }
 
-
   async getToken() {
+    fcmToken = await firebase.messaging().getToken();
+    await firebase.messaging().subscribeToTopic('general');
+    console.warn("fcmToken-", fcmToken);
+
     try {
-      let fcmToken = await AsyncStorage.getItem('fcmToken');
-      if (!fcmToken) {
-        fcmToken = await firebase.messaging().getToken();
-        if (fcmToken) {
-          await AsyncStorage.setItem('fcmToken', fcmToken);
-          this.setState({
-            fcmToken,
-          });
-        }
+      if (fcmToken) {
+        await AsyncStorage.setItem('fcmToken', fcmToken);
+        this.setState({ fcmToken });
       }
     } catch (error) {
       console.log(`AsyncStorage Error: ${error.message}`);
@@ -200,8 +203,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>{Platform.os === 'android' ? (
         <StatusBar backgroundColor="#192a56" barStyle="light-content" />
+      ) : (
+        <View />
+      )}
         <Router>
           <Stack key="root">
             <Scene
