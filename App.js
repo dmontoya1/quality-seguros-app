@@ -203,11 +203,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>{Platform.os === 'android' ? (
-        <StatusBar backgroundColor="#192a56" barStyle="light-content" />
-      ) : (
-        <View />
-      )}
+      <View style={{ flex: 1 }}>
         <Router>
           <Stack key="root">
             <Scene

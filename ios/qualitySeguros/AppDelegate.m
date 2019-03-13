@@ -52,6 +52,8 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   [FIRApp configure];
+  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+  
   return YES;
 }
 
@@ -68,6 +70,10 @@ fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHand
 
   [[RNFirebaseMessaging instance] didReceiveRemoteNotification:response.notification.request.content.userInfo];
   completionHandler();
+}
+
+- (UIStatusBarStyle) preferredStatusBarStyle {
+  return UIStatusBarStyleLightContent;
 }
 
 @end
