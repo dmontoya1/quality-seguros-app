@@ -28,7 +28,6 @@
 		142A0490194542BA81D1E13F /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5325C435BE746ED8343EB74 /* Ionicons.ttf */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		284ECB219401491A8FBAF2F9 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80EA741CAB514BAC8D2C4C40 /* libRNFirebase.a */; };
-		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4C21E0B4AEC006451C7 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157351DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -49,6 +48,7 @@
 		62952059E7B54D8BA57081D3 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7576B8C046A4A1F8D658DA9 /* FontAwesome.ttf */; };
 		63DDD5B5AC804ECFBBC3325A /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 074BE34CE4814EE1BB11AB44 /* SimpleLineIcons.ttf */; };
 		652D45CBCCC048EA8BB3AD44 /* libRCTPdf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E65AA9B51AA84A39AAC8E7E5 /* libRCTPdf.a */; };
+		6AA8890C2238676C0044A0B8 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA8890B2238676C0044A0B8 /* AuthenticationServices.framework */; };
 		6C2E81C1120F431D9A560E8E /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 251F72B225BD43A28AB2490D /* FontAwesome5_Regular.ttf */; };
 		6F2856C7581149C980D01C37 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59614AC85BE042349D494041 /* FontAwesome5_Solid.ttf */; };
 		7723A9AF3D9C41088E51CC56 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D463A88C4B3848A9B584AEDF /* Entypo.ttf */; };
@@ -433,6 +433,7 @@
 		59614AC85BE042349D494041 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6427B42B15A84420AF78E3E1 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		6AA8890B2238676C0044A0B8 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		6D76BFEC25F1ADAD68206457 /* libPods-qualitySeguros-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qualitySeguros-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73564CC3CF8FCFF276624518 /* Pods-qualitySegurosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qualitySegurosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qualitySegurosTests/Pods-qualitySegurosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7531AD4F44514FD48C479B81 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
@@ -496,6 +497,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				52A100E317A04E469AC3450F /* libRNImagePicker.a in Frameworks */,
 				652D45CBCCC048EA8BB3AD44 /* libRCTPdf.a in Frameworks */,
+				6AA8890C2238676C0044A0B8 /* AuthenticationServices.framework in Frameworks */,
 				56A78E6F0EC442B9A078B10C /* libRNVectorIcons.a in Frameworks */,
 				48F66C994D484C6C9508FD00 /* libRNFetchBlob.a in Frameworks */,
 				284ECB219401491A8FBAF2F9 /* libRNFirebase.a in Frameworks */,
@@ -652,6 +654,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6AA8890B2238676C0044A0B8 /* AuthenticationServices.framework */,
 				EFD87B0921BED760006507EC /* UserNotifications.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				A74B00BAC264DB7165385413 /* libPods-qualitySeguros.a */,
@@ -939,17 +942,26 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 7L9X5VJ4D9;
+						DevelopmentTeam = ULNP8D6V8N;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 7L9X5VJ4D9;
+						DevelopmentTeam = ULNP8D6V8N;
 						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
+							com.apple.AutoFillCredentialProvider = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
 							};
 						};
 					};
@@ -1522,7 +1534,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
-				2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1567,7 +1578,7 @@
 			baseConfigurationReference = 73564CC3CF8FCFF276624518 /* Pods-qualitySegurosTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 7L9X5VJ4D9;
+				DEVELOPMENT_TEAM = ULNP8D6V8N;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1609,7 +1620,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 7L9X5VJ4D9;
+				DEVELOPMENT_TEAM = ULNP8D6V8N;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
@@ -1649,7 +1660,7 @@
 				CODE_SIGN_ENTITLEMENTS = qualitySeguros/qualitySeguros.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 7L9X5VJ4D9;
+				DEVELOPMENT_TEAM = ULNP8D6V8N;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
@@ -1665,7 +1676,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.apptitud.quality-seguros";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.quality;
 				PRODUCT_NAME = qualitySeguros;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1678,7 +1689,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = qualitySeguros/qualitySeguros.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7L9X5VJ4D9;
+				DEVELOPMENT_TEAM = ULNP8D6V8N;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
@@ -1694,7 +1705,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.apptitud.quality-seguros";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.quality;
 				PRODUCT_NAME = qualitySeguros;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
