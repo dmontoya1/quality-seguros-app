@@ -64,9 +64,9 @@
 		CB056450C624468DAB459BC5 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF9875863140448AAB610F32 /* Foundation.ttf */; };
 		D0B8D6AF61BF47FB82B7334C /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A3E549695404352AC041F01 /* AntDesign.ttf */; };
 		D224865CEC014BEF99071ED1 /* libRNImmediatePhoneCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C98D67BAC02044F4908AE392 /* libRNImmediatePhoneCall.a */; };
+		E10C61932237497900F816E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E10C61922237497900F816E2 /* GoogleService-Info.plist */; };
 		EB119275E2614FF7AA461033 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E03AE51D964D01B509E884 /* libRNVectorIcons-tvOS.a */; };
 		EFD87B3521BED760006507EC /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD87B0921BED760006507EC /* UserNotifications.framework */; };
-		EFD87C0D21BF1C74006507EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFD87C0C21BF1C74006507EC /* GoogleService-Info.plist */; };
 		F32DF1E0EC68468D839F412E /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A2090F1FB64B768173BE8E /* Feather.ttf */; };
 /* End PBXBuildFile section */
 
@@ -458,11 +458,11 @@
 		D5325C435BE746ED8343EB74 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		D8712DD3D29DF51712E2EFFC /* libPods-qualitySeguros-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qualitySeguros-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA736C8790CC4A248D451AB1 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
+		E10C61922237497900F816E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E65AA9B51AA84A39AAC8E7E5 /* libRCTPdf.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTPdf.a; sourceTree = "<group>"; };
 		EFBE45AA5556447DB583243D /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		EFD87AE621BED5AC006507EC /* qualitySeguros.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = qualitySeguros.entitlements; path = qualitySeguros/qualitySeguros.entitlements; sourceTree = "<group>"; };
 		EFD87B0921BED760006507EC /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
-		EFD87C0C21BF1C74006507EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "qualitySeguros/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F163540D9659481282D0163C /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		F1A2090F1FB64B768173BE8E /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -613,7 +613,7 @@
 		13B07FAE1A68108700A75B9A /* qualitySeguros */ = {
 			isa = PBXGroup;
 			children = (
-				EFD87C0C21BF1C74006507EC /* GoogleService-Info.plist */,
+				E10C61922237497900F816E2 /* GoogleService-Info.plist */,
 				EFD87AE621BED5AC006507EC /* qualitySeguros.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -939,11 +939,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 7L9X5VJ4D9;
+						DevelopmentTeam = ULNP8D6V8N;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 7L9X5VJ4D9;
+						DevelopmentTeam = ULNP8D6V8N;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1401,7 +1401,7 @@
 				C2F203FA35AB4866A31E37E2 /* Zocial.ttf in Resources */,
 				D0B8D6AF61BF47FB82B7334C /* AntDesign.ttf in Resources */,
 				9998F31DA4A74E7BBBAB886C /* FontAwesome5_Brands.ttf in Resources */,
-				EFD87C0D21BF1C74006507EC /* GoogleService-Info.plist in Resources */,
+				E10C61932237497900F816E2 /* GoogleService-Info.plist in Resources */,
 				6C2E81C1120F431D9A560E8E /* FontAwesome5_Regular.ttf in Resources */,
 				6F2856C7581149C980D01C37 /* FontAwesome5_Solid.ttf in Resources */,
 			);
@@ -1567,7 +1567,7 @@
 			baseConfigurationReference = 73564CC3CF8FCFF276624518 /* Pods-qualitySegurosTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 7L9X5VJ4D9;
+				DEVELOPMENT_TEAM = ULNP8D6V8N;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1609,7 +1609,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 7L9X5VJ4D9;
+				DEVELOPMENT_TEAM = ULNP8D6V8N;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
@@ -1649,7 +1649,7 @@
 				CODE_SIGN_ENTITLEMENTS = qualitySeguros/qualitySeguros.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 7L9X5VJ4D9;
+				DEVELOPMENT_TEAM = ULNP8D6V8N;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
@@ -1665,7 +1665,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.apptitud.quality-seguros";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.quality;
 				PRODUCT_NAME = qualitySeguros;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1678,7 +1678,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = qualitySeguros/qualitySeguros.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7L9X5VJ4D9;
+				DEVELOPMENT_TEAM = ULNP8D6V8N;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
@@ -1694,7 +1694,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.apptitud.quality-seguros";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.quality;
 				PRODUCT_NAME = qualitySeguros;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
