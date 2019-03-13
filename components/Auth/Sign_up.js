@@ -132,7 +132,7 @@ export default class SignUp extends Component {
         <ScrollView
           keyboardShouldPersistTaps='handled'
           contentContainerStyle={{
-            height: Dimensions.get('window').height + 200
+            height: 800
           }}>
           <KeyboardAvoidingView
             style={{
@@ -219,7 +219,7 @@ export default class SignUp extends Component {
                   onPress={() => this.setState({ checked: !checked })}
                 />
               </View>
-              <View style={{ paddingLeft: 30, textAlign: 'left' }}>
+              <View style={{ paddingLeft: 30, textAlign: 'left', height: 70 }}>
                 <Text>
                   Al continuar acepta nuestros
                   {' '}

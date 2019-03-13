@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet, AsyncStorage, Alert, PermissionsAndroid, StatusBar, View,
+  StyleSheet,
+  AsyncStorage,
+  Alert,
+  PermissionsAndroid,
+  StatusBar,
+  View,
+  Platform
 } from 'react-native';
 import { Router, Scene, Stack } from 'react-native-router-flux';
 import firebase from 'react-native-firebase';
@@ -61,18 +67,15 @@ export default class App extends Component {
     this.notificationOpenedListener();
   }
 
-
   async getToken() {
+    fcmToken = await firebase.messaging().getToken();
+    await firebase.messaging().subscribeToTopic('general');
+    console.warn("fcmToken-", fcmToken);
+
     try {
-      let fcmToken = await AsyncStorage.getItem('fcmToken');
-      if (!fcmToken) {
-        fcmToken = await firebase.messaging().getToken();
-        if (fcmToken) {
-          await AsyncStorage.setItem('fcmToken', fcmToken);
-          this.setState({
-            fcmToken,
-          });
-        }
+      if (fcmToken) {
+        await AsyncStorage.setItem('fcmToken', fcmToken);
+        this.setState({ fcmToken });
       }
     } catch (error) {
       console.log(`AsyncStorage Error: ${error.message}`);
@@ -111,9 +114,9 @@ export default class App extends Component {
         },
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log('You can use the camera');
+        console.log('You can use phone calls');
       } else {
-        console.log('Camera permission denied');
+        console.log('phone call permission denied');
       }
     } catch (err) {
       console.warn(err);
@@ -201,7 +204,6 @@ export default class App extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <StatusBar backgroundColor="#192a56" barStyle="light-content" />
         <Router>
           <Stack key="root">
             <Scene
