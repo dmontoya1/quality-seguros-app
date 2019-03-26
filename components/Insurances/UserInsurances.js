@@ -141,7 +141,6 @@ export default class Insurance extends Component {
   render() {
     const { token } = this.props;
     return (
-
       <Container>
         <View style={styles.container}>
           <Modal isVisible={this.state.isModalVisible} animationIn="slideInLeft" animationOut="slideOutRight">
@@ -366,7 +365,6 @@ export default class Insurance extends Component {
           </FooterTab>
         </Footer>
       </Container>
-
     );
   }
 }
