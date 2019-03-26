@@ -68,8 +68,8 @@ export default class Profile extends Component {
             </View>
             <View style={{ paddingLeft: 10 }}>
               <Item stackedLabel style={styles.input}>
-                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Nombre</Label>
-                <Input disabled style={{ width: 250 }} defaultValue={profile.first_name} />
+                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5, color: 'black' }}>Nombre</Label>
+                <Input disabled style={{ width: 250, color: 'gray' }} defaultValue={profile.first_name} />
               </Item>
             </View>
           </View>
@@ -79,8 +79,8 @@ export default class Profile extends Component {
             </View>
             <View style={{ paddingLeft: 10 }}>
               <Item stackedLabel style={styles.input}>
-                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Apellidos</Label>
-                <Input disabled style={{ width: 250 }} defaultValue={profile.last_name} />
+                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5, color: 'black' }}>Apellidos</Label>
+                <Input disabled style={{ width: 250, color: 'gray' }} defaultValue={profile.last_name} />
               </Item>
             </View>
           </View>
@@ -90,8 +90,8 @@ export default class Profile extends Component {
             </View>
             <View style={{ paddingLeft: 10 }}>
               <Item stackedLabel style={styles.input}>
-                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Celular de contacto</Label>
-                <Input disabled style={{ width: 250 }} defaultValue={profile.phone_number} />
+                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5, color: 'black' }}>Celular de contacto</Label>
+                <Input disabled style={{ width: 250, color: 'gray' }} defaultValue={profile.phone_number} />
               </Item>
             </View>
           </View>
@@ -101,8 +101,8 @@ export default class Profile extends Component {
             </View>
             <View style={{ paddingLeft: 10 }}>
               <Item stackedLabel style={styles.input}>
-                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5 }}>Correo electrónico</Label>
-                <Input disabled style={{ width: 250 }} defaultValue={profile.email} />
+                <Label style={{ color: 'rgba(0,0,0,0.4)', paddingLeft: 5, color: 'black' }}>Correo electrónico</Label>
+                <Input disabled style={{ width: 250, color: 'gray' }} defaultValue={profile.email} />
               </Item>
             </View>
           </View>
@@ -130,7 +130,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#05071e',
   },
   input: {
-    backgroundColor: 'rgb(250,250,250)',
     borderBottomColor: '#05071e',
     paddingLeft: 20,
   },
