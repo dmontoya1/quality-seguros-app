@@ -392,10 +392,18 @@ export default class Request extends Component {
   }
 
   userLogout() {
-    this.hideMenu();
-    this.props.deleteJWT();
-    Alert.alert('Has cerrado sesión correctamente!');
-    Actions.logIn();
+    Alert.alert(
+      'Has cerrado sesión correctamente',
+      '',
+      [
+        {text: 'Ok', onPress: async () => {
+          this.hideMenu();
+          this.props.deleteJWT();
+          Actions.logIn();
+        }},
+      ],
+      {cancelable: false},
+    )
   }
 
   submit() {

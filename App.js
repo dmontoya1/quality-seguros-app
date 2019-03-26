@@ -70,7 +70,6 @@ export default class App extends Component {
   async getToken() {
     fcmToken = await firebase.messaging().getToken();
     await firebase.messaging().subscribeToTopic('general');
-    console.warn("fcmToken-", fcmToken);
 
     try {
       if (fcmToken) {
