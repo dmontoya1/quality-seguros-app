@@ -1,11 +1,17 @@
 import React from 'react';
 import {
-  View, Text, StyleSheet, TextInput, Button,
+  View, Text, StyleSheet, TextInput, Button,Image,TouchableHighlight
 } from 'react-native';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import { CheckBox } from 'react-native-elements';
 
+import ImagePicker from 'react-native-image-picker';
 
+import {
+  Icon
+} from 'native-base';
+
+var source_image = '';
 const fieldName = (props) => {
   const {
     ph, input, meta, type,
@@ -17,6 +23,41 @@ const fieldName = (props) => {
           title={input.name}
           checked={this.state.checked}
         />
+      </View>
+    );
+  }
+  if (type === 'image') {
+    
+    const options = {
+      title: 'Seleccionar imagen',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+    
+    const imgPicker = () => {
+      ImagePicker.showImagePicker(options, (response) => {
+        if (response.didCancel) {
+          console.warn('Se cancelo la carga de imagen');
+        }
+        else if (response.error) {
+          console.warn('Error: ', response.error);
+        }
+        else {
+          source_image = response.uri;
+          console.warn('si');
+        }
+      });
+    }
+    return (
+      <View>
+      <TouchableHighlight onPress={imgPicker}>
+        <Image
+          style={{width: 70, height: 70}}
+          source={require('../../../assets/icons/camara.png')}
+        />
+      </TouchableHighlight>
       </View>
     );
   }
@@ -38,7 +79,7 @@ const fieldName = (props) => {
 };
 
 const InstanceForm = (props) => {
-  const { policy, formSubmit } = props;
+  const { policy, formSubmit} = props;
   const { related_metadata } = policy;
   const mappedFields = related_metadata.map(field => (
     <Field
@@ -50,13 +91,13 @@ const InstanceForm = (props) => {
       label={field.name}
     />
   ));
-
+  console.warn(related_metadata);
   return (
     <View>
       {mappedFields}
       <Button
         title="Solicitar"
-        onPress={props.handleSubmit(formSubmit)}
+        onPress={props.handleSubmit(() => {formSubmit(source_image)})}
       />
     </View>
   );

@@ -21,7 +21,7 @@ import Menu, { MenuItem } from 'react-native-material-menu';
 import FormData from 'form-data';
 import axios from '../Axios/axios';
 
-import InsuranceForm from './Forms/InsuranceForm';
+import InsuranceFormETD from './Forms/InsuranceFormETD';
 import Store from '../../Store/Store';
 
 class RequestInsurance extends Component {
@@ -31,7 +31,9 @@ class RequestInsurance extends Component {
     super(props);
     this.state = {
       token: '',
+      values_fields:[],
     };
+    this.postDynamicInsurance = this.postDynamicInsurance.bind(this);
     this.getProfile = this.getProfile.bind(this);
     this.userLogout = this.userLogout.bind(this);
   }
@@ -57,6 +59,27 @@ class RequestInsurance extends Component {
         console.log(error);
       });
   }
+  postDynamicInsurance() {
+    const dataToSend = {
+     //Datos a enviar.
+    };
+    axios.post('api/insurances/request-create/', dataToSend)
+      .then((response) => {
+        console.warn(response);
+      })
+      .catch((error) => {
+        console.log(error.response);
+        Alert.alert(
+          'Error',
+          'El método usado no es el correcto',
+          [
+            { text: 'Aceptar', onPress: () => {} },
+          ],
+          { cancelable: false },
+        );
+        console.log(error);
+      });
+  }
 
   setMenuRef = (ref) => {
     this._menu = ref;
@@ -70,8 +93,11 @@ class RequestInsurance extends Component {
     this._menu.show();
   };
 
-  formSubmit = (values) => {
-    Alert.alert('Formulario enviado');
+  async formSubmit(values_fields){
+    await this.setState({ values_fields });
+    console.warn(this.state.values_fields);
+    this.postDynamicInsurance();
+    //Informar sobre seguro dinamico creado.
   }
 
   userLogout() {
@@ -171,10 +197,9 @@ class RequestInsurance extends Component {
             <CardItem>
               <Provider store={Store}>
                 <View>
-                  <InsuranceForm policy={policy} formSubmit={this.formSubmit} />
-                  <Button
-                    title="Solicitar"
-                  />
+                  <InsuranceFormETD
+                    policy={policy}
+                    formSubmit={(value) => {this.formSubmit(value)}}/>
                 </View>
               </Provider>
 
