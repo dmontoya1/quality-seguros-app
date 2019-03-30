@@ -68,21 +68,16 @@ export default class InsuranceFormETD extends Component<{}> {
           }
         });
       }
+      var id = field.id;
+      var colorButton = this.state.values_fields[id] ? 'green' : 'dodgerblue';
       return (
+
         <View key={'VTF'+field.id}>
-          <TouchableHighlight 
-            key={'TCHF'+field.id} 
+          <Button
+            color={colorButton}
+            title={field.name}
             onPress={imgPicker}
-            underlayColor={'transparent'}>
-            <View>
-              <Image
-                key={'IF'+field.id}
-                style={{width: 30, height: 30}}
-                source={require('../../../assets/icons/add_image.png')}
-              />
-              <Text>{field.name}</Text>
-            </View>
-          </TouchableHighlight>
+          />
         </View>
       );
     }
