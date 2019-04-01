@@ -49,9 +49,7 @@ export default class Insurance extends Component {
         token: result,
       });
     });
-    console.warn(1);
   }
-
 
   getProfile() {
     const { token } = this.state;

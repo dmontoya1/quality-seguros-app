@@ -49,7 +49,7 @@ export default class InsuranceFormETD extends Component<{}> {
   returnField(field){
     if (field.field_type === 'checkbox') {
       return (
-        <View key={'VCF'+field.id}>
+        <View key={'VCF'+field.id} style={{marginVertical: 10}}>
           <CheckBox
             key={'CBF'+field.id}
             title={field.name}
@@ -58,7 +58,7 @@ export default class InsuranceFormETD extends Component<{}> {
       );
     }
     if (field.field_type === 'image') {
-      
+
       const options = {
         title: 'Seleccionar imagen',
         chooseFromLibraryButtonTitle:'Escoger de la galeria',
@@ -68,16 +68,15 @@ export default class InsuranceFormETD extends Component<{}> {
           path: 'images',
         },
       };
-      
+
       const imgPicker = () => {
         ImagePicker.showImagePicker(options, (response) => {
           if (response.didCancel) {
-            console.warn('Se cancelo la carga de imagen');
+            return;
           }
           else if (response.error) {
-            console.warn('Error: ', response.error);
-          }
-          else {
+            return;
+          } else {
             source_image = response.uri;
             temp_values_fields = this.state.values_fields;
             temp_values_fields[field.id]=source_image;
@@ -90,7 +89,7 @@ export default class InsuranceFormETD extends Component<{}> {
       var id = field.id;
       var colorButton = this.state.values_fields[id] ? 'green' : 'dodgerblue';
       return (
-        <View key={'VTF'+field.id}>
+        <View key={'VTF'+field.id} style={{marginVertical: 10}}>
           <Button
             color={colorButton}
             title={field.name}
@@ -100,7 +99,7 @@ export default class InsuranceFormETD extends Component<{}> {
       );
     }
     return (
-      <View key={'VTI'+field.id}>
+      <View key={'VTI'+field.id} style={{marginVertical: 10}}>
         <TextInput
           key={'TIF'+field.id}
           placeholder={field.name}
@@ -119,11 +118,13 @@ export default class InsuranceFormETD extends Component<{}> {
       <View>
         {
           this.state.policy.related_metadata.map(item => {
-            return(this.returnField(item));
+            return (this.returnField(item));
           })
         }
         <View >
           <Button
+            raise
+            primary
             title="Enviar datos"
             onPress={() => this.state.formSubmit(this.state.values_fields,this.state.is_required_list)}
           />
