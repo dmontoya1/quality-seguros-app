@@ -14,10 +14,18 @@ export default class InsuranceFormETD extends Component<{}> {
     this.state = {
       formSubmit:props.formSubmit,
       policy:props.policy,
-      values_fields:{}
+      values_fields:{},
+      is_required_list:[]
     };
     this.returnField = this.returnField.bind(this);
     this.textAdd = this.textAdd.bind(this);
+    this.validate_required = this.validate_required.bind(this);
+  }
+
+  componentDidMount(){
+    this.state.policy.related_metadata.map(item => {
+      this.validate_required(item.is_required,item.id);
+    })
   }
 
   textAdd(id,value){
@@ -27,6 +35,17 @@ export default class InsuranceFormETD extends Component<{}> {
       values_fields:temp_values_fields,
     })
   }
+
+  validate_required(is_required,id){
+    if(is_required){
+      var list_temp = this.state.is_required_list;
+      list_temp.push(id);
+      this.setState({
+        is_required_list:list_temp
+      });
+    }
+  }
+
   returnField(field){
     if (field.field_type === 'checkbox') {
       return (
@@ -71,7 +90,6 @@ export default class InsuranceFormETD extends Component<{}> {
       var id = field.id;
       var colorButton = this.state.values_fields[id] ? 'green' : 'dodgerblue';
       return (
-
         <View key={'VTF'+field.id}>
           <Button
             color={colorButton}
@@ -107,7 +125,7 @@ export default class InsuranceFormETD extends Component<{}> {
         <View >
           <Button
             title="Enviar datos"
-            onPress={() => this.state.formSubmit(this.state.values_fields)}
+            onPress={() => this.state.formSubmit(this.state.values_fields,this.state.is_required_list)}
           />
         </View>
       </View>

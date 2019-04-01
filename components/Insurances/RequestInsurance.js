@@ -26,7 +26,6 @@ import Store from '../../Store/Store';
 
 class RequestInsurance extends Component {
   _menu = null;
-
   constructor(props) {
     super(props);
     this.state = {
@@ -58,11 +57,21 @@ class RequestInsurance extends Component {
         );
         console.log(error);
       });
+    console.warn(token);
   }
+
   postDynamicInsurance() {
-    const dataToSend = {
-     //Datos a enviar.
-    };
+    var dataToSend =[];
+    var id_insurance = this.props.navigation.state.params.policy.id;
+    var data = {insurance:id_insurance};
+    dataToSend.push(data);
+
+    Object.keys(this.state.values_fields).map(key => {
+      let item = this.state.values_fields[key];
+      data = {question:key,value:item}
+      dataToSend.push(data);
+    })
+
     axios.post('api/insurances/request-create/', dataToSend)
       .then((response) => {
         console.warn(response);
@@ -93,11 +102,23 @@ class RequestInsurance extends Component {
     this._menu.show();
   };
 
-  async formSubmit(values_fields){
-    await this.setState({ values_fields });
-    console.warn(this.state.values_fields);
-    this.postDynamicInsurance();
-    //Informar sobre seguro dinamico creado.
+  async formSubmit(values_fields,list_required){
+    if(Object.keys(values_fields).length === 0 ){
+      Alert.alert('No has llenado ningun campo');
+    } else {
+      await this.setState({ values_fields });
+      if (list_required){
+        for (x=0;x<list_required.length;x++){
+          var id = list_required[x];
+          if(!this.state.values_fields[id]){
+            Alert.alert('Te falta ingresar campos obligatorios');
+            return false;
+          }
+        }
+      }
+      this.postDynamicInsurance();
+      //Informar sobre seguro dinamico creado.*/
+    }
   }
 
   userLogout() {
@@ -199,7 +220,7 @@ class RequestInsurance extends Component {
                 <View>
                   <InsuranceFormETD
                     policy={policy}
-                    formSubmit={(value) => {this.formSubmit(value)}}/>
+                    formSubmit={(value,list) => {this.formSubmit(value,list)}}/>
                 </View>
               </Provider>
 
