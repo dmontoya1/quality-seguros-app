@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Image, Alert, StyleSheet,
+  Image, Alert, StyleSheet,ScrollView
 } from 'react-native';
 import {
   Container, Header, Left, Body, Right, Button,
@@ -18,7 +18,6 @@ import { Actions } from 'react-native-router-flux';
 
 import Menu, { MenuItem } from 'react-native-material-menu';
 
-import FormData from 'form-data';
 import axios from '../Axios/axios';
 
 import InsuranceFormETD from './Forms/InsuranceFormETD';
@@ -72,6 +71,7 @@ class RequestInsurance extends Component {
       dataToSend.push(data);
     })
 
+    console.warn(dataToSend);
     axios.post('api/insurances/request-create/', dataToSend)
       .then((response) => {
         console.warn(response);
@@ -104,7 +104,7 @@ class RequestInsurance extends Component {
 
   async formSubmit(values_fields,list_required){
     if(Object.keys(values_fields).length === 0 ){
-      Alert.alert('No has llenado ningun campo');
+      Alert.alert('No has diligenciado ningún campo.');
     } else {
       await this.setState({ values_fields });
       if (list_required){
@@ -116,8 +116,9 @@ class RequestInsurance extends Component {
           }
         }
       }
+      console.warn(values_fields);
       this.postDynamicInsurance();
-      //Informar sobre seguro dinamico creado.*/
+      //Informar sobre seguro dinamico creado.
     }
   }
 
@@ -175,7 +176,7 @@ class RequestInsurance extends Component {
             </Menu>
           </Right>
         </Header>
-        <View style={styles.view}>
+        <ScrollView style={styles.view}>
           <Card>
             <CardItem>
               <View style={{ flex: 1 }}>
@@ -223,10 +224,9 @@ class RequestInsurance extends Component {
                     formSubmit={(value,list) => {this.formSubmit(value,list)}}/>
                 </View>
               </Provider>
-
             </CardItem>
           </Card>
-        </View>
+        </ScrollView>
       </Container>
     );
   }

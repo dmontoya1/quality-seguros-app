@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
 import {
-  View, Text, StyleSheet, TextInput, Button,Image,TouchableHighlight
+  View, StyleSheet, TextInput, Button
 } from 'react-native';
-import { FieldArray, reduxForm } from 'redux-form';
 import { CheckBox } from 'react-native-elements';
 
 import ImagePicker from 'react-native-image-picker';
@@ -15,10 +14,14 @@ export default class InsuranceFormETD extends Component<{}> {
       formSubmit:props.formSubmit,
       policy:props.policy,
       values_fields:{},
-      is_required_list:[]
+      is_required_list:[],
+      checked:false
     };
+    console.warn(this.state.policy);
+
     this.returnField = this.returnField.bind(this);
     this.textAdd = this.textAdd.bind(this);
+    this.checkAdd = this.checkAdd.bind(this);
     this.validate_required = this.validate_required.bind(this);
   }
 
@@ -27,7 +30,15 @@ export default class InsuranceFormETD extends Component<{}> {
       this.validate_required(item.is_required,item.id);
     })
   }
-
+  checkAdd(id){
+    temp_values_fields = this.state.values_fields;
+    temp_values_fields[id]=!this.state.checked;
+    this.setState({
+      values_fields:temp_values_fields,
+      checked:!this.state.checked 
+    })
+    console.warn(this.state.values_fields);
+  }
   textAdd(id,value){
     temp_values_fields = this.state.values_fields;
     temp_values_fields[id]=value;
@@ -35,7 +46,6 @@ export default class InsuranceFormETD extends Component<{}> {
       values_fields:temp_values_fields,
     })
   }
-
   validate_required(is_required,id){
     if(is_required){
       var list_temp = this.state.is_required_list;
@@ -49,16 +59,18 @@ export default class InsuranceFormETD extends Component<{}> {
   returnField(field){
     if (field.field_type === 'checkbox') {
       return (
-        <View key={'VCF'+field.id} style={{marginVertical: 10}}>
+        <View key={'VCF'+field.id} style={styles.viewCheck}>
           <CheckBox
+            style={styles.checbox}
             key={'CBF'+field.id}
             title={field.name}
+            checked={this.state.checked}
+            onPress={(id) => this.checkAdd(field.id)}
           />
         </View>
       );
     }
     if (field.field_type === 'image') {
-
       const options = {
         title: 'Seleccionar imagen',
         chooseFromLibraryButtonTitle:'Escoger de la galeria',
@@ -103,7 +115,7 @@ export default class InsuranceFormETD extends Component<{}> {
         <TextInput
           key={'TIF'+field.id}
           placeholder={field.name}
-          onChangeText={(text) => this.textAdd(field.id,text)}
+          onChangeText={(text) => this.textAdd(field.id,text,field)}
           keyboardType={field.field_type === 'number' ? 'numeric' : 'default'}
           autoCapitalize="none"
           value={this.state.values_fields.field_id}
