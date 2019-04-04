@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {
-  View, StyleSheet, TextInput, Button
+  View, StyleSheet, TextInput, Button, Picker
 } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 
@@ -15,12 +15,13 @@ export default class InsuranceFormETD extends Component<{}> {
       policy:props.policy,
       values_fields:{},
       is_required_list:[],
-      checked:false
+      checkedValue: false
+
     };
-    console.warn(this.state.policy);
 
     this.returnField = this.returnField.bind(this);
     this.textAdd = this.textAdd.bind(this);
+    this.SelectAdd = this.SelectAdd.bind(this);
     this.checkAdd = this.checkAdd.bind(this);
     this.validate_required = this.validate_required.bind(this);
   }
@@ -30,14 +31,19 @@ export default class InsuranceFormETD extends Component<{}> {
       this.validate_required(item.is_required,item.id);
     })
   }
-  checkAdd(id){
+  checkAdd(id,value){
     temp_values_fields = this.state.values_fields;
-    temp_values_fields[id]=!this.state.checked;
+    temp_values_fields[id]=!value;
     this.setState({
       values_fields:temp_values_fields,
-      checked:!this.state.checked 
     })
-    console.warn(this.state.values_fields);
+  }
+  SelectAdd(id,value){
+    temp_values_fields = this.state.values_fields;
+    temp_values_fields[id]=value;
+    this.setState({
+      values_fields:temp_values_fields,
+    })
   }
   textAdd(id,value){
     temp_values_fields = this.state.values_fields;
@@ -57,15 +63,45 @@ export default class InsuranceFormETD extends Component<{}> {
   }
 
   returnField(field){
+    var field_id;
+    field_id = field.id;
+    if (field.field_type === 'select') {
+      return (
+        <View key={'VCF'+field.id} style={styles.viewCheck}>
+          <Picker
+            style={{height: 50}}
+            selectedValue={this.state.values_fields[field_id]}
+            onValueChange={
+              (itemValue) => this.SelectAdd(field_id,itemValue)}>
+            <Picker.Item key={'PICK'+field.id} label='Seleccione la opción:' />
+            {
+              field.related_choices.map(item => {
+                return(
+                  <Picker.Item 
+                    key={'PICK'+item.id} 
+                    label={item.value} 
+                    value={item.id}/>
+                );
+              })
+            }
+          </Picker>
+        </View>
+      );
+    }
     if (field.field_type === 'checkbox') {
+      if(!this.state.values_field[field_id]){
+        checked = this.state.checkedValue;
+      } else {
+        checked = this.state.values_fields[field_id];
+      }
       return (
         <View key={'VCF'+field.id} style={styles.viewCheck}>
           <CheckBox
             style={styles.checbox}
             key={'CBF'+field.id}
             title={field.name}
-            checked={this.state.checked}
-            onPress={(id) => this.checkAdd(field.id)}
+            checked={checked}
+            onPress={(id) => this.checkAdd(field.id,checked)}
           />
         </View>
       );
@@ -115,7 +151,7 @@ export default class InsuranceFormETD extends Component<{}> {
         <TextInput
           key={'TIF'+field.id}
           placeholder={field.name}
-          onChangeText={(text) => this.textAdd(field.id,text,field)}
+          onChangeText={(text) => this.textAdd(field.id,text)}
           keyboardType={field.field_type === 'number' ? 'numeric' : 'default'}
           autoCapitalize="none"
           value={this.state.values_fields.field_id}
@@ -138,7 +174,9 @@ export default class InsuranceFormETD extends Component<{}> {
             raise
             primary
             title="Enviar datos"
-            onPress={() => this.state.formSubmit(this.state.values_fields,this.state.is_required_list)}
+            onPress={() => this.state.formSubmit(
+              this.state.values_fields,
+              this.state.is_required_list)}
           />
         </View>
       </View>
