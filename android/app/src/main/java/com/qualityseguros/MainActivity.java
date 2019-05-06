@@ -1,4 +1,4 @@
-package com.qualityseguros;
+package com.qualityseguros.com;
 
 import com.facebook.react.ReactActivity;
 

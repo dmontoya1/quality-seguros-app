@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:802878400281:android:a338f66391b1b94e",
         "android_client_info": {
-          "package_name": "com.qualityseguros"
+          "package_name": "com.qualityseguros.com"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "802878400281-riu6fq7ct9ps4m5e6poeh3m4gt30qd8u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.qualityseguros",
+            "package_name": "com.qualityseguros.com",
             "certificate_hash": "7496a935ebe5faf662bf954d1215547b6be48713"
           }
         },

@@ -1,4 +1,4 @@
-package com.qualityseguros;
+package com.qualityseguros.com;
 
 import android.app.Application;
 

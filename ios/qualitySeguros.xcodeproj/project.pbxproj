@@ -1676,7 +1676,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.quality;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.com.quality;
 				PRODUCT_NAME = qualitySeguros;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1705,7 +1705,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.quality;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.com.quality;
 				PRODUCT_NAME = qualitySeguros;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

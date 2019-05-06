@@ -25,7 +25,7 @@ export default class SignUp extends Component {
       checked: false,
       first_name: '',
       last_name: '',
-      document_id: '',
+      document_id: 0,
       phone_number: '',
       mail: '',
       mail2: '',
@@ -76,7 +76,7 @@ export default class SignUp extends Component {
         username: mail,
         password,
       };
-
+      console.log(dataToSend);
       if (this.state.checked) {
         axios.post('api/users/sign_up/', dataToSend)
           .then((response) => {
@@ -161,7 +161,7 @@ export default class SignUp extends Component {
               <Item fixedLabel style={styles.input}>
                 <Input
                   keyboardType="numeric"
-                  placeholder="Numero de documento"
+                  placeholder="Número de documento (Opcional)"
                   placeholderTextColor="rgba(0,0,0,0.4)"
                   onChangeText={document_id => this.setState({ document_id })}
                 />
