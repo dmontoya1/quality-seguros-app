@@ -49,11 +49,11 @@
 		63DDD5B5AC804ECFBBC3325A /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 074BE34CE4814EE1BB11AB44 /* SimpleLineIcons.ttf */; };
 		652D45CBCCC048EA8BB3AD44 /* libRCTPdf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E65AA9B51AA84A39AAC8E7E5 /* libRCTPdf.a */; };
 		6AA8890C2238676C0044A0B8 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA8890B2238676C0044A0B8 /* AuthenticationServices.framework */; };
+		6AD79C412285BE3600284ECA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6AD79C402285BE3600284ECA /* GoogleService-Info.plist */; };
 		6C2E81C1120F431D9A560E8E /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 251F72B225BD43A28AB2490D /* FontAwesome5_Regular.ttf */; };
 		6F2856C7581149C980D01C37 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59614AC85BE042349D494041 /* FontAwesome5_Solid.ttf */; };
 		7723A9AF3D9C41088E51CC56 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D463A88C4B3848A9B584AEDF /* Entypo.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		8CC0CD912285B83000564E03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CC0CD902285B83000564E03 /* GoogleService-Info.plist */; };
 		8E383AE26F574F1A9CBA085D /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33496F11CB8F427CBBC0EE23 /* Pacifico-Regular.ttf */; };
 		9998F31DA4A74E7BBBAB886C /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F163540D9659481282D0163C /* FontAwesome5_Brands.ttf */; };
 		A4B36024D3734BAC9C83B262 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6427B42B15A84420AF78E3E1 /* Octicons.ttf */; };
@@ -434,6 +434,7 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6427B42B15A84420AF78E3E1 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		6AA8890B2238676C0044A0B8 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		6AD79C402285BE3600284ECA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6D76BFEC25F1ADAD68206457 /* libPods-qualitySeguros-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qualitySeguros-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73564CC3CF8FCFF276624518 /* Pods-qualitySegurosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qualitySegurosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qualitySegurosTests/Pods-qualitySegurosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7531AD4F44514FD48C479B81 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
@@ -443,7 +444,6 @@
 		80EA741CAB514BAC8D2C4C40 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		89B68BB244C443E2A92B995A /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
-		8CC0CD902285B83000564E03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		971EDE5CBD37FA92E7136E65 /* Pods-qualitySeguros.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qualitySeguros.release.xcconfig"; path = "Pods/Target Support Files/Pods-qualitySeguros/Pods-qualitySeguros.release.xcconfig"; sourceTree = "<group>"; };
 		A16AC654D17E49DB817C5D87 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		A74B00BAC264DB7165385413 /* libPods-qualitySeguros.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qualitySeguros.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -621,7 +621,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				8CC0CD902285B83000564E03 /* GoogleService-Info.plist */,
+				6AD79C402285BE3600284ECA /* GoogleService-Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -1414,7 +1414,7 @@
 				C2F203FA35AB4866A31E37E2 /* Zocial.ttf in Resources */,
 				D0B8D6AF61BF47FB82B7334C /* AntDesign.ttf in Resources */,
 				9998F31DA4A74E7BBBAB886C /* FontAwesome5_Brands.ttf in Resources */,
-				8CC0CD912285B83000564E03 /* GoogleService-Info.plist in Resources */,
+				6AD79C412285BE3600284ECA /* GoogleService-Info.plist in Resources */,
 				6C2E81C1120F431D9A560E8E /* FontAwesome5_Regular.ttf in Resources */,
 				6F2856C7581149C980D01C37 /* FontAwesome5_Solid.ttf in Resources */,
 			);
