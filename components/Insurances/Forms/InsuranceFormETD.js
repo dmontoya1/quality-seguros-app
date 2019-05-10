@@ -16,7 +16,6 @@ export default class InsuranceFormETD extends Component<{}> {
       values_fields:{},
       is_required_list:[],
       checkedValue: false
-
     };
 
     this.returnField = this.returnField.bind(this);
@@ -31,6 +30,7 @@ export default class InsuranceFormETD extends Component<{}> {
       this.validate_required(item.is_required,item.id);
     })
   }
+
   checkAdd(id,value){
     temp_values_fields = this.state.values_fields;
     temp_values_fields[id]=!value;
@@ -38,6 +38,7 @@ export default class InsuranceFormETD extends Component<{}> {
       values_fields:temp_values_fields,
     })
   }
+
   SelectAdd(id,value){
     temp_values_fields = this.state.values_fields;
     temp_values_fields[id]=value;
@@ -45,6 +46,7 @@ export default class InsuranceFormETD extends Component<{}> {
       values_fields:temp_values_fields,
     })
   }
+
   textAdd(id,value){
     temp_values_fields = this.state.values_fields;
     temp_values_fields[id]=value;
@@ -52,6 +54,7 @@ export default class InsuranceFormETD extends Component<{}> {
       values_fields:temp_values_fields,
     })
   }
+
   validate_required(is_required,id){
     if(is_required){
       var list_temp = this.state.is_required_list;
@@ -67,7 +70,7 @@ export default class InsuranceFormETD extends Component<{}> {
     field_id = field.id;
     if (field.field_type === 'select') {
       return (
-        <View key={'VCF'+field.id} style={styles.viewCheck}>
+        <View key={'VCF'+field.id} style={{marginVertical: 10,flex:1}}>
           <Picker
             style={{height: 50}}
             selectedValue={this.state.values_fields[field_id]}
@@ -77,9 +80,9 @@ export default class InsuranceFormETD extends Component<{}> {
             {
               field.related_choices.map(item => {
                 return(
-                  <Picker.Item 
-                    key={'PICK'+item.id} 
-                    label={item.value} 
+                  <Picker.Item
+                    key={'PICK'+item.id}
+                    label={item.value}
                     value={item.id}/>
                 );
               })
@@ -89,13 +92,13 @@ export default class InsuranceFormETD extends Component<{}> {
       );
     }
     if (field.field_type === 'checkbox') {
-      if(!this.state.values_field[field_id]){
+      if(!this.state.values_fields[field_id]){
         checked = this.state.checkedValue;
       } else {
         checked = this.state.values_fields[field_id];
       }
       return (
-        <View key={'VCF'+field.id} style={styles.viewCheck}>
+        <View key={'VCF'+field.id} style={{marginVertical: 10,flex:1}}>
           <CheckBox
             style={styles.checbox}
             key={'CBF'+field.id}
@@ -137,7 +140,7 @@ export default class InsuranceFormETD extends Component<{}> {
       var id = field.id;
       var colorButton = this.state.values_fields[id] ? 'green' : 'dodgerblue';
       return (
-        <View key={'VTF'+field.id} style={{marginVertical: 10}}>
+        <View key={'VTF'+field.id} style={{marginVertical: 10,flex:1}}>
           <Button
             color={colorButton}
             title={field.name}
@@ -147,7 +150,7 @@ export default class InsuranceFormETD extends Component<{}> {
       );
     }
     return (
-      <View key={'VTI'+field.id} style={{marginVertical: 10}}>
+      <View key={'VTI'+field.id} style={{marginVertical: 10,flex:1}}>
         <TextInput
           key={'TIF'+field.id}
           placeholder={field.name}
@@ -164,12 +167,14 @@ export default class InsuranceFormETD extends Component<{}> {
   render() {
     return (
       <View>
+        <View>
         {
           this.state.policy.related_metadata.map(item => {
             return (this.returnField(item));
           })
         }
-        <View >
+        </View>
+        <View>
           <Button
             raise
             primary
@@ -183,6 +188,7 @@ export default class InsuranceFormETD extends Component<{}> {
     );
   }
 }
+
 const styles = StyleSheet.create({
   textInput: {
     marginBottom: 16,

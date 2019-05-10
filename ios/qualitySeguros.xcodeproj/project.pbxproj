@@ -53,6 +53,7 @@
 		6F2856C7581149C980D01C37 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59614AC85BE042349D494041 /* FontAwesome5_Solid.ttf */; };
 		7723A9AF3D9C41088E51CC56 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D463A88C4B3848A9B584AEDF /* Entypo.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		8CC0CD912285B83000564E03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CC0CD902285B83000564E03 /* GoogleService-Info.plist */; };
 		8E383AE26F574F1A9CBA085D /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33496F11CB8F427CBBC0EE23 /* Pacifico-Regular.ttf */; };
 		9998F31DA4A74E7BBBAB886C /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F163540D9659481282D0163C /* FontAwesome5_Brands.ttf */; };
 		A4B36024D3734BAC9C83B262 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6427B42B15A84420AF78E3E1 /* Octicons.ttf */; };
@@ -64,7 +65,6 @@
 		CB056450C624468DAB459BC5 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF9875863140448AAB610F32 /* Foundation.ttf */; };
 		D0B8D6AF61BF47FB82B7334C /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A3E549695404352AC041F01 /* AntDesign.ttf */; };
 		D224865CEC014BEF99071ED1 /* libRNImmediatePhoneCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C98D67BAC02044F4908AE392 /* libRNImmediatePhoneCall.a */; };
-		E10C61932237497900F816E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E10C61922237497900F816E2 /* GoogleService-Info.plist */; };
 		EB119275E2614FF7AA461033 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E03AE51D964D01B509E884 /* libRNVectorIcons-tvOS.a */; };
 		EFD87B3521BED760006507EC /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD87B0921BED760006507EC /* UserNotifications.framework */; };
 		F32DF1E0EC68468D839F412E /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A2090F1FB64B768173BE8E /* Feather.ttf */; };
@@ -443,6 +443,7 @@
 		80EA741CAB514BAC8D2C4C40 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		89B68BB244C443E2A92B995A /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
+		8CC0CD902285B83000564E03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		971EDE5CBD37FA92E7136E65 /* Pods-qualitySeguros.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qualitySeguros.release.xcconfig"; path = "Pods/Target Support Files/Pods-qualitySeguros/Pods-qualitySeguros.release.xcconfig"; sourceTree = "<group>"; };
 		A16AC654D17E49DB817C5D87 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		A74B00BAC264DB7165385413 /* libPods-qualitySeguros.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qualitySeguros.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -459,7 +460,6 @@
 		D5325C435BE746ED8343EB74 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		D8712DD3D29DF51712E2EFFC /* libPods-qualitySeguros-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qualitySeguros-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA736C8790CC4A248D451AB1 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
-		E10C61922237497900F816E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E65AA9B51AA84A39AAC8E7E5 /* libRCTPdf.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTPdf.a; sourceTree = "<group>"; };
 		EFBE45AA5556447DB583243D /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		EFD87AE621BED5AC006507EC /* qualitySeguros.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = qualitySeguros.entitlements; path = qualitySeguros/qualitySeguros.entitlements; sourceTree = "<group>"; };
@@ -615,13 +615,13 @@
 		13B07FAE1A68108700A75B9A /* qualitySeguros */ = {
 			isa = PBXGroup;
 			children = (
-				E10C61922237497900F816E2 /* GoogleService-Info.plist */,
 				EFD87AE621BED5AC006507EC /* qualitySeguros.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				8CC0CD902285B83000564E03 /* GoogleService-Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -981,6 +981,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1413,7 +1414,7 @@
 				C2F203FA35AB4866A31E37E2 /* Zocial.ttf in Resources */,
 				D0B8D6AF61BF47FB82B7334C /* AntDesign.ttf in Resources */,
 				9998F31DA4A74E7BBBAB886C /* FontAwesome5_Brands.ttf in Resources */,
-				E10C61932237497900F816E2 /* GoogleService-Info.plist in Resources */,
+				8CC0CD912285B83000564E03 /* GoogleService-Info.plist in Resources */,
 				6C2E81C1120F431D9A560E8E /* FontAwesome5_Regular.ttf in Resources */,
 				6F2856C7581149C980D01C37 /* FontAwesome5_Solid.ttf in Resources */,
 			);
@@ -1676,7 +1677,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.com.quality;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.quality;
 				PRODUCT_NAME = qualitySeguros;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1705,7 +1706,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.com.quality;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualityseguros.quality;
 				PRODUCT_NAME = qualitySeguros;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
